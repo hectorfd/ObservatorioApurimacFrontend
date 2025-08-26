@@ -1,0 +1,143 @@
+<!-- Page Wrapper -->
+<div id="wrapper" class="d-flex">
+
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+  
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column w-100"  style="height: 100vh; overflow-y: auto;">
+  
+      <!-- Main Content -->
+      <div id="content" class="d-flex flex-column w-100">
+  
+        <!-- Topbar -->
+        <app-topbar></app-topbar>
+        <!-- End of Topbar -->
+  
+        <!-- Your main content goes here -->
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Lista de Noticias</h1>
+                
+            </div>
+
+            <!-- Packages Start -->
+            <div class="container-fluid py-5">
+              <div class="container">
+
+                  <!-- BUSCADOR START -->
+                  <div class="container my-4">
+                    <form class="bg-white p-4 rounded shadow-sm" (submit)="buscarNoticias($event)">
+                      
+                      <!-- Buscar por título (Fila arriba) -->
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-file-alt text-primary"></i></span>
+                        <input type="text" class="form-control" placeholder="Buscar publicación... (opcional)" 
+                              aria-label="Buscar publicación..." aria-describedby="basic-addon1"
+                              [(ngModel)]="busquedaTitulo" name="busquedaTitulo">
+                      </div>
+                      
+
+                      <!-- Fila con fechas y botón -->
+                      <div class="row g-3">
+                        <!-- Fecha desde -->
+                        <div class="col-md-4">
+                          <label for="fechaDesde" class="form-label">Desde</label>
+                          <input type="date" class="form-control" id="fechaDesde" 
+                                [(ngModel)]="fechaDesde" name="fechaDesde">
+                        </div>
+
+                        <!-- Fecha hasta -->
+                        <div class="col-md-4">
+                          <label for="fechaHasta" class="form-label">Hasta</label>
+                          <input type="date" class="form-control" id="fechaHasta"
+                                [(ngModel)]="fechaHasta" name="fechaHasta">
+                        </div>
+
+                        <!-- Botones de búsqueda y limpiar -->
+                        <div class="col-md-4 d-flex align-items-end">
+                          <button type="submit" class="btn btn-primary me-2">Buscar</button>
+                          <button type="button" class="btn btn-secondary" (click)="limpiarFiltros()">Limpiar</button>
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+
+                  <!-- BUSCADOR END -->
+
+                  <div class="row">
+                  <!-- Iterar sobre las noticias usando *ngFor -->
+                  <div class="col-lg-4 col-md-6 mb-4" *ngFor="let noticia of noticias">
+                      <div class="package-item bg-white mb-2">
+                        <!-- Mostrar la imagen de portada de la noticia -->
+                        <img class="img-fluid" [src]="getImageUrl(noticia.portada)" alt="">
+
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between mb-3">
+                            <!-- Mostrar el lugar y fecha -->
+                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i> {{ noticia.lugar }}</small>
+                            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i> {{ noticia.fecha }}</small>
+                            </div>
+
+                            <!-- Mostrar el título de la noticia -->
+                            <a class="h5 text-decoration-none" href="">{{ noticia.titulo }}</a>
+
+                            <div class="border-top mt-4 pt-4">
+                            <!-- Mostrar la descripción de la noticia -->
+                            <p>
+                                {{ noticia.descripcion }}
+                            </p>
+
+                            <div class="d-flex justify-content-between mb-3">
+                                <!-- Botón para editar -->
+                                <small class="m-0" title="EDITAR" (click)="redireccionarEditarNoticia(noticia.id)">
+                                <i class="fa fa-edit text-success mr-2"></i> EDITAR
+                                </small>
+                                <!-- Botón para eliminar (puedes implementar esta funcionalidad después) -->
+                                <small (click)="eliminarNoticia(noticia.id)" class="m-0" title="ELIMINAR">
+                                <i class="fas fa-trash-alt text-danger"></i> ELIMINAR
+                                </small>
+                            </div>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+                  </div>
+
+                  <!-- Mensaje cuando no hay resultados -->
+                  <div class="row" *ngIf="noticias.length === 0">
+                  <div class="col-12 text-center p-5">
+                    <h4>No se encontraron noticias con los filtros aplicados</h4>
+                    <button class="btn btn-primary mt-3" (click)="limpiarFiltros()">Ver todas las noticias</button>
+                  </div>
+                  </div>
+                  <mat-paginator [length]="100"
+                              [pageSize]="10"
+                              [pageSizeOptions]="[5, 10, 25, 100]"
+                              aria-label="Select page">
+                  </mat-paginator>
+              </div>
+            </div>
+            <!-- Packages End -->
+
+          
+                            
+
+        </div>
+        <app-footer></app-footer>
+
+      </div>
+      <!-- End of Main Content -->
+  
+      <!-- Footer -->
+      <!-- <app-footer></app-footer> -->
+      <!-- End of Footer -->
+  
+    </div>
+    <!-- End of Content Wrapper -->
+  
+  </div>
+  <!-- End of Page Wrapper -->
+  

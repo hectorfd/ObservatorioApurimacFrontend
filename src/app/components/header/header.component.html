@@ -1,0 +1,80 @@
+<!-- Barra superior con información de contacto y redes sociales --> 
+<div class="top-bar">   
+  <div class="contact-info">     
+    <div>       
+      <i class="bi bi-geo-alt-fill"></i>       
+      <span>Jr. Puno N° 107, Abancay, Apurímac, Perú</span>     
+    </div>     
+    <div>       
+      <i class="bi bi-envelope-fill"></i>       
+      <span>contactoinstitucion.com</span>     
+    </div>     
+    <div>       
+      <i class="bi bi-clock-fill"></i>       
+      <span>Lun - Vie: 8:00 - 18:00</span>     
+    </div>   
+  </div>   
+  <div class="social-icons">     
+    <a href="#"><i class="bi bi-facebook"></i></a>     
+    <a href="#"><i class="bi bi-twitter-x"></i></a>     
+    <a href="#"><i class="bi bi-instagram"></i></a>     
+    <a href="#"><i class="bi bi-youtube"></i></a>     
+    <a href="#"><i class="bi bi-linkedin"></i></a>   
+    <a (click)="redirectToDashboard()" title="Acceder" target="_blank">
+      <i class="bi bi-box-arrow-in-right"></i>
+    </a>
+  </div> 
+</div>  
+
+<!-- Barra de navegación principal fixed-top--> 
+<nav class="navbar ">   
+  <div class="nav-container ">     
+    <img class="logo" src="assets/img/LogoOBservatorio.png" alt=""> 
+        
+    <!-- <label for="menu-toggle" class="menu-button" >       
+      <i class="bi bi-list"></i>     
+    </label>      -->
+    <div class="nav-links" id="nav-links">       
+      <a (click)="redirectToInicio()"><i class="bi bi-house-door"></i> Inicio</a>       
+      <a (click)="redirectToabout()"><i class="bi bi-people"></i> Nosotros</a>       
+      <a (click)="redirectToSistemaRegional()"><i class="bi bi-people"></i> Sistema Regional</a>            
+      <a (click)="redirectToMarcoConceptual()"><i class="bi bi-journal-text"></i> Marco Conceptual</a>            
+        
+      
+      <div class="dropdown">         
+        <a class="dropdown-toggle">           
+          <i class="bi bi-file-earmark-text me-2"></i> El Observatorio Informa <i class="bi bi-chevron-down ms-2"></i>
+        </a>         
+        <div class="dropdown-menu">           
+          <a (click)="redirectToNoticias()"><i class="bi bi-newspaper me-2"></i> Noticias</a>           
+          <a (click)="redirectToInfografias()"><i class="bi bi-calendar-event me-2"></i> Infografias</a>           
+          <a (click)="redirectToVideos()"><i class="bi bi-camera-video-fill me-2"></i> Videos</a>
+          <a (click)="redirectToRepositorio()"><i class="bi bi-folder-symlink-fill me-2"></i>Repositorio</a>
+                   
+        </div>       
+      </div>           
+      <!-- <a (click)="redirectToContact()"><i class="bi bi-envelope"></i> Contacto</a>      -->
+      <!-- <button class="btn btn-primary p-2">Acceder</button> -->
+    </div>  
+    
+    <!-- Botón menú (hamburguesa) -->
+<button class="menu-button" (click)="toggleMenu()">
+  <i class="bi" [ngClass]="menuAbierto ? 'bi-x' : 'bi-list'"></i>
+</button>
+
+<!-- Menú deslizante lateral -->
+<div class="side-menu" [class.open]="menuAbierto">
+  <nav class="side-menu-links">
+    <a (click)="redirectToInicio()">Inicio</a>
+    <a (click)="redirectToabout()">Nosotros</a>
+    <a (click)="redirectToSistemaRegional()">Sistema Regional</a>
+    <a (click)="redirectToMarcoConceptual()">Marco Conceptual</a>
+    <a (click)="redirectToNoticias()">Noticias</a>
+    <a (click)="redirectToInfografias()">Infografías</a>
+    <a (click)="redirectToVideos()">Videos</a>
+    <a (click)="redirectToRepositorio()">Repositorio</a>
+  </nav>
+</div>
+
+  </div> 
+</nav>

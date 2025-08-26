@@ -1,0 +1,93 @@
+<!-- Page Wrapper -->
+<div id="wrapper" class="d-flex">
+
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+  
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column w-100">
+  
+      <!-- Main Content -->
+      <div id="content" class="d-flex flex-column w-100">
+  
+        <!-- Topbar -->
+        <app-topbar></app-topbar>
+        <!-- End of Topbar -->
+  
+        <!-- Your main content goes here -->
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Editar Infografia</h1>
+                
+            </div>
+
+            <!-- Content Row -->
+            <div class="row">
+
+                <!-- Content Column centrado -->
+                <div class="col-lg-9 mb-4 mx-auto">
+
+                    <!-- Card Formulario -->
+                    <div class="card shadow mb-4">
+                    <div class="card-header py-3 bg-primary text-white">
+                        <h5 class="m-0 font-weight-bold">Registrar Nueva Infografia</h5>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="formulario" (ngSubmit)="putForm(formulario.value)">
+                            <div class="row mb-3">
+                              <div class="col-md-6">
+                                <label for="fecha" class="form-label">Fecha de Registro</label>
+                                <input type="date" class="form-control" id="fecha" formControlName="fecha_registro" required>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Ej: Municipalidad de Abancay" formControlName="nombre" required>
+                              </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                              <label for="descripcion" class="form-label">Descripción</label>
+                              <textarea class="form-control" id="descripcion" rows="4" placeholder="Escribe una descripción de la entidad aliada..." formControlName="descripcion" required></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                              <label for="portada" class="form-label">Foto de Portada</label>
+                              <input class="form-control" type="file" id="portada" (change)="mostrarImagen($event)" accept="image/*">
+                              <small class="text-muted">Deja este campo vacío si no deseas cambiar la imagen actual</small>
+                            </div>
+                            
+                            <!-- Previsualización de la imagen -->
+                            <div *ngIf="imagenURL" class="text-center mb-3">
+                              <img [src]="imagenURL" alt="Previsualización" class="img-fluid rounded shadow" style="max-height: 250px;">
+                            </div>
+                            
+                            <div class="d-flex justify-content-end">
+                              <button type="submit" class="btn btn-primary">Actualizar Entidad Aliada</button>
+                            </div>
+                          </form>
+                          
+                    </div>
+                    </div>
+                
+                </div>
+  
+
+            </div>            
+                            
+
+        </div>
+  
+      </div>
+      <!-- End of Main Content -->
+  
+      <!-- Footer -->
+      <app-footer></app-footer>
+      <!-- End of Footer -->
+  
+    </div>
+    <!-- End of Content Wrapper -->
+  
+  </div>
+  <!-- End of Page Wrapper -->
+  

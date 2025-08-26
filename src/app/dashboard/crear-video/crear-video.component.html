@@ -1,0 +1,99 @@
+<!-- Page Wrapper -->
+<div id="wrapper" class="d-flex">
+
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+  
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column w-100"  style="height: 100vh; overflow-y: auto;">
+  
+      <!-- Main Content -->
+      <div id="content" class="d-flex flex-column w-100">
+  
+        <!-- Topbar -->
+        <app-topbar></app-topbar>
+        <!-- End of Topbar -->
+  
+        <!-- Your main content goes here -->
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Subir Nuevo Video</h1>
+                
+            </div>
+
+            <!-- Content Row -->
+            <div class="row">
+
+                <!-- Content Column centrado -->
+                <div class="col-lg-9 mb-4 mx-auto">
+
+                    <!-- Card Formulario -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 bg-primary text-white">
+                            <h5 class="m-0 font-weight-bold">Registrar Nuevo Video</h5>
+                        </div>
+                        <div class="card-body">
+                            <form [formGroup]="videoForm" (ngSubmit)="registrarVideo()">
+  
+                                <div class="row mb-3">
+                                  <div class="col-md-6">
+                                    <label for="fecha" class="form-label">Fecha</label>
+                                    <input type="date" class="form-control" id="fecha" formControlName="fecha" required>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <label for="lugar" class="form-label">Lugar</label>
+                                    <input type="text" class="form-control" id="lugar" placeholder="Ej: Lima, Perú" formControlName="lugar" required>
+                                  </div>
+                                </div>
+                              
+                                <div class="mb-3">
+                                  <label for="titulo" class="form-label">Título</label>
+                                  <input type="text" class="form-control" id="titulo" placeholder="Título del video" formControlName="titulo" required>
+                                </div>
+                              
+                                <div class="mb-3">
+                                  <label for="descripcion" class="form-label">Descripción</label>
+                                  <textarea class="form-control" id="descripcion" rows="4" placeholder="Escribe aquí los detalles del video..." formControlName="descripcion" required></textarea>
+                                </div>
+                              
+                                <div class="mb-3">
+                                  <label for="video" class="form-label">Subir Video</label>
+                                  <input class="form-control" type="file" id="video" (change)="mostrarVideo($event)" accept="video/*" required>
+                                </div>
+                              
+                                <!-- Previsualización del video -->
+                                <div *ngIf="videoURL" class="text-center mb-3">
+                                  <video [src]="videoURL" controls class="rounded shadow" style="max-height: 300px; width: 100%;"></video>
+                                </div>
+                              
+                                <div class="d-flex justify-content-end">
+                                  <button type="submit" class="btn btn-primary">Registrar Video</button>
+                                </div>
+                              
+                              </form>
+                              
+                        </div>
+                    </div>
+                
+                </div>
+  
+
+            </div>            
+                            
+
+        </div>
+  
+      </div>
+      <!-- End of Main Content -->
+  
+      <!-- Footer -->
+      <app-footer></app-footer>
+      <!-- End of Footer -->
+  
+    </div>
+    <!-- End of Content Wrapper -->
+  
+  </div>
+  <!-- End of Page Wrapper -->
+  

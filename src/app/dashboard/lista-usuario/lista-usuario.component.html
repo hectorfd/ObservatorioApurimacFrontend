@@ -1,0 +1,137 @@
+<!-- Page Wrapper -->
+<div id="wrapper" class="d-flex">
+
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+  
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column w-100"  style="height: 100vh; overflow-y: auto;">
+  
+      <!-- Main Content -->
+      <div id="content" class="d-flex flex-column w-100">
+  
+        <!-- Topbar -->
+        <app-topbar></app-topbar>
+        <!-- End of Topbar -->
+  
+        <!-- Your main content goes here -->
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Lista de Usuarios</h1>
+                
+            </div>
+
+                        <!-- Packages Start -->
+            <div class="container-fluid py-5">
+              <div class="container">
+
+ <!-- BUSCADOR START -->
+ <div class="container my-4">
+  <form class="bg-white p-4 rounded shadow-sm" (submit)="buscarUsuarios($event)">
+    
+    <!-- Buscar por nombre (Fila arriba) -->
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1"><i class="fa fa-file-alt text-primary"></i></span>
+      <input type="text" class="form-control" placeholder="Buscar usuario... (opcional)" 
+            aria-label="Buscar usuario..." aria-describedby="basic-addon1"
+            [(ngModel)]="busquedaNombre" name="busquedaNombre">
+    </div>
+    
+
+    <!-- Fila con fechas y botón -->
+    <div class="row g-3">
+      <!-- Fecha desde -->
+      <div class="col-md-4">
+        <label for="fechaDesde" class="form-label">Desde</label>
+        <input type="date" class="form-control" id="fechaDesde"
+              [(ngModel)]="fechaDesde" name="fechaDesde">
+      </div>
+
+      <!-- Fecha hasta -->
+      <div class="col-md-4">
+        <label for="fechaHasta" class="form-label">Hasta</label>
+        <input type="date" class="form-control" id="fechaHasta"
+              [(ngModel)]="fechaHasta" name="fechaHasta">
+      </div>
+
+      <!-- Botones de búsqueda y limpiar -->
+      <div class="col-md-4 d-flex align-items-end">
+        <button type="submit" class="btn btn-primary me-2">Buscar</button>
+        <button type="button" class="btn btn-secondary" (click)="limpiarFiltros()">Limpiar</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+<!-- BUSCADOR END -->
+
+<div class="row">
+<div class="col-lg-4 col-md-6 mb-4" *ngFor="let usuario of usuarios">
+  <div class="package-item bg-white mb-2">
+  <!-- Mostrar la imagen de portada de la noticia -->
+  <!-- <img class="img-fluid" [src]="noticia.portada" alt=""> -->
+  <img class="img-fluid" src="assets/img/User.png" alt="">
+
+  <div class="p-4">
+      <div class="d-flex justify-content-between mb-3">
+      <!-- Mostrar el estado y fecha -->
+      <small class="m-0">  <i class="fa fa-circle mr-2" [ngClass]="usuario.estado === 'Activo' ? 'text-success' : 'text-danger'"></i>{{ usuario.estado }}</small>
+      <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i> {{ usuario.fecha_registro }}</small>
+      </div>
+
+      <!-- Mostrar el nombre del usuario -->
+      <a class="h5 text-decoration-none" href="">{{ usuario.nombre }} {{ usuario.apellido }}</a>
+
+      <div class="border-top mt-4 pt-4">
+            
+        <div class="d-flex justify-content-between mb-3">
+            <!-- Botón para editar -->
+            <small class="m-0" title="EDITAR" (click)="redireccionarEditarUusario(usuario.id_usuario)">
+            <i class="fa fa-edit text-success mr-2"></i> EDITAR
+            </small>
+            <!-- Botón para eliminar -->
+            <small (click)="eliminarUsuario(usuario.id_usuario)" class="m-0" title="ELIMINAR">
+            <i class="fas fa-trash-alt text-danger"></i> ELIMINAR
+            </small>
+        </div>
+      </div>
+  </div>
+  </div>
+</div> 
+</div>
+
+<!-- Mensaje cuando no hay resultados -->
+<div class="row" *ngIf="usuarios.length === 0">
+<div class="col-12 text-center p-5">
+  <h4>No se encontraron usuarios con los filtros aplicados</h4>
+  <button class="btn btn-primary mt-3" (click)="limpiarFiltros()">Ver todos los usuarios</button>
+</div>
+</div>
+
+                  <mat-paginator [length]="100"
+                              [pageSize]="10"
+                              [pageSizeOptions]="[5, 10, 25, 100]"
+                              aria-label="Select page">
+                  </mat-paginator>
+              </div>
+            </div>
+            <!-- Packages End -->
+          
+                            
+
+        </div>
+  
+      </div>
+      <!-- End of Main Content -->
+  
+      <!-- Footer -->
+      <app-footer></app-footer>
+      <!-- End of Footer -->
+  
+    </div>
+    <!-- End of Content Wrapper -->
+  
+  </div>
+  <!-- End of Page Wrapper -->
+  

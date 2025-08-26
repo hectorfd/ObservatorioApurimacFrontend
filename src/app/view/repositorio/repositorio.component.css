@@ -1,0 +1,11 @@
+.img-post{
+    width: 150px;
+  }
+  a {
+    cursor: pointer;
+  }
+  .conteriner-noticia{
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.205); /* sombra suave */
+    border-radius: 8px; /* opcional: bordes redondeados para mejor estética */
+  
+  }

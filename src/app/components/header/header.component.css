@@ -1,0 +1,318 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+.top-bar {
+  background: linear-gradient(to right, #003366, #ba26dc); /* Degradado de azul oscuro a azul más claro */
+  color: #ffffff;
+  padding: 4px 5%; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px; 
+}
+
+
+.contact-info {
+  display: flex;
+  gap: 20px;
+}
+
+.contact-info div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #00b3e6;
+}
+
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Aumentado para asegurar que esté por encima de otros elementos */
+  width: 100%;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 5%; 
+  width: 100%;
+}
+
+.logo {
+  width: 200px;
+  height: auto; 
+  margin-right: auto; /* Esto asegura que el logo se quede en el lugar original */
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  justify-content: flex-end; /* Alinea las opciones a la derecha */
+  flex-grow: 1; /* Hace que las opciones ocupen el espacio restante */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333333;
+  font-weight: 500;
+  padding: 8px 0;
+  position: relative;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-links a:hover {
+  color: #a538ff;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #d230ff;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Estilos para el menú desplegable */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.dropdown-toggle .bi-chevron-down {
+  margin-left: 3px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown:hover .bi-chevron-down {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background-color: #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 10px 0;
+  display: none;
+  z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu a {
+  padding: 8px 15px;
+  display: block;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a::after {
+  display: none;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f5f5f5;
+}
+
+.menu-button {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #003366;
+  cursor: pointer;
+}
+
+/* Estilos responsivos */
+@media (max-width: 992px) {
+  .nav-links {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1152px) {
+  .top-bar {
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 5%;
+  }
+
+  .contact-info {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 5%;
+    gap: 15px;
+  }
+
+  /* Muestra el menú cuando el checkbox está marcado */
+  .menu-toggle:checked + .menu-button + .nav-links {
+    display: flex; /* Muestra el menú al hacer clic en el botón */
+  }
+
+  /* Ajustes para menú desplegable en móvil */
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    padding-left: 20px;
+    display: none;
+    margin-top: 5px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-toggle {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+a {
+  cursor: pointer;
+}
+
+.btn-primary{
+  color: #fff;
+  background-color: #9c30b7;
+  border-color: #9c30b7; 
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* para el toggle menu */
+.menu-button {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #003366;
+  cursor: pointer;
+  z-index: 1100; 
+}
+
+
+
+/* Mostrar botón en móviles */
+/* Oculta el botón de hamburguesa y el menú lateral en pantallas grandes */
+.menu-button, .side-menu {
+  display: none;
+}
+
+/* Muestra el botón de hamburguesa y configura el menú lateral solo en pantallas pequeñas */
+@media (max-width: 1152px) {
+  .menu-button {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      /* z-index: 1001; */
+  }
+  
+  .side-menu {
+      display: block;
+      position: fixed;
+      top: 0;
+      right: -250px; /* Inicia fuera de la pantalla */
+      width: 250px;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+      transition: right 0.3s ease;
+      /* z-index: 1000; */
+      padding-top: 60px;
+  }
+  
+  .side-menu.open {
+      right: 0; /* Se muestra cuando tiene la clase .open */
+  }
+  
+  .side-menu-links {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+  }
+  
+  .side-menu-links a {
+      padding: 0.8rem 0;
+      color: #333;
+      text-decoration: none;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+  }
+  
+  /* Opcional: oculta los enlaces de navegación normales en pantallas pequeñas */
+  .nav-links {
+      display: none;
+  }
+}
+
+

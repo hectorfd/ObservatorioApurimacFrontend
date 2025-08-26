@@ -1,0 +1,152 @@
+<app-header></app-header>
+    <!-- Blog Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5 mb-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    
+                    <!-- Packages Start -->
+                    <div class="pb-3">
+                        <div class="blog-item">
+                            <div class="position-relative">
+                                <!-- <img class="img-fluid" src="assets/img/img3.jpg" alt=""> -->
+                                <video [src]="imagenURL" controls alt="Previsualización" class="img-fluid rounded shadow" style="width: 100%;"></video>
+
+
+                            </div>
+                        </div>
+                        <div class="bg-white mb-3 conteriner-noticia" style="padding: 30px;">
+                            <div class="d-flex mb-3">
+                                <a class="text-primary text-uppercase text-decoration-none" href="">{{ infografia.fecha }}</a>
+                                <span class="text-primary px-2">|</span>
+                                <a class="text-primary text-uppercase text-decoration-none" href="">{{ infografia.lugar }}</a>
+                            </div>
+                            <h2 class="mb-3">{{ infografia.titulo }}</h2>
+                            <p>{{ infografia.descripcion }}</p>
+                            <!-- <p>La definición comprende tanto la violencia interpersonal como el comportamiento suicida y los conflictos armados. Cubre también una amplia gama de actos que van más allá del acto físico para incluir las amenazas e intimidaciones. Además de la muerte y las lesiones, la definición abarca igualmente innumerables consecuencias del comportamiento violento, a menudo menos notorias, como los daños psíquicos, privaciones y deficiencias del desarrollo que comprometen el bienestar de los individuos, las familias y las comunidades.</p> -->
+                            
+                            
+                        </div>
+                    </div>
+                    <!-- Packages End -->
+
+
+                </div>
+    
+                <div class="col-lg-4 mt-5 mt-lg-0">
+
+                    <!-- Author Bio -->
+                    <div class="d-flex flex-column text-center bg-white py-5 px-4">
+                        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Infografias</h6>
+
+                        <div id="carouselExampleIndependiente" class="carousel carousel-tamaño slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div 
+                                *ngFor="let infografia of infografias; let i = index" 
+                                class="carousel-item" 
+                                [ngClass]="{'active': i === 0}">
+                                <img [src]="getImageUrl(infografia.portada)" class="d-block w-100 img-info" alt="...">
+                            </div>
+
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndependiente" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Anterior</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndependiente" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Siguiente</span>
+                            </button>
+                        </div>
+                        
+                    </div>                                            
+
+                    <!-- Author Bio -->
+                    <div class="d-flex flex-column bg-white py-5 px-4">
+                        <div class="ratio ratio-16x9 mb-3">
+                            <iframe 
+                                src="https://www.youtube.com/embed/6tsmgEN0I5w" 
+                                title="Política Nacional de Igualdad de Género"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    
+                        <h3 class="text-primary ">¿QUE ES LA VIOLENCIA DE GENERO?</h3>
+                        <p>
+                            La Convención Norteamericana para Prevenir, Sancionar y Erradicar la Violencia contra la Mujer define esta violencia como cualquier acción basada en el género que cause daño físico, sexual o psicológico, tanto en el ámbito privado como público. Incluye violencia dentro del hogar o relaciones personales, en la comunidad (como abuso, trata, acoso o tortura), y aquella perpetrada o tolerada por el Estado.
+                        </p>
+                    </div>
+    
+                    <!-- Author Bio -->
+                    <div class="d-flex flex-column bg-white  py-5 px-4">
+                        <div class="ratio ratio-16x9 mb-3">
+                            <iframe 
+                                src="https://www.youtube.com/embed/flfZ9bey6Ns"
+                                title="Convención para prevenir, Sancionar y Erradicar la Violencia Contra la Mujer  Sesión 1, Capítulo 1"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        
+                        <h3 class="text-primary mb-3">¿QUE ES LA VIOLENCIA DE GENERO?</h3>
+                        <p>
+                            La Política Nacional de Igualdad de Género define la violencia de género como cualquier acción basada en el género que cause daño físico, sexual o psicológico, agravada por múltiples formas de discriminación (como etnicidad, clase, orientación sexual, etc.). Esta violencia ocurre tanto en el ámbito público como privado y afecta especialmente a mujeres y personas que desafían el sistema de género, en un contexto de discriminación estructural e interseccional.
+                        </p>
+
+                    </div>
+    
+                    <!-- Recent Post -->
+                    <!-- <mat-tab-group>
+                        <mat-tab label="Enlaces">
+                            <div class="mb-5 mt-1">
+                                <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
+                                    <img class="img-fluid img-post" src="assets/img/img2.jpeg" alt="">
+                                    <div class="pl-3">
+                                        <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
+                                        <small>Jan 01, 2050</small>
+                                    </div>
+                                </a>
+                                <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
+                                    <img class="img-fluid img-post" src="assets/img/img2.jpeg" alt="">
+                                    <div class="pl-3">
+                                        <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
+                                        <small>Jan 01, 2050</small>
+                                    </div>
+                                </a>
+                                <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
+                                    <img class="img-fluid img-post" src="assets/img/img2.jpeg" alt="">
+                                    <div class="pl-3">
+                                        <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
+                                        <small>Jan 01, 2050</small>
+                                    </div>
+                                </a>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Novedades">
+                          <p>Contenido de la pestaña Nosotros</p>
+                        </mat-tab>
+                        <mat-tab label="Servicios">
+                          <p>Contenido de la pestaña Servicios</p>
+                        </mat-tab>
+                      </mat-tab-group>
+     -->
+
+                </div>
+
+
+            </div>
+        </div>
+
+    <!-- Destination Start -->
+        <app-aliados></app-aliados>
+    <!-- Destination Start -->
+
+        
+    </div>
+    <!-- Blog End -->
+<app-footer></app-footer>

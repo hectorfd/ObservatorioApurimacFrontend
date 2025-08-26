@@ -1,0 +1,110 @@
+
+<!-- Footer Start -->
+<div class="container-fluid footer-improved py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
+    <div class="row pt-5">
+        <!-- Logo y Redes Sociales -->
+        <div class="col-lg-3 col-md-6 mb-5">
+            <div class="logo-section">
+                <img class="logo footer-logo" src="assets/img/LogoOBservatorio.png" alt="Observatorio Apurímac">
+            </div>
+
+            <h6 class="text-white text-uppercase mt-4 mb-3 social-title">Síguenos en:</h6>
+            <div class="d-flex justify-content-start social-buttons">
+                <a 
+                    *ngFor="let social of socialLinks" 
+                    class="btn btn-outline-primary btn-square social-btn me-2" 
+                    [href]="social.url"
+                    target="_blank">
+                    <i [class]="social.icon"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Nuestros Servicios -->
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h5 class="text-white text-uppercase mb-4 section-title">Nuestros Servicios</h5>
+            <div class="d-flex flex-column justify-content-start links-section">
+                <a 
+                    *ngFor="let servicio of servicios" 
+                    class="text-white-50 mb-2 service-link" 
+                    href="#">
+                    <i class="fa fa-angle-right me-2"></i>{{ servicio }}
+                </a>
+            </div>
+        </div>
+
+        <!-- Enlaces Útiles -->
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h5 class="text-white text-uppercase mb-4 section-title">Enlaces Útiles</h5>
+            <div class="d-flex flex-column justify-content-start links-section">
+                <a 
+                    *ngFor="let enlace of enlaces" 
+                    class="text-white-50 mb-2 service-link" 
+                    href="#">
+                    <i class="fa fa-angle-right me-2"></i>{{ enlace }}
+                </a>
+            </div>
+        </div>
+
+        <!-- Contacto -->
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h5 class="text-white text-uppercase mb-4 section-title">Contáctanos</h5>
+            
+            <!-- Información de Contacto -->
+            <div class="contact-info-section">
+                <p class="contact-item">
+                    <i class="fa fa-map-marker-alt me-2"></i>Jr. Puno N° 107, Abancay
+                </p>
+                <p class="contact-item">
+                    <i class="fa fa-phone-alt me-2"></i>+51 999 999 999
+                </p>
+                <p class="contact-item">
+                    <i class="fa fa-envelope me-2"></i>info&#64;apurimac.gob.pe
+                </p>
+            </div>
+
+            <!-- Newsletter -->
+            <h6 class="text-white text-uppercase mt-4 mb-3 newsletter-title">Hoja Informativa</h6>
+            <div class="w-100">
+                <form (ngSubmit)="onNewsletterSubmit()" class="newsletter-form">
+                    <div class="input-group">
+                        <input 
+                            type="email" 
+                            [(ngModel)]="emailNewsletter"
+                            name="email"
+                            class="form-control border-light newsletter-input" 
+                            placeholder="Tu Email"
+                            required>
+                        <div class="input-group-append">
+                            <button 
+                                type="submit"
+                                class="btn btn-primary newsletter-submit px-3"
+                                [disabled]="!emailNewsletter.trim()">
+                                Suscribirse
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Bottom -->
+<div class="container-fluid footer-bottom border-top py-4 px-sm-3 px-md-5">
+    <div class="row">
+        <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
+            <p class="m-0 text-white-50 copyright-text">
+                Copyright &copy; {{ currentYear }} 
+                <a href="#" class="footer-link-highlight">Gobierno Regional de Apurímac.</a> 
+                Todos los Derechos Reservados.
+            </p>
+        </div>
+        <div class="col-lg-6 text-center text-md-right">
+            <p class="m-0 text-white-50 developer-text">
+                Desarrollado por: <span class="text-primary">Gerencia de Desarrollo Social</span>
+            </p>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->

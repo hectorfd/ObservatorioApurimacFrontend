@@ -1,0 +1,219 @@
+<app-header></app-header>
+    <!-- Blog Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    
+                    <!-- Packages Start -->
+                    <div class="container-fluid py-5">
+                        <div class="container">
+                            <div class="text-center mb-3 pb-3">
+                                <h5  class="text-primary text-uppercase" style="letter-spacing: 5px;">INFORMATE CON LAS</h5>
+                                <h3>INFOGRAFIAS</h3>
+                            </div>
+
+<!-- BUSCADOR START -->
+<div class="container my-4">
+    <form class="conteriner-form conteriner-noticia p-4 rounded shadow-sm" (submit)="buscarInfografias($event)">
+      
+      <!-- Buscar por título (Fila arriba) -->
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"><i class="fa fa-file-alt text-primary"></i></span>
+        <input type="text" class="form-control" placeholder="Buscar publicación... (opcional)" 
+              aria-label="Buscar publicación..." aria-describedby="basic-addon1"
+              [(ngModel)]="busquedaTitulo" name="busquedaTitulo">
+      </div>
+      
+      <!-- Fila con fechas y botón -->
+      <div class="row g-3">
+        <!-- Fecha desde -->
+        <div class="col-md-4">
+          <label for="fechaDesde" class="form-label">Desde</label>
+          <input type="date" class="form-control" id="fechaDesde"
+                [(ngModel)]="fechaDesde" name="fechaDesde">
+        </div>
+  
+        <!-- Fecha hasta -->
+        <div class="col-md-4">
+          <label for="fechaHasta" class="form-label">Hasta</label>
+          <input type="date" class="form-control" id="fechaHasta"
+                [(ngModel)]="fechaHasta" name="fechaHasta">
+        </div>
+  
+        <!-- Botones de búsqueda y limpiar -->
+        <div class="col-md-4 d-flex align-items-end">
+          <button type="submit" class="btn btn-primary me-2">Buscar</button>
+          <button type="button" class="btn btn-secondary" (click)="limpiarFiltros()">Limpiar</button>
+        </div>
+      </div>
+  
+    </form>
+  </div>
+  <!-- BUSCADOR END -->
+  
+  <!-- Lista de infografías -->
+  <div class="row">
+    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let infigrafia of infografias">
+      <div class="package-item bg-white mb-2">
+        <!-- Mostrar la imagen de portada de la infografía -->
+        <img class="img-fluid" [src]="getImageUrl(infigrafia.portada)" alt="">
+  
+        <div class="p-4 conteriner-noticia">
+          <div class="d-flex justify-content-between mb-3">
+            <!-- Mostrar el lugar y fecha -->
+            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i> {{ infigrafia.lugar }}</small>
+            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i> {{ infigrafia.fecha }}</small>
+          </div>
+  
+          <!-- Mostrar el título de la infografía -->
+          <a (click)="redireccionarDetalleInfografia(infigrafia.id_infografia)" class="h5 text-decoration-none">{{ infigrafia.titulo }}</a>
+  
+          <div class="border-top mt-4 pt-4">
+            <!-- Mostrar la descripción de la infografía -->
+            <p>
+              {{ infigrafia.descripcion }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mensaje cuando no hay resultados -->
+  <div class="row" *ngIf="infografias.length === 0">
+    <div class="col-12 text-center p-5">
+      <h4>No se encontraron infografías con los filtros aplicados</h4>
+      <button class="btn btn-primary mt-3" (click)="limpiarFiltros()">Ver todas las infografías</button>
+    </div>
+  </div>
+                            <mat-paginator class="conteriner-noticia" [length]="100"
+                                        [pageSize]="10"
+                                        [pageSizeOptions]="[5, 10, 25, 100]"
+                                        aria-label="Select page">
+                            </mat-paginator>
+                        </div>
+                    </div>
+                    <!-- Packages End -->
+
+
+                </div>
+    
+                <div class="col-lg-4 mt-5 mt-lg-0">
+
+                    <!-- Author Bio -->
+                    <div class="d-flex flex-column text-center bg-white py-5 px-4">
+                        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Infografias</h6>
+
+                        <div id="carouselExampleIndependiente" class="carousel carousel-tamaño slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div 
+                                *ngFor="let infografia of infografias; let i = index" 
+                                class="carousel-item" 
+                                [ngClass]="{'active': i === 0}">
+                                <img [src]="getImageUrl(infografia.portada)" class="d-block w-100 img-info" alt="...">
+                            </div>
+
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndependiente" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Anterior</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndependiente" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Siguiente</span>
+                            </button>
+                        </div>
+                        
+                    </div>                                            
+
+                    <!-- Author Bio -->
+                    <div class="d-flex flex-column bg-white py-5 px-4">
+                        <div class="ratio ratio-16x9 mb-3">
+                            <iframe 
+                                src="https://www.youtube.com/embed/6tsmgEN0I5w" 
+                                title="Política Nacional de Igualdad de Género"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    
+                        <h3 class="text-primary ">¿QUE ES LA VIOLENCIA DE GENERO?</h3>
+                        <p>
+                            La Convención Norteamericana para Prevenir, Sancionar y Erradicar la Violencia contra la Mujer define esta violencia como cualquier acción basada en el género que cause daño físico, sexual o psicológico, tanto en el ámbito privado como público. Incluye violencia dentro del hogar o relaciones personales, en la comunidad (como abuso, trata, acoso o tortura), y aquella perpetrada o tolerada por el Estado.
+                        </p>
+                    </div>
+    
+                    <!-- Author Bio -->
+                    <div class="d-flex flex-column bg-white  py-5 px-4">
+                        <div class="ratio ratio-16x9 mb-3">
+                            <iframe 
+                                src="https://www.youtube.com/embed/flfZ9bey6Ns"
+                                title="Convención para prevenir, Sancionar y Erradicar la Violencia Contra la Mujer  Sesión 1, Capítulo 1"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        
+                        <h3 class="text-primary mb-3">¿QUE ES LA VIOLENCIA DE GENERO?</h3>
+                        <p>
+                            La Política Nacional de Igualdad de Género define la violencia de género como cualquier acción basada en el género que cause daño físico, sexual o psicológico, agravada por múltiples formas de discriminación (como etnicidad, clase, orientación sexual, etc.). Esta violencia ocurre tanto en el ámbito público como privado y afecta especialmente a mujeres y personas que desafían el sistema de género, en un contexto de discriminación estructural e interseccional.
+                        </p>
+
+                    </div>
+    
+                    <!-- Recent Post -->
+                    <mat-tab-group>
+                        <mat-tab label="Enlaces">
+                            <div class="mb-5 mt-1">
+                                <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
+                                    <img class="img-fluid img-post" src="assets/img/img2.jpeg" alt="">
+                                    <div class="pl-3">
+                                        <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
+                                        <small>Jan 01, 2050</small>
+                                    </div>
+                                </a>
+                                <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
+                                    <img class="img-fluid img-post" src="assets/img/img2.jpeg" alt="">
+                                    <div class="pl-3">
+                                        <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
+                                        <small>Jan 01, 2050</small>
+                                    </div>
+                                </a>
+                                <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
+                                    <img class="img-fluid img-post" src="assets/img/img2.jpeg" alt="">
+                                    <div class="pl-3">
+                                        <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
+                                        <small>Jan 01, 2050</small>
+                                    </div>
+                                </a>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Novedades">
+                          <p>Contenido de la pestaña Nosotros</p>
+                        </mat-tab>
+                        <mat-tab label="Servicios">
+                          <p>Contenido de la pestaña Servicios</p>
+                        </mat-tab>
+                      </mat-tab-group>
+    
+
+                </div>
+
+
+            </div>
+        </div>
+
+    <!-- Destination Start -->
+    <app-aliados></app-aliados>
+
+    <!-- Destination Start -->
+
+        
+    </div>
+    <!-- Blog End -->
+<app-footer></app-footer>

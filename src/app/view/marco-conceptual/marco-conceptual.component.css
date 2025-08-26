@@ -1,0 +1,27 @@
+.img-post{
+    width: 150px;
+  }
+  
+  .custom-btn {
+    background: linear-gradient(135deg, #A82EE1, #6D1B94);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+}
+
+.custom-btn:hover {
+    background: linear-gradient(135deg, #2DE08A, #06b561);
+    box-shadow: 0 6px 20px rgba(0, 86, 179, 0.5);
+    transform: translateY(-2px);
+}
+
+
+.conteriner-noticia{
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.205); /* sombra suave */
+  border-radius: 8px; /* opcional: bordes redondeados para mejor estética */
+
+}

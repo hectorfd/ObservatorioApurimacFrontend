@@ -1,0 +1,267 @@
+<app-header></app-header>
+    <!-- Blog Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5 mb-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    
+                    <div class="text-center ">
+                        <h5 class="text-primary text-uppercase" style="letter-spacing: 5px;">REPOSITORIO DE </h5>
+                        <h2>DATOS</h2>
+                    </div>
+
+                    <!-- About Start -->
+                    <div class="container-fluid py-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6" style="min-height: 400px;">
+                                    <div class="position-relative h-100">
+                                        <!-- <img class="position-absolute w-100 h-100" src="assets/img/img3.jpg" style="object-fit: cover;"> -->
+                                        <img [src]="imagenURL" alt="Previsualización" class="position-absolute w-100 h-100" style="object-fit: cover;">
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 pt-5 pb-lg-5">
+                                    <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
+                                        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">{{ entidad.nombre }}</h6>
+                                        <!-- <h1 class="mb-3">¿Quienes Somos?</h1> -->
+                                        <p>
+                                            {{ entidad.descripcion }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- About End -->
+
+                    <!-- TABLA DE DATOS START -->
+                     <div class="mat-elevation-z8 p-3 bg-white">
+                        <H2>AÑO 2025</H2>
+
+                        <mat-form-field appearance="outline" style="width: 100%;">
+                          <mat-label>Buscar</mat-label>
+                          <input matInput (keyup)="applyFilter($event)" placeholder="Filtrar por nombre">
+                        </mat-form-field>
+                      
+                        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+                      
+                          <!-- Nombre Column -->
+                          <ng-container matColumnDef="Nombre del Documento">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre del Documento </th>
+                            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+                          </ng-container>
+                      
+                          <!-- Edad Column -->
+                          <!-- <ng-container matColumnDef="edad">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Edad </th>
+                            <td mat-cell *matCellDef="let element"> {{element.edad}} </td>
+                          </ng-container> -->
+                      
+                          <!-- Ciudad Column -->
+                          <ng-container matColumnDef="Accion">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Accion </th>
+                            <td mat-cell *matCellDef="let element"> {{element.ciudad}} </td>
+                          </ng-container>
+                      
+                          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                      
+                        <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                      </div>
+                      
+                     <div class="mt-3 mat-elevation-z8 p-3 bg-white">
+                        <H2>AÑO 2024</H2>
+
+                        <mat-form-field appearance="outline" style="width: 100%;">
+                          <mat-label>Buscar</mat-label>
+                          <input matInput (keyup)="applyFilter($event)" placeholder="Filtrar por nombre">
+                        </mat-form-field>
+                      
+                        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+                      
+                          <!-- Nombre Column -->
+                          <ng-container matColumnDef="Nombre del Documento">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre del Documento </th>
+                            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+                          </ng-container>
+                      
+                          <!-- Edad Column -->
+                          <!-- <ng-container matColumnDef="edad">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Edad </th>
+                            <td mat-cell *matCellDef="let element"> {{element.edad}} </td>
+                          </ng-container> -->
+                      
+                          <!-- Ciudad Column -->
+                          <ng-container matColumnDef="Accion">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Accion </th>
+                            <td mat-cell *matCellDef="let element"> {{element.ciudad}} </td>
+                          </ng-container>
+                      
+                          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                      
+                        <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                      </div>
+                      
+                     <div class="mt-3 mat-elevation-z8 p-3 bg-white">
+                        <H2>AÑO 2023</H2>
+
+                        <mat-form-field appearance="outline" style="width: 100%;">
+                          <mat-label>Buscar</mat-label>
+                          <input matInput (keyup)="applyFilter($event)" placeholder="Filtrar por nombre">
+                        </mat-form-field>
+                      
+                        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+                      
+                          <!-- Nombre Column -->
+                          <ng-container matColumnDef="Nombre del Documento">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre del Documento </th>
+                            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+                          </ng-container>
+                      
+                          <!-- Edad Column -->
+                          <!-- <ng-container matColumnDef="edad">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Edad </th>
+                            <td mat-cell *matCellDef="let element"> {{element.edad}} </td>
+                          </ng-container> -->
+                      
+                          <!-- Ciudad Column -->
+                          <ng-container matColumnDef="Accion">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Accion </th>
+                            <td mat-cell *matCellDef="let element"> {{element.ciudad}} </td>
+                          </ng-container>
+                      
+                          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                      
+                        <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                      </div>
+                      
+                     <!-- TABLA DE DATOS END -->
+
+                </div>
+    
+                <div class="col-lg-4 mt-5 mt-lg-0">
+
+                    <!-- Author Bio -->
+                    <div class="d-flex flex-column text-center bg-white py-5 px-4">
+                        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Infografias</h6>
+
+                        <div id="carouselExampleIndependiente" class="carousel carousel-tamaño slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="assets/img/img3.jpg" class="d-block w-100 img-info" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/img/img1.jpg" class="d-block w-100 img-info" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="assets/img/img2.jpeg" class="d-block w-100 img-info" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndependiente" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Anterior</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndependiente" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Siguiente</span>
+                            </button>
+                        </div>
+                        
+                    </div>                                            
+
+                    <!-- Author Bio -->
+                    <div class="d-flex flex-column bg-white py-5 px-4">
+                        <div class="ratio ratio-16x9 mb-3">
+                            <iframe 
+                                src="https://www.youtube.com/embed/6tsmgEN0I5w" 
+                                title="Política Nacional de Igualdad de Género"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    
+                        <h3 class="text-primary ">¿QUE ES LA VIOLENCIA DE GENERO?</h3>
+                        <p>
+                            La Convención Norteamericana para Prevenir, Sancionar y Erradicar la Violencia contra la Mujer define esta violencia como cualquier acción basada en el género que cause daño físico, sexual o psicológico, tanto en el ámbito privado como público. Incluye violencia dentro del hogar o relaciones personales, en la comunidad (como abuso, trata, acoso o tortura), y aquella perpetrada o tolerada por el Estado.
+                        </p>
+                    </div>
+    
+                    <!-- Author Bio -->
+                    <div class="d-flex flex-column bg-white  py-5 px-4">
+                        <div class="ratio ratio-16x9 mb-3">
+                            <iframe 
+                                src="https://www.youtube.com/embed/flfZ9bey6Ns"
+                                title="Convención para prevenir, Sancionar y Erradicar la Violencia Contra la Mujer  Sesión 1, Capítulo 1"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        
+                        <h3 class="text-primary mb-3">¿QUE ES LA VIOLENCIA DE GENERO?</h3>
+                        <p>
+                            La Política Nacional de Igualdad de Género define la violencia de género como cualquier acción basada en el género que cause daño físico, sexual o psicológico, agravada por múltiples formas de discriminación (como etnicidad, clase, orientación sexual, etc.). Esta violencia ocurre tanto en el ámbito público como privado y afecta especialmente a mujeres y personas que desafían el sistema de género, en un contexto de discriminación estructural e interseccional.
+                        </p>
+
+                    </div>
+    
+                    <!-- Recent Post -->
+                    <mat-tab-group>
+                        <mat-tab label="Enlaces">
+                            <div class="mb-5 mt-1">
+                                <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
+                                    <img class="img-fluid img-post" src="assets/img/img2.jpeg" alt="">
+                                    <div class="pl-3">
+                                        <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
+                                        <small>Jan 01, 2050</small>
+                                    </div>
+                                </a>
+                                <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
+                                    <img class="img-fluid img-post" src="assets/img/img2.jpeg" alt="">
+                                    <div class="pl-3">
+                                        <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
+                                        <small>Jan 01, 2050</small>
+                                    </div>
+                                </a>
+                                <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
+                                    <img class="img-fluid img-post" src="assets/img/img2.jpeg" alt="">
+                                    <div class="pl-3">
+                                        <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
+                                        <small>Jan 01, 2050</small>
+                                    </div>
+                                </a>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Novedades">
+                          <p>Contenido de la pestaña Nosotros</p>
+                        </mat-tab>
+                        <mat-tab label="Servicios">
+                          <p>Contenido de la pestaña Servicios</p>
+                        </mat-tab>
+                      </mat-tab-group>
+    
+
+                </div>
+
+
+            </div>
+        </div>
+
+            <!-- Destination Start -->
+            <app-aliados></app-aliados>
+
+    <!-- Destination Start -->
+
+        
+    </div>
+    <!-- Blog End -->
+<app-footer></app-footer>

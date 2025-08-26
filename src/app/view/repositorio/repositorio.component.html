@@ -1,0 +1,140 @@
+<app-header></app-header>
+    <!-- Blog Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    
+                    <!-- Team Start -->
+                    <div class="container-fluid py-5">
+                        <div class="container pb-3">
+                            <div class="text-center mb-3 pb-3">
+                                <h5 class="text-primary text-uppercase" style="letter-spacing: 5px;">REPOSITORIO DE DATOS</h5>
+                                <h3>NUESTROS ALIADOS</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6 col-sm-12 pb-2" *ngFor="let entidad of entidades">
+                                    <div class="team-item bg-white mb-4 conteriner-noticia" >
+                                        <div class="team-img position-relative overflow-hidden">
+                                            <!-- <img class="img-fluid w-100" src="assets/img/img3.jpg" alt=""> -->
+                                            <img [src]="getImageUrlEntidad(entidad.portada)" class="img-fluid w-100" alt="...">
+                                            <div class="team-social">
+
+                                            </div>
+                                        </div>
+                                        <div class="text-center py-4 p-2">
+                                            <a (click)="redirectToDetalleRepositorio(entidad.id_entidad_aliada)"><h6 class="text-wrap">{{ entidad.nombre }}</h6></a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Team End -->
+
+                </div>
+    
+                <div class="col-lg-4 mt-5 mt-lg-0">
+
+                    <!-- Author Bio -->
+                    <div class="d-flex flex-column text-center bg-white py-5 px-4">
+                        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Infografias</h6>
+
+                        <div id="carouselExampleIndependiente" class="carousel carousel-tamaño slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-inner">
+                                    <div 
+                                    *ngFor="let infografia of infografias; let i = index" 
+                                    class="carousel-item" 
+                                    [ngClass]="{'active': i === 0}">
+                                    <img [src]="getImageUrl(infografia.portada)" class="d-block w-100 img-info" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndependiente" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Anterior</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndependiente" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Siguiente</span>
+                            </button>
+                        </div>
+                        
+                    </div>                                            
+
+                    <!-- Author Bio -->
+                    <div class="d-flex flex-column bg-white py-5 px-4">
+                        <div class="ratio ratio-16x9 mb-3">
+                            <iframe 
+                                src="https://www.youtube.com/embed/6tsmgEN0I5w" 
+                                title="Política Nacional de Igualdad de Género"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    
+                        <h3 class="text-primary ">¿QUE ES LA VIOLENCIA DE GENERO?</h3>
+                        <p>
+                            La Convención Norteamericana para Prevenir, Sancionar y Erradicar la Violencia contra la Mujer define esta violencia como cualquier acción basada en el género que cause daño físico, sexual o psicológico, tanto en el ámbito privado como público. Incluye violencia dentro del hogar o relaciones personales, en la comunidad (como abuso, trata, acoso o tortura), y aquella perpetrada o tolerada por el Estado.
+                        </p>
+                    </div>
+    
+                    
+    
+                    <!-- Recent Post -->
+                    <mat-tab-group>
+                        <mat-tab label="Enlaces">
+                            <div class="mb-5 mt-1">
+                                <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
+                                    <img class="img-fluid img-post" src="assets/img/img2.jpeg" alt="">
+                                    <div class="pl-3">
+                                        <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
+                                        <small>Jan 01, 2050</small>
+                                    </div>
+                                </a>
+                                <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
+                                    <img class="img-fluid img-post" src="assets/img/img2.jpeg" alt="">
+                                    <div class="pl-3">
+                                        <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
+                                        <small>Jan 01, 2050</small>
+                                    </div>
+                                </a>
+                                <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
+                                    <img class="img-fluid img-post" src="assets/img/img2.jpeg" alt="">
+                                    <div class="pl-3">
+                                        <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
+                                        <small>Jan 01, 2050</small>
+                                    </div>
+                                </a>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Novedades">
+                          <p>Contenido de la pestaña Nosotros</p>
+                        </mat-tab>
+                        <mat-tab label="Servicios">
+                          <p>Contenido de la pestaña Servicios</p>
+                        </mat-tab>
+                      </mat-tab-group>
+    
+
+                </div>
+
+
+            </div>
+        </div>
+
+    <!-- Destination Start -->
+    <app-aliados></app-aliados>
+
+    <!-- Destination Start -->
+
+        
+    </div>
+    <!-- Blog End -->
+<app-footer></app-footer>

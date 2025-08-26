@@ -1,0 +1,193 @@
+<!-- Page Wrapper -->
+<div id="wrapper" class="d-flex">
+
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+  
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column w-100">
+  
+      <!-- Main Content -->
+      <div id="content" class="d-flex flex-column w-100">
+  
+        <!-- Topbar -->
+        <app-topbar></app-topbar>
+        <!-- End of Topbar -->
+  
+        <!-- Your main content goes here -->
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Detalles de la entidad aliada</h1>
+                
+            </div>
+
+            <!-- Content Row -->
+            <div class="row">
+
+                <!-- Content Column centrado -->
+                <div class="col-lg-9 mb-4 mx-auto">
+
+                    <!-- Card Formulario -->
+                    <div class="card shadow mb-4">
+                    <div class="card-header py-3 bg-primary text-white">
+                        <h5 class="m-0 font-weight-bold">Detalles Entidad Aliada</h5>
+                    </div>
+                        <div class="card-body">
+                            <form >
+                                <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="fecha" class="form-label">Fecha de Registro</label>
+                                    <input type="date" class="form-control" disabled [value]="entidad_aliada.fecha_registro" id="fecha" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="nombre" disabled [value]="entidad_aliada.nombre" placeholder="Ej: Municipalidad de Abancay" required>
+                                </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                <label for="descripcion" class="form-label">Descripción</label>
+                                <textarea class="form-control" id="descripcion" rows="4" disabled [value]="entidad_aliada.descripcion" placeholder="Escribe una descripción de la entidad aliada..." required></textarea>
+                                </div>
+                                
+                                <div *ngIf="imagenURL" class="text-center mb-3">
+                                    <label for="descripcion" class="form-label">Foto de portada</label><br>
+
+                                    <img [src]="imagenURL" alt="Previsualización" class="img-fluid rounded shadow" style="max-height: 250px;">
+                                </div>
+
+                                
+                                <div class="d-flex justify-content-end">
+                                <button (click)="toggleFormulario()" class="btn btn-primary">Agregar documentos</button>
+                                </div>
+                            </form>
+                            
+                        </div>
+                    </div>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 bg-primary text-white">
+                            <h5 class="m-0 font-weight-bold">Agregar Documentos</h5>
+                        </div>
+
+                        <div *ngIf="mostrarFormulario" class="card-body">
+                            <form [formGroup]="ArchivoEntidadAliadaForm" (ngSubmit)="registrarEntidadAliada()">
+                                <div class="mb-3 row">
+                                    <div class="col-md-8">
+                                        <label for="nombreArchivo" class="form-label">Nombre del Archivo</label>
+                                        <input type="text" class="form-control" id="nombreArchivo" formControlName="nombre_archivo">
+                                        <div *ngIf="ArchivoEntidadAliadaForm.get('nombre_archivo')?.invalid && 
+                                                ArchivoEntidadAliadaForm.get('nombre_archivo')?.touched" class="text-danger">
+                                            Nombre del archivo es obligatorio
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="fechaRegistro" class="form-label">Fecha de Registro</label>
+                                        <input type="date" class="form-control" id="fechaRegistro" formControlName="fecha_registro">
+                                        <div *ngIf="ArchivoEntidadAliadaForm.get('fecha_registro')?.invalid && 
+                                                ArchivoEntidadAliadaForm.get('fecha_registro')?.touched" class="text-danger">
+                                            Fecha de registro es obligatoria
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="descripcion" class="form-label">Descripción</label>
+                                    <textarea class="form-control" id="descripcion" formControlName="descripcion" rows="3"></textarea>
+                                    <div *ngIf="ArchivoEntidadAliadaForm.get('descripcion')?.invalid && 
+                                            ArchivoEntidadAliadaForm.get('descripcion')?.touched" class="text-danger">
+                                        Descripción es obligatoria
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="documentos" class="form-label">Documentos</label>
+                                    <input #fileInput type="file" (change)="onFileSelected($event)" accept=".pdf, .doc, .docx, .xls, .xlsx" class="form-control" id="documentos">
+                                    <div *ngIf="!archivoFile && ArchivoEntidadAliadaForm.touched" class="text-danger">
+                                        Debe seleccionar un archivo
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Subir Documentos</button>
+                            </form>
+                            
+                        </div>
+
+                        <!-- Código HTML para la sección de la tabla -->
+                        <div class="card-body">
+                            <!-- Barra de búsqueda -->
+                            <div class="mb-3">
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Buscar archivo</mat-label>
+                                <input matInput (keyup)="applyFilter($event)" placeholder="Buscar por nombre..." #input>
+                                <mat-icon matSuffix>search</mat-icon>
+                            </mat-form-field>
+                            </div>
+                        
+                            <!-- Tabla de archivos -->
+                            <div class="mat-elevation-z8">
+                            <table mat-table [dataSource]="dataSource" matSort class="w-100">
+                                
+                                <!-- Columna Nombre -->
+                                <ng-container matColumnDef="nombre_archivo">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre del archivo </th>
+                                <td mat-cell *matCellDef="let archivo"> {{archivo.nombre_archivo}} </td>
+                                </ng-container>
+                                
+                                <!-- Columna Fecha de Registro -->
+                                <ng-container matColumnDef="fecha_registro">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de registro </th>
+                                <td mat-cell *matCellDef="let archivo"> {{archivo.fecha_registro | date:'dd/MM/yyyy'}} </td>
+                                </ng-container>
+                                
+                                <!-- Columna Acciones -->
+                                <ng-container matColumnDef="acciones">
+                                <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                                <td mat-cell *matCellDef="let archivo">
+                                    <button mat-icon-button color="primary" (click)="descargarArchivo(archivo)" matTooltip="Descargar archivo">
+                                    <mat-icon>cloud_download</mat-icon>
+                                    </button>
+                                    <button mat-icon-button color="warn" (click)="eliminarArchivo(archivo.id_archivo_entidad_aliada)" matTooltip="Eliminar archivo">
+                                    <mat-icon>delete</mat-icon>
+                                    </button>
+                                </td>
+                                </ng-container>
+                                
+                                <!-- Definición de filas -->
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                                
+                                <!-- Fila para cuando no hay datos -->
+                                <tr class="mat-row" *matNoDataRow>
+                                <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+                                    No se encontraron archivos para esta entidad aliada.
+                                </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- Paginador -->
+                            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Seleccione página de archivos"></mat-paginator>
+                            </div>
+                        </div>
+                    </div>
+                    
+                
+                </div>
+  
+
+            </div>            
+                            
+
+        </div>
+  
+      </div>
+      <!-- End of Main Content -->
+  
+      <!-- Footer -->
+      <app-footer></app-footer>
+      <!-- End of Footer -->
+  
+    </div>
+    <!-- End of Content Wrapper -->
+  
+  </div>
+  <!-- End of Page Wrapper -->
+  

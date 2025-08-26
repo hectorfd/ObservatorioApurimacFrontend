@@ -1,0 +1,59 @@
+#carouselExampleCaptions {
+  max-height: 650px; /* Ajusta esta altura según tus necesidades */
+  overflow: hidden;
+}
+
+.carousel-item {
+  max-height: 650px; /* Debe coincidir con la altura del carrusel */
+}
+
+.carousel-item img {
+  object-fit: cover;
+  height: 100%;
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  bottom: 10px;
+}
+
+.img-post{
+  width: 150px;
+}
+
+mat-tab-group {
+  margin: 20px;
+}
+
+.conteiner-inicio {
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.205); /* sombra suave */
+  border-radius: 8px; /* opcional: bordes redondeados para mejor estética */
+}
+
+.conteriner-noticia{
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.205); /* sombra suave */
+  border-radius: 8px; /* opcional: bordes redondeados para mejor estética */
+
+}
+
+
+.btn-primary{
+  color: #fff;
+  background-color: #ac47ff;
+  border-color: #9c30b7; 
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+.btn-primary:hover {
+  background-color: #d900ff; /* color al pasar el mouse */
+}
