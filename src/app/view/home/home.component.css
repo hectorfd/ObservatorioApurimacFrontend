@@ -375,14 +375,14 @@ body {
 }
 
 .table-cell {
-  padding: 1.5rem 1rem;
+  padding: 0.7rem 0.5rem;
   font-size: 0.85rem;
   line-height: 1.4;
   border-right: 1px solid #f0f0f0;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  align-items: left;
+  justify-content: left;
+  text-align: left;
 }
 
 .table-cell:last-child {
@@ -395,7 +395,7 @@ body {
 }
 
 .table-cell i {
-  margin-right: 5px;
+  margin-right: 0px;
 }
 
 /* Responsive para tablets y móviles */
