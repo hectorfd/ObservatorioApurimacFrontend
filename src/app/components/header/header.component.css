@@ -63,7 +63,7 @@ body {
 }
 
 .logo {
-  width: 200px;
+  width: 150px;
   height: auto; 
   margin-right: auto; /* Esto asegura que el logo se quede en el lugar original */
 }

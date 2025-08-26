@@ -2,370 +2,628 @@
 
 <!-- Sección 1: Carousel Fullscreen -->
 <section id="carousel-section" class="fullscreen-section">
-  <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                aria-label="Slide 4"></button>
+        </div>
+        <div class="carousel-inner h-100">
+            <div class="carousel-item active h-100">
+                <img src="assets/img/Portada 1.jpg" class="d-block w-100 h-100" alt="Observatorio Apurímac">
+            </div>
+            <div class="carousel-item h-100">
+                <img src="assets/img/Portada 2.jpg" class="d-block w-100 h-100" alt="Prevención de Violencia">
+            </div>
+            <div class="carousel-item h-100">
+                <img src="assets/img/portada 3.jpg" class="d-block w-100 h-100" alt="Sistema Regional">
+            </div>
+            <div class="carousel-item h-100">
+                <img src="assets/img/portada 4.jpg" class="d-block w-100 h-100" alt="Red de Servicios">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <div class="carousel-inner h-100">
-      <div class="carousel-item active h-100">
-        <img src="assets/img/Portada 1.jpg" class="d-block w-100 h-100" alt="Observatorio Apurímac">
-      </div>
-      <div class="carousel-item h-100">
-        <img src="assets/img/Portada 2.jpg" class="d-block w-100 h-100" alt="Prevención de Violencia">
-      </div>
-      <div class="carousel-item h-100">
-        <img src="assets/img/portada 3.jpg" class="d-block w-100 h-100" alt="Sistema Regional">
-      </div>
-      <div class="carousel-item h-100">
-        <img src="assets/img/portada 4.jpg" class="d-block w-100 h-100" alt="Red de Servicios">
-      </div>
+
+    <!-- Cards Flotantes sobre el Carousel -->
+    <div class="floating-cards-container">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="floating-card">
+                        <div class="floating-card-icon">
+                            <i class="fa fa-3x fa-chart-pie text-white"></i>
+                        </div>
+                        <div class="floating-card-content">
+                            <h4>Datos Estadísticos</h4>
+                            <p>Consulta las estadísticas actualizadas sobre violencia hacia las mujeres en Apurímac</p>
+                            <button class="btn btn-primary-floating">Ver Datos</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="floating-card">
+                        <div class="floating-card-icon">
+                            <i class="fa fa-3x fa-balance-scale text-white"></i>
+                        </div>
+                        <div class="floating-card-content">
+                            <h4>Normas Legales</h4>
+                            <p>Accede al marco normativo y legal para la prevención y sanción de la violencia</p>
+                            <button class="btn btn-primary-floating">Ver Normas</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="floating-card">
+                        <div class="floating-card-icon">
+                            <i class="fa fa-3x fa-network-wired text-white"></i>
+                        </div>
+                        <div class="floating-card-content">
+                            <h4>Red de Servicios</h4>
+                            <p>Encuentra los servicios y programas de atención disponibles en la región</p>
+                            <button class="btn btn-primary-floating">Ver Red</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
 </section>
 
 <!-- Sección 2: Quiénes Somos -->
-<section id="quienes-somos" class="fullscreen-section bg-light">
-  <div class="container h-100 d-flex align-items-center">
-    <div class="row w-100">
-      <div class="col-lg-6">
-        <div class="position-relative h-100">
-          <img class="w-100 h-100" src="assets/img/Portada 5.jpeg" style="object-fit: cover; border-radius: 15px;">
-        </div>
-      </div>
-      <div class="col-lg-6 d-flex align-items-center">
-        <div class="content-box">
-          <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">¿Quiénes Somos?</h6>
-          <h1 class="mb-4">Observatorio Regional de la Violencia hacia las Mujeres</h1>
-          <p class="mb-4">Somos un espacio de articulación interinstitucional que monitorea, analiza y difunde información sobre la violencia hacia las mujeres en la región Apurímac, promoviendo políticas públicas efectivas para su prevención y erradicación.</p>
-          <div class="row mb-4">
-            <div class="col-6">
-              <img class="img-fluid rounded" src="assets/img/img1.jpg" alt="Prevención">
+<section id="quienes-somos" class="fullscreen-section bg-fondo">
+    <div class="container h-100 d-flex align-items-center">
+        <div class="row w-100">
+            <div class="col-12 text-center mb-5 mt-5">
+                <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Sobre Nosotros</h6>
+                <h1>¿Quiénes Somos?</h1>
+                <p class="lead">Observatorio Nacional de la Violencia contra las Mujeres y los Integrantes del Grupo Familiar</p>
             </div>
-            <div class="col-6">
-              <img class="img-fluid rounded" src="assets/img/img2.jpeg" alt="Atención">
+            <div class="col-lg-12">
+                <div class="row justify-content-center">
+                    <!-- Card 1: Nosotros -->
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <div class="about-card about-card-blue">
+                            <div class="about-card-icon">
+                                <i class="fa fa-2x fa-users text-white"></i>
+                            </div>
+                            <div class="about-card-content">
+                                <h4>Nosotros</h4>
+                                <p>Somos un espacio de articulación interinstitucional que monitorea, analiza y difunde información sobre la violencia hacia las mujeres en la región Apurímac, promoviendo políticas públicas efectivas para su prevención y erradicación.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2: Visión -->
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <div class="about-card about-card-green">
+                            <div class="about-card-icon">
+                                <i class="fa fa-2x fa-eye text-white"></i>
+                            </div>
+                            <div class="about-card-content">
+                                <h4>Nuestra Visión</h4>
+                                <p>Aspiramos a consolidar al Observatorio Regional como un referente en la recopilación, análisis y difusión de información sobre violencia de género en la región, contribuyendo a la mejora de las políticas públicas y promoviendo una participación ciudadana activa en la prevención y erradicación de esta problemática.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3: Misión -->
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <div class="about-card about-card-purple">
+                            <div class="about-card-icon">
+                                <i class="fa fa-2x fa-bullseye text-white"></i>
+                            </div>
+                            <div class="about-card-content">
+                                <h4>Nuestra Misión</h4>
+                                <p>Desarrollar y mantener un sistema de información permanente que proporcione datos relevantes para el diseño, implementación y gestión eficaz de políticas públicas orientadas a la prevención y erradicación de la violencia contra las mujeres y los integrantes del grupo familiar en la Región Apurímac.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Botón centrado -->
+                <div class="text-center mt--5 mb-5">
+                    <button class="btn btn-primary btn-lg" (click)="redirect()">Conoce más</button>
+                </div>
             </div>
-          </div>
-          <button class="btn btn-primary btn-lg">Conoce más</button>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- Sección 3: Reuniones del Consejo Directivo -->
 <section id="reuniones-consejo" class="fullscreen-section">
-  <div class="container h-100 d-flex align-items-center">
-    <div class="row w-100">
-      <div class="col-12 text-center mb-5">
-        <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Reuniones</h6>
-        <h1>Consejo Directivo del Observatorio</h1>
-      </div>
-      <div class="col-lg-8 mx-auto">
-        <div class="content-box bg-white">
-          <div class="row">
-            <div class="col-md-6 mb-4">
-              <div class="meeting-card">
-                <div class="meeting-date">
-                  <h4>15</h4>
-                  <span>ENE</span>
-                </div>
-                <div class="meeting-info">
-                  <h5>Reunión Ordinaria</h5>
-                  <p>Revisión de políticas de prevención y análisis de datos estadísticos del 2024.</p>
-                  <small class="text-muted">10:00 AM - Sala de Conferencias</small>
-                </div>
-              </div>
+    <div class="container h-100 d-flex align-items-center">
+        <div class="row w-100">
+            <div class="col-12 text-center mb-5">
+                <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Reuniones</h6>
+                <h1>Reuniones consejo directivo</h1>
             </div>
-            <div class="col-md-6 mb-4">
-              <div class="meeting-card">
-                <div class="meeting-date">
-                  <h4>28</h4>
-                  <span>FEB</span>
+            <!-- <div class="col-lg-8 mx-auto">
+                <div class="content-box bg-white">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="meeting-card">
+                                <div class="meeting-date">
+                                    <h4>15</h4>
+                                    <span>ENE</span>
+                                </div>
+                                <div class="meeting-info">
+                                    <h5>Reunión Ordinaria</h5>
+                                    <p>Revisión de políticas de prevención y análisis de datos estadísticos del 2024.
+                                    </p>
+                                    <small class="text-muted">10:00 AM - Sala de Conferencias</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="meeting-card">
+                                <div class="meeting-date">
+                                    <h4>28</h4>
+                                    <span>FEB</span>
+                                </div>
+                                <div class="meeting-info">
+                                    <h5>Sesión Extraordinaria</h5>
+                                    <p>Presentación de nuevos protocolos de atención a víctimas de violencia.</p>
+                                    <small class="text-muted">2:00 PM - Virtual</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button class="btn btn-primary">Ver Todas las Reuniones</button>
+                    </div>
                 </div>
-                <div class="meeting-info">
-                  <h5>Sesión Extraordinaria</h5>
-                  <p>Presentación de nuevos protocolos de atención a víctimas de violencia.</p>
-                  <small class="text-muted">2:00 PM - Virtual</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="text-center mt-4">
-            <button class="btn btn-primary">Ver Todas las Reuniones</button>
-          </div>
+            </div> -->
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- Sección 4: Consejo Directivo del Observatorio Regional -->
 <section id="consejo-directivo" class="fullscreen-section bg-light">
-  <div class="container h-100 d-flex align-items-center">
-    <div class="row w-100">
-      <div class="col-12 text-center mb-5">
-        <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Organización</h6>
-        <h1>Consejo Directivo del Observatorio Regional</h1>
-      </div>
-      <div class="col-lg-10 mx-auto">
-        <div class="row">
-          <div class="col-md-4 mb-4">
-            <div class="member-card text-center">
-              <div class="member-icon">
-                <i class="fa fa-3x fa-user-tie text-primary"></i>
-              </div>
-              <h5>Presidencia</h5>
-              <p>Gobierno Regional de Apurímac</p>
+    <div class="container h-100 d-flex align-items-center">
+        <div class="row w-100">
+            <div class="col-12 text-center mb-4">
+                <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Organización</h6>
+                <h1>Consejo Directivo del Observatorio Regional</h1>
+                <p class="lead">Integrantes del Consejo Directivo del Observatorio Regional</p>
             </div>
-          </div>
-          <div class="col-md-4 mb-4">
-            <div class="member-card text-center">
-              <div class="member-icon">
-                <i class="fa fa-3x fa-balance-scale text-primary"></i>
-              </div>
-              <h5>Vicepresidencia</h5>
-              <p>Ministerio Público - Fiscalía</p>
+            <div class="col-lg-12 mx-auto">
+                <!-- Tabla Responsiva -->
+                <div class="table-responsive">
+                    <div class="custom-table">
+                        <!-- Header de la tabla -->
+                        <div class="table-header">
+                            <div class="header-cell">Entidad</div>
+                            <div class="header-cell">Representante</div>
+                            <div class="header-cell">Cargo</div>
+                            <div class="header-cell">Teléfono</div>
+                            <div class="header-cell">Dirección</div>
+                        </div>
+                        
+                        <!-- Filas de datos -->
+                        <div class="table-row">
+                            <div class="table-cell" data-label="Entidad">
+                                <strong>Gerencia Regional de Desarrollo Social</strong>
+                            </div>
+                            <div class="table-cell" data-label="Representante">
+                                Leonor Consuelo Tello Malcavilca
+                            </div>
+                            <div class="table-cell" data-label="Cargo">
+                                Gerente
+                            </div>
+                            <div class="table-cell" data-label="Teléfono">
+                                <i class="fa fa-phone text-primary"></i> (01) 596-0190 Anexo: 5549
+                            </div>
+                            <div class="table-cell" data-label="Dirección">
+                                <i class="fa fa-map-marker text-primary"></i> Av. Circunvalación S/N - Urb. Agua Dulce - Huacho
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="table-cell" data-label="Entidad">
+                                <strong>Gerencia Regional de Salud</strong>
+                            </div>
+                            <div class="table-cell" data-label="Representante">
+                                José Guillermo Morales de la Cruz
+                            </div>
+                            <div class="table-cell" data-label="Cargo">
+                                Director
+                            </div>
+                            <div class="table-cell" data-label="Teléfono">
+                                <i class="fa fa-phone text-primary"></i> (01) 414-5000 Anexo: 307
+                            </div>
+                            <div class="table-cell" data-label="Dirección">
+                                <i class="fa fa-map-marker text-primary"></i> Calle José Arámbulu - La Rosa Nº 134 - Huacho
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="table-cell" data-label="Entidad">
+                                <strong>Programa Warmi Ñam</strong>
+                            </div>
+                            <div class="table-cell" data-label="Representante">
+                                Jhancarlos Mogollón Sanchez
+                            </div>
+                            <div class="table-cell" data-label="Cargo">
+                                Coordinador Territorial
+                            </div>
+                            <div class="table-cell" data-label="Teléfono">
+                                <i class="fa fa-mobile text-primary"></i> 920718453
+                            </div>
+                            <div class="table-cell" data-label="Dirección">
+                                <i class="fa fa-map-marker text-primary"></i> Av. Plaza de Armas de Sayán S/N - Sayán
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="table-cell" data-label="Entidad">
+                                <strong>División Policial de Lima Norte</strong>
+                            </div>
+                            <div class="table-cell" data-label="Representante">
+                                Juan Manuel Mundaca Montenegro
+                            </div>
+                            <div class="table-cell" data-label="Cargo">
+                                Jefe
+                            </div>
+                            <div class="table-cell" data-label="Teléfono">
+                                <i class="fa fa-mobile text-primary"></i> 993582289
+                            </div>
+                            <div class="table-cell" data-label="Dirección">
+                                <i class="fa fa-map-marker text-primary"></i> Av. 28 de julio Nº 210 - 2do piso - Huacho
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="table-cell" data-label="Entidad">
+                                <strong>División Policial de Lima Sur</strong>
+                            </div>
+                            <div class="table-cell" data-label="Representante">
+                                Javier Edward Infante Revilla
+                            </div>
+                            <div class="table-cell" data-label="Cargo">
+                                Jefe
+                            </div>
+                            <div class="table-cell" data-label="Teléfono">
+                                <i class="fa fa-mobile text-primary"></i> 958923561
+                            </div>
+                            <div class="table-cell" data-label="Dirección">
+                                <i class="fa fa-map-marker text-primary"></i> Plaza San Martín S/N - San Vicente - Cañete
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="table-cell" data-label="Entidad">
+                                <strong>Poder Judicial de Cañete</strong>
+                            </div>
+                            <div class="table-cell" data-label="Representante">
+                                Francisco Enrique Ruiz Cochachín
+                            </div>
+                            <div class="table-cell" data-label="Cargo">
+                                Presidente
+                            </div>
+                            <div class="table-cell" data-label="Teléfono">
+                                <i class="fa fa-phone text-primary"></i> (01) 519-9900 - Anexo: 53077
+                            </div>
+                            <div class="table-cell" data-label="Dirección">
+                                <i class="fa fa-map-marker text-primary"></i> Av. Mariscal Benavides Nº 657 - San Vicente
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="table-cell" data-label="Entidad">
+                                <strong>Poder Judicial de Huaura</strong>
+                            </div>
+                            <div class="table-cell" data-label="Representante">
+                                Javier Abad Herrera Villar
+                            </div>
+                            <div class="table-cell" data-label="Cargo">
+                                Presidente
+                            </div>
+                            <div class="table-cell" data-label="Teléfono">
+                                <i class="fa fa-phone text-primary"></i> (01) 414-5000 Anexo: 29513
+                            </div>
+                            <div class="table-cell" data-label="Dirección">
+                                <i class="fa fa-map-marker text-primary"></i> Av. Mercedes Indacochea Nº C Int. 21 Mz. C - Huacho
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="table-cell" data-label="Entidad">
+                                <strong>Junta de Fiscales de Cañete</strong>
+                            </div>
+                            <div class="table-cell" data-label="Representante">
+                                Jesús Domingo Mavila Salón
+                            </div>
+                            <div class="table-cell" data-label="Cargo">
+                                Presidente
+                            </div>
+                            <div class="table-cell" data-label="Teléfono">
+                                <i class="fa fa-phone text-primary"></i> (511) 625-5555 Anexo: 17002
+                            </div>
+                            <div class="table-cell" data-label="Dirección">
+                                <i class="fa fa-map-marker text-primary"></i> Jr. Sepúlveda 225 - San Vicente - Cañete
+                            </div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="table-cell" data-label="Entidad">
+                                <strong>Junta de Fiscales de Huaura</strong>
+                            </div>
+                            <div class="table-cell" data-label="Representante">
+                                Raúl Solórzano Cozar
+                            </div>
+                            <div class="table-cell" data-label="Cargo">
+                                Presidente
+                            </div>
+                            <div class="table-cell" data-label="Teléfono">
+                                <i class="fa fa-phone text-primary"></i> (511) 625-5555 Anexo: 18021
+                            </div>
+                            <div class="table-cell" data-label="Dirección">
+                                <i class="fa fa-map-marker text-primary"></i> Calle Arámbulu, La Rosa S/N - Sector Amay - Huacho
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-md-4 mb-4">
-            <div class="member-card text-center">
-              <div class="member-icon">
-                <i class="fa fa-3x fa-shield-alt text-primary"></i>
-              </div>
-              <h5>Secretaría Técnica</h5>
-              <p>Centro de Emergencia Mujer</p>
-            </div>
-          </div>
         </div>
-        <div class="text-center mt-4">
-          <button class="btn btn-primary">Ver Estructura Completa</button>
-        </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- Sección 5: Sistema Regional -->
 <section id="sistema-regional" class="fullscreen-section">
-  <div class="container h-100 d-flex align-items-center">
-    <div class="row w-100">
-      <div class="col-12 text-center mb-5">
-        <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Red de Trabajo</h6>
-        <h1>Sistema Regional</h1>
-      </div>
-      <div class="col-lg-10 mx-auto">
-        <div class="row">
-          <div class="col-md-4 mb-4">
-            <div class="system-card">
-              <div class="system-icon">
-                <i class="fa fa-3x fa-hospital text-primary"></i>
-              </div>
-              <h5>Red de Servicios</h5>
-              <p>Servicios, recursos y programas de atención y prevención de violencia hacia las mujeres.</p>
+    <div class="container h-100 d-flex align-items-center">
+        <div class="row w-100">
+            <div class="col-12 text-center mb-5">
+                <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Red de Trabajo</h6>
+                <h1>Sistema Regional</h1>
             </div>
-          </div>
-          <div class="col-md-4 mb-4">
-            <div class="system-card">
-              <div class="system-icon">
-                <i class="fa fa-3x fa-gavel text-primary"></i>
-              </div>
-              <h5>Normatividad</h5>
-              <p>Principales leyes, guías y protocolos para prevenir, entender y sancionar la violencia.</p>
+            <div class="col-lg-10 mx-auto">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="system-card">
+                            <div class="system-icon">
+                                <i class="fa fa-3x fa-hospital text-primary"></i>
+                            </div>
+                            <h5>Red de Servicios</h5>
+                            <p>Servicios, recursos y programas de atención y prevención de violencia hacia las mujeres.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="system-card">
+                            <div class="system-icon">
+                                <i class="fa fa-3x fa-gavel text-primary"></i>
+                            </div>
+                            <h5>Normatividad</h5>
+                            <p>Principales leyes, guías y protocolos para prevenir, entender y sancionar la violencia.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="system-card">
+                            <div class="system-icon">
+                                <i class="fa fa-3x fa-chart-line text-primary"></i>
+                            </div>
+                            <h5>Monitoreo</h5>
+                            <p>Sistema de seguimiento y evaluación de políticas públicas de prevención.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-md-4 mb-4">
-            <div class="system-card">
-              <div class="system-icon">
-                <i class="fa fa-3x fa-chart-line text-primary"></i>
-              </div>
-              <h5>Monitoreo</h5>
-              <p>Sistema de seguimiento y evaluación de políticas públicas de prevención.</p>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- Sección 6: Concepto de Violencia -->
 <section id="concepto-violencia" class="fullscreen-section bg-light">
-  <div class="container h-100 d-flex align-items-center">
-    <div class="row w-100">
-      <div class="col-lg-8 mx-auto text-center">
-        <div class="content-box">
-          <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Definición</h6>
-          <h1 class="mb-4">Concepto de Violencia</h1>
-          <div class="concept-content">
-            <p class="lead mb-4">
-              "Cualquier acción o conducta, basada en su género, que cause muerte, daño o sufrimiento físico, sexual o psicológico a la mujer, tanto en el ámbito público como en el privado."
-            </p>
-            <div class="row mt-5">
-              <div class="col-md-4 mb-3">
-                <div class="concept-type">
-                  <i class="fa fa-2x fa-heart-broken text-danger mb-3"></i>
-                  <h5>Violencia Física</h5>
+    <div class="container h-100 d-flex align-items-center">
+        <div class="row w-100">
+            <div class="col-lg-8 mx-auto text-center">
+                <div class="content-box">
+                    <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Definición</h6>
+                    <h1 class="mb-4">Concepto de Violencia</h1>
+                    <div class="concept-content">
+                        <p class="lead mb-4">
+                            "Cualquier acción o conducta, basada en su género, que cause muerte, daño o sufrimiento
+                            físico, sexual o psicológico a la mujer, tanto en el ámbito público como en el privado."
+                        </p>
+                        <div class="row mt-5">
+                            <div class="col-md-4 mb-3">
+                                <div class="concept-type">
+                                    <i class="fa fa-2x fa-heart-broken text-danger mb-3"></i>
+                                    <h5>Violencia Física</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="concept-type">
+                                    <i class="fa fa-2x fa-brain text-warning mb-3"></i>
+                                    <h5>Violencia Psicológica</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="concept-type">
+                                    <i class="fa fa-2x fa-venus text-info mb-3"></i>
+                                    <h5>Violencia Sexual</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary mt-4">Conoce los Tipos de Violencia</button>
+                    </div>
                 </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <div class="concept-type">
-                  <i class="fa fa-2x fa-brain text-warning mb-3"></i>
-                  <h5>Violencia Psicológica</h5>
-                </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <div class="concept-type">
-                  <i class="fa fa-2x fa-venus text-info mb-3"></i>
-                  <h5>Violencia Sexual</h5>
-                </div>
-              </div>
             </div>
-            <button class="btn btn-primary mt-4">Conoce los Tipos de Violencia</button>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- Sección 7: Observatorio Informa -->
 <section id="observatorio-informa" class="fullscreen-section">
-  <div class="container h-100 d-flex align-items-center">
-    <div class="row w-100">
-      <div class="col-12 text-center mb-5">
-        <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Información</h6>
-        <h1>Observatorio Informa</h1>
-      </div>
-      <div class="col-lg-10 mx-auto">
-        <div class="row">
-          <div class="col-md-6 mb-4">
-            <div class="info-card">
-              <i class="fa fa-3x fa-chart-bar text-primary mb-3"></i>
-              <h4>Estadísticas</h4>
-              <p>Datos actualizados sobre la violencia hacia las mujeres en la región Apurímac.</p>
-              <button class="btn btn-outline-primary">Ver Estadísticas</button>
+    <div class="container h-100 d-flex align-items-center">
+        <div class="row w-100">
+            <div class="col-12 text-center mb-5">
+                <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Información</h6>
+                <h1>Observatorio Informa</h1>
             </div>
-          </div>
-          <div class="col-md-6 mb-4">
-            <div class="info-card">
-              <i class="fa fa-3x fa-file-alt text-primary mb-3"></i>
-              <h4>Reportes</h4>
-              <p>Informes técnicos y análisis sobre tendencias y patrones de violencia.</p>
-              <button class="btn btn-outline-primary">Ver Reportes</button>
+            <div class="col-lg-10 mx-auto">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="info-card">
+                            <i class="fa fa-3x fa-chart-bar text-primary mb-3"></i>
+                            <h4>Estadísticas</h4>
+                            <p>Datos actualizados sobre la violencia hacia las mujeres en la región Apurímac.</p>
+                            <button class="btn btn-outline-primary">Ver Estadísticas</button>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="info-card">
+                            <i class="fa fa-3x fa-file-alt text-primary mb-3"></i>
+                            <h4>Reportes</h4>
+                            <p>Informes técnicos y análisis sobre tendencias y patrones de violencia.</p>
+                            <button class="btn btn-outline-primary">Ver Reportes</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- Sección 8: Noticias -->
 <section id="noticias-section" class="fullscreen-section bg-light">
-  <div class="container h-100 d-flex align-items-center">
-    <div class="row w-100">
-      <div class="col-12 text-center mb-4">
-        <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Actualidad</h6>
-        <h1>Noticias</h1>
-      </div>
-      <div class="col-lg-10 mx-auto">
-        <div class="row" *ngIf="noticias.length > 0">
-          <div class="col-md-6 mb-4" *ngFor="let noticia of noticias.slice(0, 4)">
-            <div class="news-card">
-              <div class="news-image">
-                <img [src]="getImageUrl(noticia.portada)" alt="{{ noticia.titulo }}">
-              </div>
-              <div class="news-content">
-                <div class="news-meta">
-                  <span class="news-date">{{ noticia.fecha }}</span>
-                </div>
-                <h5>{{ noticia.titulo }}</h5>
-                <p>{{ noticia.descripcion }}</p>
-              </div>
+    <div class="container h-100 d-flex align-items-center">
+        <div class="row w-100">
+            <div class="col-12 text-center mb-4">
+                <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Actualidad</h6>
+                <h1>Noticias</h1>
             </div>
-          </div>
+            <div class="col-lg-10 mx-auto">
+                <div class="row" *ngIf="noticias.length > 0">
+                    <div class="col-md-6 mb-4" *ngFor="let noticia of noticias.slice(0, 4)">
+                        <div class="news-card">
+                            <div class="news-image">
+                                <img [src]="getImageUrl(noticia.portada)" alt="{{ noticia.titulo }}">
+                            </div>
+                            <div class="news-content">
+                                <div class="news-meta">
+                                    <span class="news-date">{{ noticia.fecha }}</span>
+                                </div>
+                                <h5>{{ noticia.titulo }}</h5>
+                                <p>{{ noticia.descripcion }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary" (click)="redirectToNoticias()">Ver Todas las Noticias</button>
+                </div>
+            </div>
         </div>
-        <div class="text-center mt-4">
-          <button class="btn btn-primary" (click)="redirectToNoticias()">Ver Todas las Noticias</button>
-        </div>
-      </div>
     </div>
-  </div>
 </section>
 
-<!-- Sección 9: Infografías y Alertas -->
-<section id="infografias-alertas" class="fullscreen-section">
-  <div class="container h-100 d-flex align-items-center">
-    <div class="row w-100">
-      <div class="col-lg-6 mb-4">
-        <div class="section-content">
-          <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Material Visual</h6>
-          <h2 class="mb-4">Infografías</h2>
-          <div class="infographics-carousel" *ngIf="infografias.length > 0">
-            <div id="infografiasCarousel" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner">
-                <div 
-                  *ngFor="let infografia of infografias; let i = index" 
-                  class="carousel-item" 
-                  [ngClass]="{'active': i === 0}">
-                  <img [src]="getImageUrlInfografia(infografia.portada)" class="d-block w-100" alt="Infografía">
+<!-- Sección 9: Infografías -->
+<section id="infografias-section" class="fullscreen-section bg-light">
+    <div class="container h-100 d-flex align-items-center">
+        <div class="row w-100">
+            <div class="col-12 text-center mb-5">
+                <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Material Visual</h6>
+                <h1>Infografías</h1>
+            </div>
+            <div class="col-lg-8 mx-auto">
+                <div class="infographics-carousel" *ngIf="infografias.length > 0">
+                    <div id="infografiasCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div *ngFor="let infografia of infografias; let i = index" class="carousel-item"
+                                [ngClass]="{'active': i === 0}">
+                                <img [src]="getImageUrlInfografia(infografia.portada)" class="d-block w-100"
+                                    alt="Infografía">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#infografiasCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#infografiasCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
                 </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#infografiasCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#infografiasCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary">Ver Todas las Infografías</button>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="section-content">
-          <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Información Urgente</h6>
-          <h2 class="mb-4">Alertas</h2>
-          <div class="alerts-section">
-            <div class="alert-item">
-              <div class="alert-icon">
-                <i class="fa fa-exclamation-triangle text-warning"></i>
-              </div>
-              <div class="alert-content">
-                <h5>Alerta Regional</h5>
-                <p>Incremento de casos de violencia familiar en la provincia de Andahuaylas.</p>
-                <small class="text-muted">Hace 2 horas</small>
-              </div>
-            </div>
-            <div class="alert-item">
-              <div class="alert-icon">
-                <i class="fa fa-bell text-info"></i>
-              </div>
-              <div class="alert-content">
-                <h5>Capacitación</h5>
-                <p>Nueva jornada de capacitación para operadores de justicia programada.</p>
-                <small class="text-muted">Hace 1 día</small>
-              </div>
-            </div>
-          </div>
-          <button class="btn btn-primary mt-3">Ver Todas las Alertas</button>
-        </div>
-      </div>
     </div>
-  </div>
 </section>
 
+<!-- Sección 10: Alertas -->
+<section id="alertas-section" class="fullscreen-section">
+    <div class="container h-100 d-flex align-items-center">
+        <div class="row w-100">
+            <div class="col-12 text-center mb-5">
+                <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Información Urgente</h6>
+                <h1>Alertas del Observatorio</h1>
+            </div>
+            <div class="col-lg-8 mx-auto">
+                <div class="alerts-grid">
+                    <div class="alert-item-large">
+                        <div class="alert-icon-large">
+                            <i class="fa fa-2x fa-exclamation-triangle text-warning"></i>
+                        </div>
+                        <div class="alert-content-large">
+                            <h4>Alerta Regional</h4>
+                            <p class="mb-3">Incremento de casos de violencia familiar en la provincia de Andahuaylas
+                                durante las últimas dos semanas.</p>
+                            <small class="text-muted">Publicado hace 2 horas</small>
+                        </div>
+                    </div>
+                    <div class="alert-item-large">
+                        <div class="alert-icon-large">
+                            <i class="fa fa-2x fa-bell text-info"></i>
+                        </div>
+                        <div class="alert-content-large">
+                            <h4>Capacitación Programada</h4>
+                            <p class="mb-3">Nueva jornada de capacitación para operadores de justicia sobre protocolos
+                                de atención a víctimas.</p>
+                            <small class="text-muted">Publicado hace 1 día</small>
+                        </div>
+                    </div>
+                    <div class="alert-item-large">
+                        <div class="alert-icon-large">
+                            <i class="fa fa-2x fa-calendar text-success"></i>
+                        </div>
+                        <div class="alert-content-large">
+                            <h4>Evento Próximo</h4>
+                            <p class="mb-3">Reunión extraordinaria del Consejo Directivo para revisar nuevas políticas
+                                de prevención.</p>
+                            <small class="text-muted">Publicado hace 3 días</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-5">
+                    <button class="btn btn-primary">Ver Todas las Alertas</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-aliados></app-aliados>
 <app-footer></app-footer>
-<a h
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
