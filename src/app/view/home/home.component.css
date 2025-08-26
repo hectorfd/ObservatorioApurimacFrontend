@@ -457,34 +457,99 @@ body {
   }
 }
 
-/* Cards para sistema regional */
-.system-card {
-  background: white;
-  padding: 2.5rem;
+/* Nueva Sección Sistema Regional */
+.system-image-container {
+  position: relative;
+  overflow: hidden;
   border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.system-image-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+.system-image-container img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
   transition: transform 0.3s ease;
-  height: 100%;
-  margin-bottom: 2rem;
 }
 
-.system-card:hover {
-  transform: translateY(-10px);
+.system-image-container:hover img {
+  transform: scale(1.05);
 }
 
-.system-icon {
-  margin-bottom: 1.5rem;
+.rounded-lg {
+  border-radius: 15px !important;
 }
 
-.system-card h5 {
+.system-content {
+  padding: 2rem;
+}
+
+.system-content h3 {
   color: #333;
-  margin-bottom: 1rem;
   font-weight: 600;
+  font-size: 1.8rem;
+  line-height: 1.3;
 }
 
-.system-card p {
+.system-content p {
   color: #666;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.system-buttons {
+  margin-top: 2rem;
+}
+
+.system-btn {
+  border-radius: 25px;
+  padding: 2rem 1.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-transform: none;
+}
+
+.system-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.system-btn i {
+  margin-right: 8px;
+}
+
+/* Estilos específicos para botones */
+.btn-primary.system-btn {
+  background: linear-gradient(135deg, #ac47ff, #d900ff);
+  border: none;
+  color: white;
+}
+
+.btn-primary.system-btn:hover {
+  background: linear-gradient(135deg, #d900ff, #ac47ff);
+  color: white;
+}
+
+
+.btn-outline-primary.system-btn {
+  border: 2px solid #ac47ff;
+  color: #ac47ff;
+  background: transparent;
+}
+
+.btn-outline-primary.system-btn:hover {
+  background: #ac47ff;
+  border-color: #ac47ff;
+  color: white;
 }
 
 /* Estilos para conceptos de violencia */
@@ -833,6 +898,23 @@ h1, h2, h3, h4, h5, h6 {
   .about-card-content p {
     font-size: 0.9rem;
   }
+  
+  /* Sistema Regional responsivo tablet */
+  .system-image-container img {
+    height: 300px;
+  }
+  
+  .system-content {
+    padding: 1.8rem;
+  }
+  
+  .system-content h3 {
+    font-size: 1.6rem;
+  }
+  
+  .system-content p {
+    font-size: 1.05rem;
+  }
 }
 
 @media (max-width: 576px) {
@@ -928,6 +1010,28 @@ h1, h2, h3, h4, h5, h6 {
   
   .about-card-content p {
     font-size: 0.85rem;
+  }
+  
+  /* Sistema Regional responsivo móvil pequeño */
+  .system-image-container img {
+    height: 250px;
+  }
+  
+  .system-content {
+    padding: 1.5rem;
+  }
+  
+  .system-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .system-content p {
+    font-size: 1rem;
+  }
+  
+  .system-btn {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
   }
 }
 
