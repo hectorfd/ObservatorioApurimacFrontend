@@ -1,0 +1,25 @@
+{
+  "routes": [
+    "/about",
+    "/contact",
+    "/crear-entidad-aliada",
+    "/crear-infografia",
+    "/crear-noticia",
+    "/crear-usuario",
+    "/crear-video",
+    "/dashboard",
+    "/home",
+    "/infografias",
+    "/lista-entidad-aliada",
+    "/lista-infografia",
+    "/lista-noticia",
+    "/lista-usuario",
+    "/lista-video",
+    "/login",
+    "/marco-conceptual",
+    "/noticias",
+    "/repositorio",
+    "/sistema-regional",
+    "/videos"
+  ]
+}

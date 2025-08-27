@@ -365,7 +365,7 @@
                                 Director
                             </div>
                             <div class="table-cell" data-label="Teléfono">
-                                <!-- <i class="fa fa-phone text-primary"></i> -->
+                                <i class="fa fa-phone text-primary"></i>
                             </div>
                             <div class="table-cell" data-label="Dirección">
                                 <i class="fa fa-map-marker text-primary"></i>Jr. Cusco N°211-213-215
@@ -468,37 +468,508 @@
 <section id="concepto-violencia" class="fullscreen-section bg-light">
     <div class="container h-100 d-flex align-items-center">
         <div class="row w-100">
-            <div class="col-lg-8 mx-auto text-center">
-                <div class="content-box">
-                    <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Definición</h6>
-                    <h1 class="mb-4">Concepto de Violencia</h1>
-                    <div class="concept-content">
-                        <p class="lead mb-4">
-                            "Cualquier acción o conducta, basada en su género, que cause muerte, daño o sufrimiento
-                            físico, sexual o psicológico a la mujer, tanto en el ámbito público como en el privado."
-                        </p>
-                        <div class="row mt-5">
-                            <div class="col-md-4 mb-3">
-                                <div class="concept-type">
-                                    <i class="fa fa-2x fa-heart-broken text-danger mb-3"></i>
-                                    <h5>Violencia Física</h5>
-                                </div>
+            <div class="col-12 text-center mb-5">
+                <h6 class="text-primary text-uppercase mb-5" style="letter-spacing: 5px;"></h6>
+                <h1 class="mb-4">Conceptos de Violencia</h1>
+                <!-- <p class="lead">"Cualquier acción o conducta, basada en su género, que cause muerte, daño o sufrimiento físico, sexual o psicológico a la mujer, tanto en el ámbito público como en el privado."</p> -->
+            </div>
+            <div class="col-lg-11 mx-auto">
+                <!-- Acordeón de conceptos -->
+                <div class="violence-accordion">
+                    
+                    <!-- Item 1: Ficha de Valorización -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" (click)="toggleAccordion('accordion1')">
+                            <div class="accordion-icon">
+                                <i class="fa fa-file-alt"></i>
                             </div>
-                            <div class="col-md-4 mb-3">
-                                <div class="concept-type">
-                                    <i class="fa fa-2x fa-brain text-warning mb-3"></i>
-                                    <h5>Violencia Psicológica</h5>
-                                </div>
+                            <h4>Ficha de Valorización de Riesgo</h4>
+                            <div class="accordion-arrow">
+                                <i class="fa fa-chevron-down"></i>
                             </div>
-                            <div class="col-md-4 mb-3">
-                                <div class="concept-type">
-                                    <i class="fa fa-2x fa-venus text-info mb-3"></i>
-                                    <h5>Violencia Sexual</h5>
+                        </div>
+                        <div class="accordion-content" id="accordion1">
+                            <div class="accordion-body">
+                                <h5><i class="fa fa-shield-alt text-primary"></i> Instrumento de Evaluación de Riesgo</h5>
+                                <p>Es un mecanismo técnico que aplican quienes operan las instituciones de la administración de justicia con la finalidad de:</p>
+                                <ul class="custom-list">
+                                    <li>Detectar y medir los niveles de riesgo a los que está expuesta una víctima</li>
+                                    <li>Evaluar el peligro proveniente de la persona denunciada</li>
+                                </ul>
+                                <h6><i class="fa fa-bullseye text-success"></i> Su aplicación está orientada a:</h6>
+                                <ul class="custom-list">
+                                    <li>Otorgar medidas de protección proporcionales al riesgo detectado</li>
+                                    <li>Prevenir nuevos actos de violencia</li>
+                                    <li>Evitar escaladas de violencia que puedan culminar en feminicidio</li>
+                                    <li>Garantizar la seguridad de la víctima durante el proceso judicial</li>
+                                </ul>
+                                <div class="highlight-box">
+                                    <i class="fa fa-exclamation-triangle text-warning"></i>
+                                    <strong>Características clave:</strong> Es de aplicación obligatoria, debe actualizarse periódicamente y sus resultados determinan la urgencia de las medidas de protección.
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary mt-4">Conoce los Tipos de Violencia</button>
                     </div>
+                    
+                    <!-- Item 2: Violencia contra integrantes -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" (click)="toggleAccordion('accordion2')">
+                            <div class="accordion-icon">
+                                <i class="fa fa-home"></i>
+                            </div>
+                            <h4>Violencia contra los Integrantes del Grupo Familiar</h4>
+                            <div class="accordion-arrow">
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content" id="accordion2">
+                            <div class="accordion-body">
+                                <h5><i class="fa fa-users text-primary"></i> ¿Quiénes son considerados integrantes del grupo familiar?</h5>
+                                <p>La Ley 30364, Ley Para Prevenir, Sancionar y Erradicar la Violencia contra las Mujeres y los Integrantes del Grupo Familiar, la define como: cualquier acción o conducta que le causa muerte, daño o sufrimiento físico, sexual o psicológico y que se produce en el contexto de una relación de responsabilidad, confianza o poder, de parte de un integrante a otro del grupo familiar.</p>
+                                
+                                <p><strong>El artículo 3º del Reglamento de dicha norma establece quiénes son los integrantes del grupo familiar:</strong></p>
+                                
+                                <!-- Tabla minimalista de integrantes del grupo familiar -->
+                                <table class="family-members-table table-bordered mt-4">
+                                    <tbody>
+                                        <tr>
+                                            <td>Parejas</td>
+                                            <td>Esposa/o</td>
+                                            <td>Convivientes</td>
+                                            <td>Enamorada/o</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ex parejas</td>
+                                            <td>Ex esposa/o</td>
+                                            <td>Ex convivientes</td>
+                                            <td>Ex enamorada/o</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Con hijos en común</td>
+                                            <td colspan="4">Quienes tengan hijas/os en común, independientemente que convivan o no al momento de producirse la violencia.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ascendientes</td>
+                                            <td>Padre y madre</td>
+                                            <td>Abuelas/os</td>
+                                            <td>Bisabuelas/os</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Descendientes</td>
+                                            <td>Hijas/os</td>
+                                            <td>Nietas/os</td>
+                                            <td>Bisnietas/os</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Parientes colaterales consanguíneos</td>
+                                            <td>Hermanas/os</td>
+                                            <td>Tías/os</td>
+                                            <td>Sobrinas/os</td>
+                                            <td>Primas/os</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Parientes colaterales afines</td>
+                                            <td>Suegra/o</td>
+                                            <td>Yerno y nuera</td>
+                                            <td>Cuñada/o</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Otras relaciones por afinidad</td>
+                                            <td>Madrastra y padrastro</td>
+                                            <td></td>
+                                            <td>Hijastra/o</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Que viven en el hogar</td>
+                                            <td colspan="4">Quienes habitan en el mismo hogar, siempre que no medien relaciones contractuales, al momento de producirse la violencia.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <div class="highlight-box mt-4">
+                                    <i class="fa fa-scale-balanced text-primary"></i>
+                                    <strong>Marco Legal:</strong> Esta clasificación está establecida en el artículo 3º del Reglamento de la Ley 30364 y es fundamental para determinar la aplicación de la normativa de protección.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3: Violencia de Género -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" (click)="toggleAccordion('accordion3')">
+                            <div class="accordion-icon">
+                                <i class="fa fa-venus-mars"></i>
+                            </div>
+                            <h4>Violencia de Género</h4>
+                            <div class="accordion-arrow">
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content" id="accordion3">
+                            <div class="accordion-body">
+                                <h5><i class="fa fa-gavel text-primary"></i> Violencia de género según la Política Nacional de Igualdad de Género (PNIG)</h5>
+                                <p>Es cualquier acción o conducta, basada en el género y agravada por la discriminación proveniente de la coexistencia de diversas identidades (raza, clase, identidad sexual, edad, pertenencia étnica, entre otras), que cause muerte, daño o sufrimiento físico, sexual o psicológico a una persona, tanto en el ámbito público como en el privado.</p>
+                                
+                                <h6><i class="fa fa-balance-scale text-success"></i> El Reglamento de la Ley 30364 señala que debe entenderse como:</h6>
+                                <ul class="custom-list">
+                                    <li>Una manifestación de discriminación que inhibe gravemente la capacidad de las mujeres de gozar de derechos y libertades en pie de igualdad</li>
+                                    <li>Se expresa a través de relaciones de dominio, sometimiento y subordinación</li>
+                                    <li>Ocurre en un contexto de discriminación sistemática contra la mujer y contra quienes confrontan el sistema de género</li>
+                                    <li>Puede darse tanto al interior de las familias como fuera de ellas</li>
+                                    <li>No se refiere a casos aislados, esporádicos o episódicos, sino a patrones sistemáticos de violencia</li>
+                                    <li>Afecta independientemente del sexo de la víctima</li>
+                                </ul>
+                                
+                                <div class="highlight-box">
+                                    <i class="fa fa-info-circle text-info"></i>
+                                    <strong>Importante:</strong> Esta definición reconoce la interseccionalidad y los patrones sistemáticos de discriminación que caracterizan la violencia de género.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 4: Tipos de Violencia -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" (click)="toggleAccordion('accordion4')">
+                            <div class="accordion-icon">
+                                <i class="fa fa-list-ul"></i>
+                            </div>
+                            <h4>Tipos de Violencia</h4>
+                            <div class="accordion-arrow">
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content" id="accordion4">
+                            <div class="accordion-body">
+                                <p><i class="fa fa-info-circle text-primary"></i> <strong>Son las formas a través de las cuales se ejerce una modalidad de violencia. Según la Ley 30364, los tipos de violencia son cuatro:</strong></p>
+                                
+                                <div class="violence-type-section">
+                                    <h6><i class="fa fa-fist-raised text-danger"></i> 1. Violencia física</h6>
+                                    <p>Es la acción o conducta que causa daño a la integridad corporal o a la salud. Se incluye el maltrato por negligencia, descuido o por privación de las necesidades básicas, que hayan ocasionado daño físico o que puedan llegar a ocasionarlo, sin importar el tiempo que se requiera para su recuperación.</p>
+                                </div>
+                                
+                                <div class="violence-type-section">
+                                    <h6><i class="fa fa-brain text-warning"></i> 2. Violencia psicológica</h6>
+                                    <p>Es la acción o conducta tendiente a controlar o aislar a la persona contra su voluntad, a humillarla o avergonzarla y que puede ocasionar daños psíquicos.</p>
+                                </div>
+                                
+                                <div class="violence-type-section">
+                                    <h6><i class="fa fa-venus text-info"></i> 3. Violencia sexual</h6>
+                                    <p>Son acciones de naturaleza sexual que se cometen contra una persona sin su consentimiento o bajo coacción. Incluyen actos que no involucran penetración o contacto físico alguno. Asimismo, se consideran tales la exposición a material pornográfico y que vulneran el derecho de las personas a decidir voluntariamente acerca de su vida sexual o reproductiva, a través de amenazas, coerción, uso de la fuerza o intimidación.</p>
+                                </div>
+                                
+                                <div class="violence-type-section">
+                                    <h6><i class="fa fa-coins text-success"></i> 4. Violencia económica o patrimonial</h6>
+                                    <p>Es la acción u omisión que ocasiona un menoscabo en los recursos económicos o patrimoniales de las mujeres por su condición de tales o contra cualquier integrante del grupo familiar, en el marco de relaciones de poder, responsabilidad o confianza. Ejemplos incluyen:</p>
+                                    <ul class="custom-list mt-2">
+                                        <li>La perturbación de la posesión, tenencia o propiedad de sus bienes</li>
+                                        <li>La pérdida, sustracción, destrucción, retención o apropiación indebida de objetos, instrumentos de trabajo, documentos personales, bienes, valores y derechos patrimoniales</li>
+                                        <li>La limitación de los recursos económicos destinados a satisfacer sus necesidades o privación de los medios indispensables para vivir una vida digna, así como la evasión del cumplimiento de sus obligaciones alimentarias</li>
+                                        <li>La limitación o control de sus ingresos, así como la percepción de un salario menor por igual tarea, dentro de un mismo lugar de trabajo</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="highlight-box mt-3">
+                                    <i class="fa fa-scale-balanced text-primary"></i>
+                                    <strong>Marco Legal:</strong> Estos tipos de violencia están definidos según la Ley 30364 - Ley para Prevenir, Sancionar y Erradicar la Violencia contra las Mujeres y los Integrantes del Grupo Familiar.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 5: Modalidades de Violencia -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" (click)="toggleAccordion('accordion5')">
+                            <div class="accordion-icon">
+                                <i class="fa fa-cogs"></i>
+                            </div>
+                            <h4>Modalidades de Violencia</h4>
+                            <div class="accordion-arrow">
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content" id="accordion5">
+                            <div class="accordion-body">
+                                <p><i class="fa fa-info-circle text-primary"></i> <strong>Son los espacios o contextos en los cuales se puede manifestar cualquiera de los tipos de violencia (física, psicológica, sexual o económica/patrimonial). Según la Ley 30364 y su reglamento, existen cuatro modalidades principales:</strong></p>
+                                
+                                <div class="violence-type-section">
+                                    <h6><i class="fa fa-home text-primary"></i> Violencia en el ámbito familiar</h6>
+                                    <p>Se produce dentro del entorno doméstico o en las relaciones de confianza, afectivas o de parentesco. Involucra a cónyuges, convivientes, exconvivientes, ascendientes, descendientes u otras personas que comparten o han compartido el hogar. Es la forma más común de violencia, ya que se da en el espacio privado donde debería existir protección y cuidado.</p>
+                                </div>
+                                
+                                <div class="violence-type-section">
+                                    <h6><i class="fa fa-briefcase text-warning"></i> Violencia en el ámbito laboral</h6>
+                                    <p>Ocurre dentro del espacio de trabajo, en relaciones de jerarquía o dependencia. Incluye conductas como hostigamiento, acoso, discriminación salarial, amenazas o cualquier forma de violencia ejercida por empleadores, jefes, compañeros o incluso subordinados. Atenta contra la integridad y los derechos laborales de la persona, afectando su desempeño y bienestar.</p>
+                                </div>
+                                
+                                <div class="violence-type-section">
+                                    <h6><i class="fa fa-graduation-cap text-info"></i> Violencia en el ámbito educativo</h6>
+                                    <p>Se manifiesta en instituciones educativas, desde inicial hasta superior. Puede provenir de docentes, estudiantes, autoridades o personal administrativo. Comprende conductas como hostigamiento, acoso, discriminación o abuso en el entorno escolar, vulnerando el derecho a una educación libre de violencia y estigmatización.</p>
+                                </div>
+                                
+                                <div class="violence-type-section">
+                                    <h6><i class="fa fa-users text-success"></i> Violencia en el ámbito comunitario</h6>
+                                    <p>Se ejerce en espacios públicos o de interacción social, como calles, plazas, centros de salud, transporte o comunidades. Incluye acoso callejero, violencia sexual en espacios públicos, exclusión social o cualquier acción que afecte la integridad de una persona por razones de género o condición familiar. Limita la libertad de tránsito, la participación comunitaria y la vida social segura.</p>
+                                </div>
+                                
+                                <div class="highlight-box mt-3">
+                                    <i class="fa fa-map-marker-alt text-primary"></i>
+                                    <strong>Importante:</strong> Estas modalidades pueden superponerse y una misma situación de violencia puede manifestarse en múltiples ámbitos simultáneamente.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 6: Víctima de Violencia -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" (click)="toggleAccordion('accordion6')">
+                            <div class="accordion-icon">
+                                <i class="fa fa-user-shield"></i>
+                            </div>
+                            <h4>Víctima de Violencia</h4>
+                            <div class="accordion-arrow">
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content" id="accordion6">
+                            <div class="accordion-body">
+                                <h5><i class="fa fa-gavel text-primary"></i> Definición de víctima según el Reglamento de la Ley 30364</h5>
+                                <p>En el marco del reglamento de la Ley 30364, se denomina víctima a:</p>
+                                
+                                <div class="violence-type-section">
+                                    <h6><i class="fa fa-female text-danger"></i> La mujer durante todo su ciclo de vida</h6>
+                                    <p>Que ha sufrido daño ocasionado por cualquier acción u omisión identificada como violencia.</p>
+                                </div>
+                                
+                                <div class="violence-type-section">
+                                    <h6><i class="fa fa-users text-warning"></i> El integrante del grupo familiar</h6>
+                                    <p>Que ha sufrido daño por acciones u omisiones violentas.</p>
+                                </div>
+                                
+                                <div class="violence-type-section">
+                                    <h6><i class="fa fa-child text-info"></i> Las niñas, niños y adolescentes en los siguientes casos:</h6>
+                                    <ul class="custom-list">
+                                        <li>Que hayan estado presentes en el momento de la comisión del delito</li>
+                                        <li>Que hayan sufrido daños por haber intervenido para prestar asistencia a la víctima</li>
+                                        <li>Que hayan sufrido daños por cualquier otra circunstancia en el contexto de la violencia</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="violence-type-section">
+                                    <h6><i class="fa fa-heart text-success"></i> Según el caso particular, se incluye también a:</h6>
+                                    <ul class="custom-list">
+                                        <li>La familia del entorno inmediato de la víctima</li>
+                                        <li>Las personas que están a cargo de la víctima</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="highlight-box mt-3">
+                                    <i class="fa fa-shield-alt text-primary"></i>
+                                    <strong>Protección integral:</strong> Esta definición amplia reconoce que la violencia afecta no solo a la víctima directa, sino también a su entorno familiar y social, especialmente a menores de edad.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 7: Personas en Situación de Vulnerabilidad -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" (click)="toggleAccordion('accordion7')">
+                            <div class="accordion-icon">
+                                <i class="fa fa-hands-helping"></i>
+                            </div>
+                            <h4>Personas en Situación de Vulnerabilidad</h4>
+                            <div class="accordion-arrow">
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content" id="accordion7">
+                            <div class="accordion-body">
+                                <h5><i class="fa fa-shield-alt text-primary"></i> Personas en situación de vulnerabilidad</h5>
+                                <p>Son las personas que, por razón de su edad, género, estado físico o mental, o por circunstancias sociales, económicas, étnicas o culturales, se encuentren con especiales dificultades para ejercer con plenitud sus derechos reconocidos por el ordenamiento jurídico.</p>
+                                
+                                <h6><i class="fa fa-list-check text-success"></i> Pueden constituir causas de vulnerabilidad las siguientes:</h6>
+                                
+                                <div class="violence-type-section">
+                                    <h6><i class="fa fa-calendar-alt text-info"></i> Edad avanzada o minoría de edad</h6>
+                                    <p>Personas adultas mayores o menores de edad que requieren protección especial.</p>
+                                </div>
+                                
+                                <div class="violence-type-section">
+                                    <h6><i class="fa fa-wheelchair text-primary"></i> Discapacidad física o mental</h6>
+                                    <p>Personas con limitaciones físicas, sensoriales, intelectuales o psicosociales.</p>
+                                </div>
+                                
+                                <div class="violence-type-section">
+                                    <h6><i class="fa fa-mountain text-success"></i> Pertenencia a comunidades:</h6>
+                                    <ul class="custom-list">
+                                        <li>Comunidades campesinas</li>
+                                        <li>Comunidades nativas</li>
+                                        <li>Pueblos indígenas u originarios</li>
+                                        <li>Población afroperuana</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="violence-type-section">
+                                    <h6><i class="fa fa-route text-warning"></i> Condición migratoria:</h6>
+                                    <ul class="custom-list">
+                                        <li>Migración</li>
+                                        <li>Refugio</li>
+                                        <li>Desplazamiento interno</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="violence-type-section">
+                                    <h6><i class="fa fa-coins text-danger"></i> Otras condiciones de vulnerabilidad:</h6>
+                                    <ul class="custom-list">
+                                        <li>Pobreza o situación económica precaria</li>
+                                        <li>Género (especialmente mujeres y diversidad)</li>
+                                        <li>Orientación sexual e identidad de género</li>
+                                        <li>Personas privadas de libertad</li>
+                                        <li>Estado de gestación</li>
+                                        <li>Entre otras circunstancias que limiten el ejercicio pleno de derechos</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="highlight-box mt-3">
+                                    <i class="fa fa-balance-scale text-primary"></i>
+                                    <strong>Enfoque interseccional:</strong> Una persona puede presentar múltiples factores de vulnerabilidad simultáneamente, lo que requiere una atención especializada y diferenciada.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 8: Revictimización -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" (click)="toggleAccordion('accordion8')">
+                            <div class="accordion-icon">
+                                <i class="fa fa-redo-alt"></i>
+                            </div>
+                            <h4>Revictimización</h4>
+                            <div class="accordion-arrow">
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content" id="accordion8">
+                            <div class="accordion-body">
+                                <h5><i class="fa fa-exclamation-triangle text-danger"></i> Revictimización en el marco de la Ley 30364</h5>
+                                <p>Se entiende como las acciones u omisiones inadecuadas que incrementan el daño sufrido por la víctima como consecuencia de su contacto con las entidades encargadas de:</p>
+                                
+                                <div class="violence-type-section">
+                                    <h6><i class="fa fa-hand-holding-heart text-primary"></i> Entidades responsables:</h6>
+                                    <ul class="custom-list">
+                                        <li>Atención a víctimas</li>
+                                        <li>Protección contra la violencia</li>
+                                        <li>Sanción a agresores</li>
+                                        <li>Recuperación post-violencia</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="violence-type-section">
+                                    <h6><i class="fa fa-shield-alt text-success"></i> El Sistema Nacional debe:</h6>
+                                    <ul class="custom-list">
+                                        <li>Adoptar medidas específicas para erradicar la revictimización</li>
+                                        <li>Considerar la situación especial de cada víctima</li>
+                                        <li>Garantizar protocolos con enfoque de derechos humanos</li>
+                                        <li>Evitar la repetición innecesaria del relato de los hechos</li>
+                                        <li>Proteger la intimidad y dignidad de las víctimas</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="highlight-box mt-3">
+                                    <i class="fa fa-heart text-danger"></i>
+                                    <strong>Principio fundamental:</strong> Las instituciones del Estado tienen la obligación de evitar causar daño adicional a las víctimas durante los procesos de atención, protección y justicia.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 9: Violencia hacia las Mujeres -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" (click)="toggleAccordion('accordion9')">
+                            <div class="accordion-icon">
+                                <i class="fa fa-female"></i>
+                            </div>
+                            <h4>Violencia hacia las Mujeres</h4>
+                            <div class="accordion-arrow">
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content" id="accordion9">
+                            <div class="accordion-body">
+                                <h5><i class="fa fa-gavel text-primary"></i> Instrumento de Evaluación de Riesgo según la Ley 30364</h5>
+                                <p>La Ley 30364, Ley Para Prevenir, Sanción y Erradicar la Violencia contra las Mujeres y los Integrantes del Grupo Familiar, establece este instrumento como mecanismo fundamental para la protección de víctimas de violencia. El artículo correspondiente de la norma establece las características y funciones de este instrumento:</p>
+                                
+                                <!-- Tabla de información -->
+                                <div class="info-table mt-4">
+                                    <div class="table-row">
+                                        <div class="table-header">
+                                            <i class="fa fa-bookmark"></i>
+                                            <strong>Definición</strong>
+                                        </div>
+                                        <div class="table-content">
+                                            Herramienta aplicada por operadores de justicia para detectar y medir riesgos que enfrenta la víctima respecto al agresor.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="table-row">
+                                        <div class="table-header">
+                                            <i class="fa fa-bullseye"></i>
+                                            <strong>Finalidad principal</strong>
+                                        </div>
+                                        <div class="table-content">
+                                            Otorgar medidas de protección adecuadas para prevenir nuevos actos de violencia, incluyendo feminicidio.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="table-row">
+                                        <div class="table-header">
+                                            <i class="fa fa-building"></i>
+                                            <strong>Ámbito de aplicación</strong>
+                                        </div>
+                                        <div class="table-content">
+                                            Instituciones de la administración de justicia y servicios de protección a víctimas.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="table-row">
+                                        <div class="table-header">
+                                            <i class="fa fa-tasks"></i>
+                                            <strong>Objetivos específicos</strong>
+                                        </div>
+                                        <div class="table-content">
+                                            <ul class="objectives-list">
+                                                <li>Identificar nivel de riesgo inminente</li>
+                                                <li>Determinar medidas de protección urgentes</li>
+                                                <li>Prevenir escalada de violencia</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="table-row">
+                                        <div class="table-header">
+                                            <i class="fa fa-exclamation-circle"></i>
+                                            <strong>Características obligatorias</strong>
+                                        </div>
+                                        <div class="table-content">
+                                            Debe ser aplicado de forma inmediata, periódica y con enfoque de derechos humanos.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="highlight-box mt-4">
+                                    <i class="fa fa-shield-alt text-primary"></i>
+                                    <strong>Importancia crucial:</strong> Este instrumento es fundamental para salvar vidas, ya que permite identificar situaciones de alto riesgo y implementar medidas de protección oportunas.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -513,7 +984,7 @@
                 <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Información</h6>
                 <h1>Observatorio Informa</h1>
             </div>
-            <div class="col-lg-10 mx-auto">
+            <!-- <div class="col-lg-10 mx-auto">
                 <div class="row">
                     <div class="col-md-6 mb-4">
                         <div class="info-card">
@@ -532,7 +1003,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
@@ -545,23 +1016,45 @@
                 <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Actualidad</h6>
                 <h1>Noticias</h1>
             </div>
-            <div class="col-lg-10 mx-auto">
-                <div class="row" *ngIf="noticias.length > 0">
-                    <div class="col-md-6 mb-4" *ngFor="let noticia of noticias.slice(0, 4)">
-                        <div class="news-card">
-                            <div class="news-image">
-                                <img [src]="getImageUrl(noticia.portada)" alt="{{ noticia.titulo }}">
-                            </div>
-                            <div class="news-content">
-                                <div class="news-meta">
-                                    <span class="news-date">{{ noticia.fecha }}</span>
+            <div class="col-lg-11 mx-auto">
+                <div class="news-carousel-container" *ngIf="noticias.length > 0">
+                    <div class="news-carousel-wrapper">
+                        <div class="news-carousel-track" #carouselTrack>
+                            <div class="news-card-carousel" *ngFor="let noticia of noticias">
+                                <div class="news-image-carousel">
+                                    <img [src]="getImageUrl(noticia.portada)" alt="{{ noticia.titulo }}">
                                 </div>
-                                <h5>{{ noticia.titulo }}</h5>
-                                <p>{{ noticia.descripcion }}</p>
+                                <div class="news-content-carousel">
+                                    <div class="news-meta">
+                                        <span class="news-date">{{ noticia.fecha }}</span>
+                                    </div>
+                                    <h5>{{ noticia.titulo }}</h5>
+                                    <p>{{ noticia.descripcion }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Controles del carousel -->
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev-btn" (click)="moveCarousel('prev')">
+                            <i class="fa fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn next-btn" (click)="moveCarousel('next')">
+                            <i class="fa fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Indicadores -->
+                    <div class="carousel-dots">
+                        <span *ngFor="let dot of getCarouselDots(); let i = index" 
+                              class="dot" 
+                              [class.active]="i === currentSlide"
+                              (click)="goToSlide(i)">
+                        </span>
+                    </div>
                 </div>
+                
                 <div class="text-center mt-4">
                     <button class="btn btn-primary" (click)="redirectToNoticias()">Ver Todas las Noticias</button>
                 </div>
@@ -570,90 +1063,138 @@
     </div>
 </section>
 
+
 <!-- Sección 9: Infografías -->
-<section id="infografias-section" class="fullscreen-section bg-light">
+<section id="infografias-section" class="fullscreen-section">
     <div class="container h-100 d-flex align-items-center">
         <div class="row w-100">
-            <div class="col-12 text-center mb-5">
+            <div class="col-12 text-center mb-4">
                 <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Material Visual</h6>
                 <h1>Infografías</h1>
             </div>
-            <div class="col-lg-8 mx-auto">
-                <div class="infographics-carousel" *ngIf="infografias.length > 0">
-                    <div id="infografiasCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div *ngFor="let infografia of infografias; let i = index" class="carousel-item"
-                                [ngClass]="{'active': i === 0}">
-                                <img [src]="getImageUrlInfografia(infografia.portada)" class="d-block w-100"
-                                    alt="Infografía">
+            <div class="col-lg-11 mx-auto">
+                <div class="news-carousel-container" *ngIf="infografias.length > 0">
+                    <div class="news-carousel-wrapper">
+                        <div class="news-carousel-track infografias-carousel-track">
+                            <div class="news-card-carousel" *ngFor="let infografia of infografias">
+                                <div class="news-image-carousel">
+                                    <img [src]="getImageUrlInfografia(infografia.portada)" alt="{{ infografia.titulo }}">
+                                </div>
+                                <div class="news-content-carousel">
+                                    <div class="news-meta">
+                                        <span class="news-date">{{ infografia.fecha }}</span>
+                                    </div>
+                                    <h5>{{ infografia.titulo }}</h5>
+                                    <p>{{ infografia.descripcion }}</p>
+                                </div>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#infografiasCarousel"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
+                    </div>
+                    
+                    <!-- Controles del carousel -->
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev-btn" (click)="moveInfografiasCarousel('prev')">
+                            <i class="fa fa-chevron-left"></i>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#infografiasCarousel"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
+                        <button class="carousel-btn next-btn" (click)="moveInfografiasCarousel('next')">
+                            <i class="fa fa-chevron-right"></i>
                         </button>
                     </div>
+                    
+                    <!-- Indicadores -->
+                    <div class="carousel-dots">
+                        <span *ngFor="let dot of getInfografiasCarouselDots(); let i = index" 
+                              class="dot" 
+                              [class.active]="i === currentInfografiasSlide"
+                              (click)="goToInfografiasSlide(i)">
+                        </span>
+                    </div>
                 </div>
+                
                 <div class="text-center mt-4">
-                    <button class="btn btn-primary">Ver Todas las Infografías</button>
+                    <button class="btn btn-primary" (click)="redirectToInfografias()">Ver Todas las Infografías</button>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Sección 10: Alertas -->
-<section id="alertas-section" class="fullscreen-section">
+<!-- Sección 10: Personas Desaparecidas -->
+<section id="personas-desaparecidas-section" class="fullscreen-section bg-light">
     <div class="container h-100 d-flex align-items-center">
         <div class="row w-100">
-            <div class="col-12 text-center mb-5">
-                <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Información Urgente</h6>
-                <h1>Alertas del Observatorio</h1>
+            <div class="col-12 text-center mb-4">
+                <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Ayúdanos a Encontrarlos</h6>
+                <h1>Personas Desaparecidas</h1>
+                <p class="lead">Si has visto a alguna de estas personas, por favor contacta a las autoridades</p>
             </div>
-            <div class="col-lg-8 mx-auto">
-                <div class="alerts-grid">
-                    <div class="alert-item-large">
-                        <div class="alert-icon-large">
-                            <i class="fa fa-2x fa-exclamation-triangle text-warning"></i>
-                        </div>
-                        <div class="alert-content-large">
-                            <h4>Alerta Regional</h4>
-                            <p class="mb-3">Incremento de casos de violencia familiar en la provincia de Andahuaylas
-                                durante las últimas dos semanas.</p>
-                            <small class="text-muted">Publicado hace 2 horas</small>
+            <div class="col-lg-11 mx-auto">
+                <div class="missing-persons-carousel-container" *ngIf="personasDesaparecidas.length > 0">
+                    <div class="missing-persons-carousel-wrapper">
+                        <div class="missing-persons-carousel-track" #missingPersonsCarouselTrack>
+                            <div class="missing-person-card" *ngFor="let persona of personasDesaparecidas">
+                                <div class="card-top-section">
+                                    <div class="missing-person-info">
+                                        <div class="missing-badge">SE BUSCA</div>
+                                        <h4>{{ persona.nombre }}</h4>
+                                        <div class="person-details">
+                                            <div class="detail-row">
+                                                <strong>Edad:</strong> {{ persona.edad }} años
+                                            </div>
+                                            <div class="detail-row">
+                                                <strong>Desaparecido desde:</strong> {{ persona.fechaDesaparicion }}
+                                            </div>
+                                            <div class="detail-row">
+                                                <strong>Último lugar visto:</strong> {{ persona.ultimoLugar }}
+                                            </div>
+                                            <div class="detail-row">
+                                                <strong>Descripción:</strong> {{ persona.descripcion }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="missing-person-photo">
+                                        <div class="missing-person-icon">
+                                            <i class="fa fa-user-circle fa-4x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-bottom-section">
+                                    <div class="contact-info-full">
+                                        <strong><i class="fa fa-phone"></i> Contacto:</strong> 
+                                        <span>{{ persona.contacto }}</span>
+                                    </div>
+                                    <div class="missing-person-actions">
+                                        <button class="btn btn-outline-success btn-sm" (click)="compartirInfo(persona.id)">
+                                            <i class="fa fa-share"></i> Compartir
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="alert-item-large">
-                        <div class="alert-icon-large">
-                            <i class="fa fa-2x fa-bell text-info"></i>
-                        </div>
-                        <div class="alert-content-large">
-                            <h4>Capacitación Programada</h4>
-                            <p class="mb-3">Nueva jornada de capacitación para operadores de justicia sobre protocolos
-                                de atención a víctimas.</p>
-                            <small class="text-muted">Publicado hace 1 día</small>
-                        </div>
+                    
+                    <!-- Controles del carousel -->
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev-btn" (click)="moveMissingPersonsCarousel('prev')">
+                            <i class="fa fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn next-btn" (click)="moveMissingPersonsCarousel('next')">
+                            <i class="fa fa-chevron-right"></i>
+                        </button>
                     </div>
-                    <div class="alert-item-large">
-                        <div class="alert-icon-large">
-                            <i class="fa fa-2x fa-calendar text-success"></i>
-                        </div>
-                        <div class="alert-content-large">
-                            <h4>Evento Próximo</h4>
-                            <p class="mb-3">Reunión extraordinaria del Consejo Directivo para revisar nuevas políticas
-                                de prevención.</p>
-                            <small class="text-muted">Publicado hace 3 días</small>
-                        </div>
+                    
+                    <!-- Indicadores -->
+                    <div class="carousel-dots">
+                        <span *ngFor="let dot of getMissingPersonsCarouselDots(); let i = index" 
+                              class="dot" 
+                              [class.active]="i === currentMissingPersonsSlide"
+                              (click)="goToMissingPersonsSlide(i)">
+                        </span>
                     </div>
                 </div>
-                <div class="text-center mt-5">
-                    <button class="btn btn-primary">Ver Todas las Alertas</button>
+                
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary" (click)="redirectToPersonasDesaparecidas()">Ver Todas las Personas Desaparecidas</button>
                 </div>
             </div>
         </div>
