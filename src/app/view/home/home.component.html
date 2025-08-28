@@ -976,34 +976,68 @@
     </div>
 </section>
 
-<!-- Sección 7: Observatorio Informa -->
+<!-- Sección 7: Violencia en los medios -->
 <section id="observatorio-informa" class="fullscreen-section">
     <div class="container h-100 d-flex align-items-center">
         <div class="row w-100">
             <div class="col-12 text-center mb-5">
-                <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Información</h6>
-                <h1>Observatorio Informa</h1>
+                <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Comunicación Responsable</h6>
+                <h1>Violencia en los Medios</h1>
+                <p class="lead">Artículos y noticias sobre el tratamiento responsable de la violencia de género en los medios</p>
             </div>
-            <!-- <div class="col-lg-10 mx-auto">
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <div class="info-card">
-                            <i class="fa fa-3x fa-chart-bar text-primary mb-3"></i>
-                            <h4>Estadísticas</h4>
-                            <p>Datos actualizados sobre la violencia hacia las mujeres en la región Apurímac.</p>
-                            <button class="btn btn-outline-primary">Ver Estadísticas</button>
+            <div class="col-lg-11 mx-auto">
+                <div class="prensa-carousel-container" 
+                     *ngIf="articulosPrensa.length > 0">
+                    <div class="prensa-carousel-wrapper">
+                        <div class="prensa-carousel-track" #prensaCarouselTrack>
+                            <div class="prensa-card" *ngFor="let articulo of articulosPrensa">
+                                <div class="prensa-image-container">
+                                    <img [src]="articulo.imagen" [alt]="articulo.titulo" class="prensa-image">
+                                    <div class="prensa-date-badge">
+                                        {{ articulo.fecha }}
+                                    </div>
+                                </div>
+                                <div class="prensa-card-body">
+                                    <div class="prensa-icon">
+                                        <i class="fa fa-newspaper"></i>
+                                    </div>
+                                    <h3 class="prensa-title">{{ articulo.titulo }}</h3>
+                                    <p class="prensa-excerpt">{{ articulo.resumen }}</p>
+                                    <div class="prensa-actions">
+                                        <button class="btn-prensa-leer" (click)="abrirModalPrensa(articulo)">
+                                            <i class="fa fa-eye"></i> Ver más
+                                        </button>
+                                        <span class="prensa-source">{{ articulo.fuente }}</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="info-card">
-                            <i class="fa fa-3x fa-file-alt text-primary mb-3"></i>
-                            <h4>Reportes</h4>
-                            <p>Informes técnicos y análisis sobre tendencias y patrones de violencia.</p>
-                            <button class="btn btn-outline-primary">Ver Reportes</button>
-                        </div>
+                    
+                    <!-- Controles del carousel -->
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev-btn" (click)="movePrensaCarousel('prev')">
+                            <i class="fa fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn next-btn" (click)="movePrensaCarousel('next')">
+                            <i class="fa fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Indicadores -->
+                    <div class="carousel-dots">
+                        <span *ngFor="let dot of getPrensaCarouselDots(); let i = index" 
+                              class="dot" 
+                              [class.active]="i === currentPrensaSlide"
+                              (click)="goToPrensaSlide(i)">
+                        </span>
                     </div>
                 </div>
-            </div> -->
+                
+                <div class="text-center mt-4">
+                    <button class="btn btn-cyan-prensa" (click)="redirectToViolenciaMedias()">Ver Todos los Artículos</button>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -1588,12 +1622,76 @@
     </div>
 </div>
 
+<!-- Modal Artículo de Prensa -->
+<div class="modal-backdrop" *ngIf="modalPrensaVisible" (click)="cerrarModalPrensa()">
+    <div class="modal-prensa" (click)="$event.stopPropagation()" *ngIf="articuloSeleccionado">
+        
+        <!-- Header del modal -->
+        <div class="header-modal-prensa">
+            <div class="icono-prensa">
+                <i class="fa fa-newspaper"></i>
+            </div>
+            <div class="titulo-modal-prensa">
+                <h2 class="text-white">ARTÍCULO DE PRENSA</h2>
+                <p>Comunicación Responsable</p>
+                <span>VIOLENCIA EN LOS MEDIOS</span>
+            </div>
+            <button class="boton-cerrar-modal-prensa" (click)="cerrarModalPrensa()">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="contenido-modal-prensa">
+            
+            <!-- Información del artículo -->
+            <div class="info-articulo">
+                <div class="fecha-articulo">
+                    <i class="fa fa-calendar-alt"></i>
+                    {{ articuloSeleccionado.fecha }}
+                </div>
+                <h1 class="titulo-articulo">{{ articuloSeleccionado.titulo }}</h1>
+                <div class="fuente-articulo">
+                    <i class="fa fa-building"></i>
+                    <strong>Fuente:</strong> {{ articuloSeleccionado.fuente }}
+                </div>
+            </div>
+            
+            <!-- Contenido del artículo -->
+            <div class="contenido-articulo">
+                <!-- Imagen del artículo estilo periódico -->
+                <div class="articulo-imagen-container">
+                    <img [src]="articuloSeleccionado.imagen" [alt]="articuloSeleccionado.titulo" class="articulo-imagen">
+                </div>
+                
+                <div class="texto-articulo" [innerHTML]="articuloSeleccionado.contenido"></div>
+                
+                <!-- Link externo si existe -->
+                <div class="link-externo" *ngIf="articuloSeleccionado.link">
+                    <a [href]="articuloSeleccionado.link" target="_blank" class="btn-link-externo">
+                        <i class="fa fa-external-link-alt"></i>
+                        Puede ver más detalles en el sitio oficial
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Footer con botón -->
+        <div class="footer-modal-prensa">
+            <button class="btn-cerrar-prensa" (click)="cerrarModalPrensa()">
+                <i class="fa fa-times"></i> CERRAR
+            </button>
+        </div>
+    </div>
+</div>
+
 <!-- Sección 11: Preguntas Frecuentes -->
-<section id="preguntas-frecuentes" class="fullscreen-section bg-light">
+<section id="preguntas-frecuentes" class="fullscreen-section">
     <div class="container h-100 d-flex align-items-center">
         <div class="row w-100">
             <div class="col-12 text-center mb-5">
-                <h6 class="text-primary text-uppercase mb-5" style="letter-spacing: 5px;">Ayuda</h6>
+                <h6 class="text-primary text-uppercase mb-5" style="letter-spacing: 5px;"></h6>
                 <h1 class="mb-4">Preguntas Frecuentes</h1>
                 <p class="lead">Resuelve tus dudas sobre el Observatorio Regional contra la Violencia hacia las Mujeres e Integrantes del Grupo Familiar</p>
             </div>

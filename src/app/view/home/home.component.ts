@@ -48,6 +48,14 @@ export class HomeComponent implements OnInit, OnDestroy {
   
   // Variables para el modal de instrumentos
   modalInstrumentosVisible = false;
+  
+  // Variables para el carousel de prensa y modal
+  articulosPrensa: any[] = [];
+  currentPrensaSlide = 0;
+  prensaItemsPerView = 3;
+  prensaAutoplayInterval: any;
+  modalPrensaVisible = false;
+  articuloSeleccionado: any = null;
 
   private isBrowser: boolean;
 
@@ -63,10 +71,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.cargarNoticias();
     this.cargarInfografias();
     this.cargarPersonasDesaparecidas();
+    this.cargarArticulosPrensa();
     if (this.isBrowser) {
       this.startAutoplay();
       this.startInfografiasAutoplay();
       this.startMissingPersonsAutoplay();
+      this.startPrensaAutoplay();
     }
   }
 
@@ -79,6 +89,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
     if (this.missingPersonsAutoplayInterval) {
       clearInterval(this.missingPersonsAutoplayInterval);
+    }
+    if (this.prensaAutoplayInterval) {
+      clearInterval(this.prensaAutoplayInterval);
     }
   }
 
@@ -571,6 +584,134 @@ abrirPDF(rutaPDF: string): void {
   if (this.isBrowser) {
     // Abrir el PDF en una nueva pestaña
     window.open(rutaPDF, '_blank');
+  }
+}
+
+// Funciones para el carousel de prensa
+cargarArticulosPrensa() {
+  // Datos de prueba - después se puede conectar a una API
+  this.articulosPrensa = [
+    {
+      id: 1,
+      titulo: 'Libertad de prensa en el Perú: entre avances y serios desafíos',
+      fecha: '23 de diciembre del 2023',
+      resumen: 'La Comisión Interamericana de Derechos Humanos (CIDH), a través de su Relatoría Especial para la Libertad de Expresión (RELE), publicó en diciembre de 2023 un informe que retrata la situación actual del periodismo y la libertad de expresión en el Perú.',
+      fuente: 'CIDH',
+      imagen: 'assets/img/prensa3.png',
+      contenido: `
+        <p>La Comisión Interamericana de Derechos Humanos (CIDH), a través de su Relatoría Especial para la Libertad de Expresión (RELE), publicó en diciembre de 2023 un informe que retrata la situación actual del periodismo y la libertad de expresión en el Perú. El documento reconoce avances, pero alerta sobre un contexto complejo que amenaza directamente la labor periodística y el debate democrático.</p>
+        
+        <h4>Violencia y hostigamiento a periodistas</h4>
+        <p>Si bien en los últimos años no se han registrado asesinatos de periodistas en el país, la RELE advierte que la violencia contra comunicadores sigue siendo recurrente. Entre 2021 y 2022 se documentaron más de 280 agresiones, incluyendo amenazas, ataques físicos, hostigamiento judicial y campañas de desprestigio. Casos emblemáticos, como el secuestro de un equipo de América TV en Cajamarca en 2022, muestran la vulnerabilidad de la prensa frente a actores estatales y civiles.</p>
+        
+        <h4>Grupos organizados y discursos estigmatizantes</h4>
+        <p>El informe denuncia el accionar de colectivos violentos como "La Resistencia", responsables de agresiones, acoso digital y ataques a periodistas y medios como IDL-Reporteros. Estos grupos han hostigado incluso en librerías y espacios culturales, creando un clima de permisividad frente a la violencia. A esto se suman discursos estigmatizantes desde autoridades públicas, que debilitan la confianza ciudadana en la prensa.</p>
+        
+        <h4>Obstáculos legales y judiciales</h4>
+        <p>Otro de los patrones señalados es el uso de procesos judiciales (por difamación, calumnias o querellas) como mecanismos para intimidar a periodistas que investigan corrupción o temas de interés público. La RELE advierte que este tipo de acciones, sumadas a la falta de protección efectiva, generan un entorno de autocensura.</p>
+        
+        <h4>Desafíos en el acceso a la información</h4>
+        <p>El informe resalta además las limitaciones para acceder a información pública y fuentes estatales, así como la presión política sobre líneas editoriales en contextos electorales y de crisis institucional. Estos factores, junto con la desinformación digital y la violencia en línea, deterioran la calidad del debate público.</p>
+        
+        <h4>Balance</h4>
+        <p>Para la RELE, la libertad de expresión en el Perú atraviesa un momento crítico: la polarización política, la inestabilidad institucional y la falta de respuesta adecuada del Estado frente a las agresiones han debilitado el espacio democrático. La Relatoría subraya que el periodismo libre, plural y seguro es indispensable para garantizar los derechos humanos y la vida democrática del país.</p>
+      `,
+      link: 'https://www.oas.org/es/cidh/expresion/publicaciones/Informe%20Libex%20Peru%20(7).pdf'
+    },
+    {
+      id: 2,
+      titulo: 'Culmina ciclo de talleres "Periodistas contra la violencia de género"',
+      fecha: '21 de septiembre de 2022',
+      resumen: 'La violencia de género sigue siendo una de las problemáticas más graves del país. En 2022, el Programa Nacional Aurora reportó más de 130 mil casos de violencia contra mujeres en sus distintas modalidades.',
+      fuente: 'Calandria',
+      imagen: 'assets/img/prensa2.png',
+      contenido: `
+        <p>La violencia de género sigue siendo una de las problemáticas más graves del país. En 2022, el Programa Nacional Aurora reportó más de 130 mil casos de violencia contra mujeres en sus distintas modalidades.</p>
+        
+        <p>Frente a esta realidad, la Asociación de Comunicadores Sociales Calandria desarrolló el ciclo de talleres macroregionales "Periodistas contra la violencia de género", en el marco del VI Concurso Nacional de Periodismo "Periodismo que llega sin violencia".</p>
+        
+        <p>Las capacitaciones se realizaron de manera virtual y reunieron a periodistas de todas las macroregiones del Perú, incluida Apurímac. En cada sesión se brindaron herramientas para que la prensa pueda incorporar un enfoque de género, combatir estereotipos y orientar a la ciudadanía sobre la problemática de la violencia.</p>
+        
+        <p>El ciclo contó con la participación de especialistas del Programa Nacional Aurora, del CONCORTV y de Calandria, quienes compartieron experiencias, criterios y recomendaciones para un periodismo responsable que contribuya a prevenir la violencia contra mujeres y niñas.</p>
+      `,
+      link: 'https://www.observatoriodemedios.pe/buenas-practicas/formacion-de-periodistas/culmina-satisfactoreamente-el-ciclo-de-talleres-macroregionales-periodistas-contra-la-violencia-de-genero/#:~:text=sesi%C3%B3n%20por%20macroregi%C3%B3n%2C%20realiz%C3%A1ndose%20as%C3%AD,a%20periodistas%20a%20nivel%20nacional'
+    },
+    {
+      id: 3,
+      titulo: 'Comunicadoras/es de Abancay recibieron capacitación del MIMP en tratamiento de la información sobre violencia contra las mujeres',
+      fecha: '4 de diciembre de 2023 - 3:38 p. m.',
+      resumen: 'El taller "Comunicación con igualdad que contribuya a la prevención de la violencia contra las mujeres y las niñas" reunió a representantes de medios regionales...',
+      fuente: 'MIMP',
+      imagen: 'assets/img/prensa1.png',
+      contenido: `
+        <p>El taller "Comunicación con igualdad que contribuya a la prevención de la violencia contra las mujeres y las niñas" reunió a representantes de medios regionales de Abancay con el objetivo de fortalecer el rol de la prensa en la prevención de la violencia de género. Se brindaron pautas para un tratamiento informativo responsable y la promoción de mensajes que contribuyan a la igualdad de género.</p>
+        
+        <p>La actividad se desarrolló en el marco de la Estrategia Nacional "Mujeres libres de violencia", que impulsa acciones integrales y articuladas de prevención. Además, se presentó el material del MIMP "Pautas para una comunicación que contribuya a la prevención de la violencia y discriminación contra las mujeres", como guía para que los medios se consoliden en su papel de agentes transformadores.</p>
+      `,
+      link: 'https://www.gob.pe/institucion/mimp/noticias/877234-comunicadoras-es-de-abancay-recibieron-capacitacion-del-mimp-en-tratamiento-de-la-informacion-sobre-violencia-contra-las-mujeres'
+    }
+  ];
+}
+
+startPrensaAutoplay(): void {
+  this.prensaAutoplayInterval = setInterval(() => {
+    this.movePrensaCarousel('next');
+  }, 5000);
+}
+
+movePrensaCarousel(direction: 'prev' | 'next'): void {
+  const maxSlides = Math.ceil(this.articulosPrensa.length / this.prensaItemsPerView);
+  
+  if (direction === 'next') {
+    this.currentPrensaSlide = (this.currentPrensaSlide + 1) % maxSlides;
+  } else {
+    this.currentPrensaSlide = this.currentPrensaSlide === 0 ? maxSlides - 1 : this.currentPrensaSlide - 1;
+  }
+  this.updatePrensaCarouselPosition();
+}
+
+updatePrensaCarouselPosition(): void {
+  if (this.isBrowser) {
+    const track = document.querySelector('.prensa-carousel-track') as HTMLElement;
+    if (track) {
+      const translateX = -(this.currentPrensaSlide * (100 / this.prensaItemsPerView)) * this.prensaItemsPerView;
+      track.style.transform = `translateX(${translateX}%)`;
+    }
+  }
+}
+
+goToPrensaSlide(index: number): void {
+  this.currentPrensaSlide = index;
+  this.updatePrensaCarouselPosition();
+}
+
+getPrensaCarouselDots(): number[] {
+  const maxSlides = Math.ceil(this.articulosPrensa.length / this.prensaItemsPerView);
+  return Array(maxSlides).fill(0).map((_, i) => i);
+}
+
+redirectToViolenciaMedias(): void {
+  // Aquí se puede implementar la redirección a la página de artículos
+  console.log('Redirigir a todos los artículos de prensa');
+}
+
+// Funciones para el modal de prensa
+abrirModalPrensa(articulo: any): void {
+  this.articuloSeleccionado = articulo;
+  this.modalPrensaVisible = true;
+  if (this.isBrowser) {
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+cerrarModalPrensa(event?: Event): void {
+  if (event && event.target !== event.currentTarget) {
+    return;
+  }
+  this.modalPrensaVisible = false;
+  this.articuloSeleccionado = null;
+  if (this.isBrowser) {
+    document.body.style.overflow = 'auto';
   }
 }
 }
