@@ -593,7 +593,7 @@ cargarArticulosPrensa() {
   this.articulosPrensa = [
     {
       id: 1,
-      titulo: 'Libertad de prensa en el Perú: entre avances y serios desafíos',
+      titulo: 'Informe Especial Situación de la Libertad de Expresión en Perú. por Pedro Vaca Villarreal',
       fecha: '23 de diciembre del 2023',
       resumen: 'La Comisión Interamericana de Derechos Humanos (CIDH), a través de su Relatoría Especial para la Libertad de Expresión (RELE), publicó en diciembre de 2023 un informe que retrata la situación actual del periodismo y la libertad de expresión en el Perú.',
       fuente: 'CIDH',

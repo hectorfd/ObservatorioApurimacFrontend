@@ -981,12 +981,11 @@
     <div class="container h-100 d-flex align-items-center">
         <div class="row w-100">
             <div class="col-12 text-center mb-5">
-                <h6 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Comunicación Responsable</h6>
+                <h6 class="text-primary text-uppercase mb-5" style="letter-spacing: 5px;"></h6>
                 <h1>Violencia en los Medios</h1>
-                <p class="lead">Artículos y noticias sobre el tratamiento responsable de la violencia de género en los medios</p>
             </div>
             <div class="col-lg-11 mx-auto">
-                <div class="prensa-carousel-container" 
+                <div class="prensa-carousel-container"
                      *ngIf="articulosPrensa.length > 0">
                     <div class="prensa-carousel-wrapper">
                         <div class="prensa-carousel-track" #prensaCarouselTrack>
@@ -998,16 +997,16 @@
                                     </div>
                                 </div>
                                 <div class="prensa-card-body">
-                                    <div class="prensa-icon">
+                                    <!-- <div class="prensa-icon">
                                         <i class="fa fa-newspaper"></i>
-                                    </div>
+                                    </div> -->
                                     <h3 class="prensa-title">{{ articulo.titulo }}</h3>
                                     <p class="prensa-excerpt">{{ articulo.resumen }}</p>
                                     <div class="prensa-actions">
                                         <button class="btn-prensa-leer" (click)="abrirModalPrensa(articulo)">
                                             <i class="fa fa-eye"></i> Ver más
                                         </button>
-                                        <span class="prensa-source">{{ articulo.fuente }}</span>
+                                        <!-- <span class="prensa-source">{{ articulo.fuente }}</span> -->
                                     </div>
                                 </div>
                             </div>
