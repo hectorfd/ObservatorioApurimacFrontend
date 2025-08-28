@@ -1129,45 +1129,56 @@
                 <p class="lead">Si has visto a alguna de estas personas, por favor contacta a las autoridades</p>
             </div>
             <div class="col-lg-11 mx-auto">
-                <div class="missing-persons-carousel-container" *ngIf="personasDesaparecidas.length > 0">
+                <div class="missing-persons-carousel-container" 
+                     *ngIf="personasDesaparecidas.length > 0">
                     <div class="missing-persons-carousel-wrapper">
                         <div class="missing-persons-carousel-track" #missingPersonsCarouselTrack>
-                            <div class="missing-person-card" *ngFor="let persona of personasDesaparecidas">
-                                <div class="card-top-section">
-                                    <div class="missing-person-info">
+                            <div class="missing-person-card id-card-style" *ngFor="let persona of personasDesaparecidas">
+                                <div class="id-card-main">
+                                    <div class="id-photo-section">
                                         <div class="missing-badge">SE BUSCA</div>
-                                        <h4>{{ persona.nombre }}</h4>
-                                        <div class="person-details">
-                                            <div class="detail-row">
-                                                <strong>Edad:</strong> {{ persona.edad }} años
-                                            </div>
-                                            <div class="detail-row">
-                                                <strong>Desaparecido desde:</strong> {{ persona.fechaDesaparicion }}
-                                            </div>
-                                            <div class="detail-row">
-                                                <strong>Último lugar visto:</strong> {{ persona.ultimoLugar }}
-                                            </div>
-                                            <div class="detail-row">
-                                                <strong>Descripción:</strong> {{ persona.descripcion }}
-                                            </div>
+                                        <div class="id-photo">
+                                            <img [src]="getMissingPersonImageUrl(persona.foto)" 
+                                                [alt]="persona.nombre"
+                                                class="foto-card"
+                                                (error)="onImageError($event)">
                                         </div>
                                     </div>
-                                    <div class="missing-person-photo">
-                                        <div class="missing-person-icon">
-                                            <i class="fa fa-user-circle fa-4x"></i>
+                                    <div class="id-info-section">
+                                        <h3 class="id-name">{{ persona.nombre }}</h3>
+                                        <div class="id-details">
+                                            <div class="id-row">
+                                                <span class="id-label">EDAD:</span>
+                                                <span class="id-value">{{ persona.edad }} años</span>
+                                            </div>
+                                            <div class="id-row">
+                                                <span class="id-label">DESDE:</span>
+                                                <span class="id-value">{{ persona.fechaDesaparicion }}</span>
+                                            </div>
+                                            <div class="id-row">
+                                                <span class="id-label">LUGAR:</span>
+                                                <span class="id-value">{{ persona.ultimoLugar }}</span>
+                                            </div>
+                                            <div class="id-row description-row">
+                                                <span class="id-label">DESC:</span>
+                                                <span class="id-value">{{ persona.descripcion }}</span>
+                                            </div>
+                                            <button class="btn btn-details" (click)="verDetalles(persona)">
+                                                <i class="fa fa-eye"></i> VER DETALLES
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-bottom-section">
-                                    <div class="contact-info-full">
-                                        <strong><i class="fa fa-phone"></i> Contacto:</strong> 
+                                <div class="id-contact-section">
+                                    <div class="contact-info">
+                                        <i class="fa fa-phone"></i>
+                                        <strong>CONTACTO:</strong>
                                         <span>{{ persona.contacto }}</span>
                                     </div>
-                                    <div class="missing-person-actions">
-                                        <button class="btn btn-outline-success btn-sm" (click)="compartirInfo(persona.id)">
-                                            <i class="fa fa-share"></i> Compartir
-                                        </button>
-                                    </div>
+                                    
+                                    <button class="btn btn-share" (click)="compartirInfo(persona.id)">
+                                        <i class="fa fa-share"></i> COMPARTIR
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1195,6 +1206,246 @@
                 
                 <div class="text-center mt-4">
                     <button class="btn btn-primary" (click)="redirectToPersonasDesaparecidas()">Ver Todas las Personas Desaparecidas</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Modal profesional -->
+<div class="modal-backdrop" *ngIf="modalVisible" (click)="cerrarModal()">
+    <div class="contenedor-modal" (click)="$event.stopPropagation()" *ngIf="personaSeleccionada">
+        
+        <!-- Header estilo oficial -->
+        <div class="header-oficial">
+            <div class="escudo-policia">
+                <i class="fa fa-shield-alt"></i>
+            </div>
+            <div class="titulo-oficial">
+                <h2>NOTA DE ALERTA</h2>
+                <p>POLICÍA NACIONAL DEL PERÚ</p>
+                <span>DIVISIÓN DE INVESTIGACIÓN Y BÚSQUEDA</span>
+            </div>
+            <button class="boton-cerrar" (click)="cerrarModal()">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="contenido-modal">
+            
+            <!-- Sección de foto y datos principales -->
+            <div class="seccion-principal">
+                <div class="contenedor-foto">
+                    <img [src]="getImagenModal(personaSeleccionada.foto)" 
+                         [alt]="personaSeleccionada.nombre"
+                         class="foto-oficial"
+                         (error)="onImageError($event)">
+                    <div class="marca-busqueda">SE BUSCA</div>
+                </div>
+                
+                <div class="datos-principales">
+                    <h3 class="nombre-completo">{{personaSeleccionada.nombre}}</h3>
+                    
+                    <div class="info-grid">
+                        <div class="campo">
+                            <span class="label">EDAD:</span>
+                            <span class="value">{{personaSeleccionada.edad}} AÑOS</span>
+                        </div>
+                        <div class="campo">
+                            <span class="label">FECHA DEL HECHO:</span>
+                            <span class="value">{{personaSeleccionada.fechaDesaparicion}}</span>
+                        </div>
+                        <div class="campo campo-completo">
+                            <span class="label">LUGAR DEL HECHO:</span>
+                            <span class="value">{{personaSeleccionada.ultimoLugar}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Características físicas -->
+            <div class="seccion-caracteristicas" *ngIf="personaSeleccionada.datosCompletos?.caracteristicas">
+                <h4>CARACTERÍSTICAS FÍSICAS</h4>
+                <div class="tabla-caracteristicas">
+                    <div class="fila-caracteristicas">
+                        <div class="celda"><strong>TEZ:</strong> {{personaSeleccionada.datosCompletos.caracteristicas.tez}}</div>
+                        <div class="celda"><strong>CARA:</strong> {{personaSeleccionada.datosCompletos.caracteristicas.cara}}</div>
+                        <div class="celda"><strong>OJOS:</strong> {{personaSeleccionada.datosCompletos.caracteristicas.ojos}}</div>
+                    </div>
+                    <div class="fila-caracteristicas">
+                        <div class="celda"><strong>NARIZ:</strong> {{personaSeleccionada.datosCompletos.caracteristicas.nariz}}</div>
+                        <div class="celda"><strong>BOCA:</strong> {{personaSeleccionada.datosCompletos.caracteristicas.boca}}</div>
+                        <div class="celda"><strong>CABELLOS:</strong> {{personaSeleccionada.datosCompletos.caracteristicas.cabellos}}</div>
+                    </div>
+                    <div class="fila-caracteristicas">
+                        <div class="celda"><strong>ESTATURA:</strong> {{personaSeleccionada.datosCompletos.caracteristicas.estatura}}</div>
+                        <div class="celda"><strong>CONTEXTURA:</strong> {{personaSeleccionada.datosCompletos.caracteristicas.contextura}}</div>
+                        <div class="celda"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Circunstancias -->
+            <div class="seccion-circunstancias" *ngIf="personaSeleccionada.datosCompletos?.circunstancias">
+                <h4>CIRCUNSTANCIAS</h4>
+                <p>{{personaSeleccionada.datosCompletos.circunstancias}}</p>
+            </div>
+            
+            <!-- Información de contacto -->
+            <div class="seccion-contacto">
+                <h4>INFORMACIÓN ADICIONAL</h4>
+                <div class="datos-contacto" *ngIf="personaSeleccionada.datosCompletos">
+                    <div class="info-policial">
+                        <strong>INSTRUCTOR POLICIAL:</strong>
+                        <span>{{personaSeleccionada.datosCompletos.instructorPolicial}}</span>
+                    </div>
+                    <div class="info-telefono">
+                        <strong>TELÉFONOS:</strong>
+                        <span>{{personaSeleccionada.datosCompletos.telefonoInstructor}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer con botones -->
+        <div class="footer-modal">
+            <button class="btn-accion btn-cerrar-modal" (click)="cerrarModal()">
+                <i class="fa fa-times"></i> CERRAR
+            </button>
+            <button class="btn-accion btn-compartir-modal" (click)="compartirInfo(personaSeleccionada.id)">
+                <i class="fa fa-share"></i> COMPARTIR INFORMACIÓN
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Sección 11: Preguntas Frecuentes -->
+<section id="preguntas-frecuentes" class="fullscreen-section bg-light">
+    <div class="container h-100 d-flex align-items-center">
+        <div class="row w-100">
+            <div class="col-12 text-center mb-5">
+                <h6 class="text-primary text-uppercase mb-5" style="letter-spacing: 5px;">Ayuda</h6>
+                <h1 class="mb-4">Preguntas Frecuentes</h1>
+                <p class="lead">Resuelve tus dudas sobre el Observatorio Regional contra la Violencia hacia las Mujeres e Integrantes del Grupo Familiar</p>
+            </div>
+            <div class="col-lg-11 mx-auto">
+                <!-- Acordeón de preguntas frecuentes -->
+                <div class="violence-accordion">
+                    
+                    <!-- Pregunta 1 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" (click)="toggleAccordion('faq1')">
+                            <div class="accordion-icon">
+                                <i class="fa fa-question-circle"></i>
+                            </div>
+                            <h4>¿Qué información ofrece el Observatorio?</h4>
+                            <div class="accordion-arrow">
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content" id="faq1">
+                            <div class="accordion-body">
+                                <p>El Observatorio brinda información relacionada con los diferentes tipos y modalidades de violencia contra las mujeres e integrantes del grupo familiar, incluyendo:</p>
+                                <ul class="custom-list">
+                                    <li>Datos estadísticos actualizados e indicadores de seguimiento</li>
+                                    <li>Legislación nacional e internacional vigente</li>
+                                    <li>Servicios que presta el Estado para la atención y protección de víctimas</li>
+                                    <li>Informes e investigaciones institucionales y académicas</li>
+                                    <li>Experiencias y buenas prácticas desarrolladas por el Estado y la sociedad civil</li>
+                                    <li>Avances y desafíos en la implementación de políticas públicas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pregunta 2 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" (click)="toggleAccordion('faq2')">
+                            <div class="accordion-icon">
+                                <i class="fa fa-desktop"></i>
+                            </div>
+                            <h4>¿Cómo puedo acceder a la información?</h4>
+                            <div class="accordion-arrow">
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content" id="faq2">
+                            <div class="accordion-body">
+                                <p>Toda la información se encuentra disponible de manera pública y gratuita a través del portal web del Observatorio Regional, organizada en áreas temáticas de fácil acceso para la ciudadanía, estudiantes, investigadores, profesionales y autoridades.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pregunta 3 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" (click)="toggleAccordion('faq3')">
+                            <div class="accordion-icon">
+                                <i class="fa fa-search"></i>
+                            </div>
+                            <h4>¿Qué tipo de información voy a encontrar?</h4>
+                            <div class="accordion-arrow">
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content" id="faq3">
+                            <div class="accordion-body">
+                                <p>Encontrará información vinculada al seguimiento e implementación de la Ley N.° 30364 (Ley para prevenir, sancionar y erradicar la violencia contra las mujeres y los integrantes del grupo familiar), la Política Nacional de Igualdad de Género (PNIG) y otros instrumentos de gestión pública.</p>
+                                <p><strong>Además, el Observatorio recopila:</strong></p>
+                                <ul class="custom-list">
+                                    <li>Datos estadísticos comparativos y reportes periódicos</li>
+                                    <li>Artículos, notas informativas y publicaciones académicas</li>
+                                    <li>Información sobre compromisos internacionales asumidos por el Estado Peruano en materia de derechos humanos y género</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pregunta 4 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" (click)="toggleAccordion('faq4')">
+                            <div class="accordion-icon">
+                                <i class="fa fa-exclamation-triangle"></i>
+                            </div>
+                            <h4>¿Qué limitaciones tiene el Observatorio?</h4>
+                            <div class="accordion-arrow">
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content" id="faq4">
+                            <div class="accordion-body">
+                                <p>El Observatorio depende de la disponibilidad y actualización de datos de las instituciones que los producen. En algunos casos, la información puede provenir de bases cerradas o ser publicada con periodicidad anual, lo que puede limitar la comparación inmediata en determinados periodos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pregunta 5 -->
+                    <div class="accordion-item">
+                        <div class="accordion-header" (click)="toggleAccordion('faq5')">
+                            <div class="accordion-icon">
+                                <i class="fa fa-users"></i>
+                            </div>
+                            <h4>¿Para qué me sirve la información del Observatorio?</h4>
+                            <div class="accordion-arrow">
+                                <i class="fa fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content" id="faq5">
+                            <div class="accordion-body">
+                                <p>La información publicada es de utilidad para:</p>
+                                <ul class="custom-list">
+                                    <li><strong>Investigadores, estudiantes y profesionales especializados:</strong> que requieren insumos confiables para sus trabajos</li>
+                                    <li><strong>Autoridades regionales y locales:</strong> que diseñan e implementan políticas públicas de prevención y atención de la violencia</li>
+                                    <li><strong>Sociedad civil y ciudadanía en general:</strong> que desean conocer la magnitud del problema y participar en su erradicación</li>
+                                    <li><strong>Víctimas y familiares:</strong> que pueden identificar los servicios de apoyo disponibles en el Estado y las normas que protegen sus derechos</li>
+                                </ul>
+                                <div class="highlight-box mt-4">
+                                    <i class="fa fa-bullseye text-primary"></i>
+                                    <strong>En síntesis:</strong> El Observatorio busca visibilizar la situación de violencia, aportar evidencia para la toma de decisiones e incidir en la necesidad de erradicar la violencia contra las mujeres e integrantes del grupo familiar en la región.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

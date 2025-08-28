@@ -1,0 +1,192 @@
+<app-header></app-header>
+
+<section class="personas-page">
+    <div class="container">
+        <!-- Header de la página -->
+        <div class="page-header">
+            <div class="header-content">
+                <h1>Personas Desaparecidas</h1>
+                <p>Ayúdanos a encontrar a estas personas. Si has visto a alguna de ellas, contacta inmediatamente a las autoridades.</p>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="number">{{personasDesaparecidas.length}}</span>
+                    <span class="label">Personas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">24/7</span>
+                    <span class="label">Línea</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="filtros-section">
+            <div class="filtros">
+                <select class="filtro" [(ngModel)]="filtroEdad" (change)="aplicarFiltros()">
+                    <option value="">Todas las edades</option>
+                    <option value="menor">Menores de 18</option>
+                    <option value="adulto">18-60 años</option>
+                    <option value="mayor">Mayores de 60</option>
+                </select>
+                
+                <input type="text" 
+                       class="filtro" 
+                       placeholder="Buscar por nombre..."
+                       [(ngModel)]="busquedaNombre"
+                       (input)="aplicarFiltros()">
+                
+                <button class="btn-filtro" (click)="limpiarFiltros()">
+                    <i class="fa fa-refresh"></i> Limpiar
+                </button>
+            </div>
+        </div>
+
+        <!-- Grid de personas -->
+        <div class="personas-grid">
+            <div class="persona-card" *ngFor="let persona of personasFiltradas">
+                
+                <!-- Card principal -->
+                <div class="card-container">
+                    <div class="card-header">
+                        <div class="urgente-badge">SE BUSCA</div>
+                        <div class="fecha-desaparicion">{{persona.fechaDesaparicion}}</div>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="foto-section">
+                            <img [src]="getImagenModal(persona.foto)" 
+                                 [alt]="persona.nombre"
+                                 class="foto-persona-card"
+                                 (error)="onImageError($event)">
+                        </div>
+                        
+                        <div class="info-section">
+                            <h3 class="nombre">{{persona.nombre}}</h3>
+                            
+                            <div class="datos-rapidos">
+                                <div class="dato-item">
+                                    <i class="fa fa-calendar"></i>
+                                    <span>{{persona.edad}} años</span>
+                                </div>
+                                <div class="dato-item">
+                                    <i class="fa fa-map-marker"></i>
+                                    <span>{{persona.ultimoLugar}}</span>
+                                </div>
+                            </div>
+                            
+                            <div class="descripcion">
+                                <p>{{persona.descripcion}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <div class="contacto-info">
+                            <i class="fa fa-phone"></i>
+                            <span>{{persona.contacto}}</span>
+                        </div>
+                        
+                        <div class="acciones">
+                            <button class="btn-detalle" (click)="verDetalles(persona)">
+                                <i class="fa fa-eye"></i> Ver Detalles
+                            </button>
+                            <button class="btn-compartir-card" (click)="compartirInfo(persona.id)">
+                                <i class="fa fa-share"></i> Compartir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mensaje si no hay resultados -->
+        <div class="no-resultados" *ngIf="personasFiltradas.length === 0">
+            <i class="fa fa-search fa-3x"></i>
+            <h3>No se encontraron resultados</h3>
+            <p>Intenta con otros criterios de búsqueda</p>
+        </div>
+        
+        <!-- Información adicional -->
+        <!-- <div class="info-adicional">
+            <div class="info-box">
+                <div class="info-icon">
+                    <i class="fa fa-phone-alt"></i>
+                </div>
+                <div class="info-content">
+                    <h4>Línea de Emergencia</h4>
+                    <p>Si has visto a alguna de estas personas, llama inmediatamente:</p>
+                    <div class="telefono-emergencia">105 - PNP</div>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <div class="info-icon">
+                    <i class="fa fa-exclamation-triangle"></i>
+                </div>
+                <div class="info-content">
+                    <h4>¿Cómo Ayudar?</h4>
+                    <p>Comparte esta información en tus redes sociales para ampliar la búsqueda.</p>
+                    <button class="btn-reportar" (click)="reportarAvistamiento()">
+                        <i class="fa fa-eye"></i> Reportar Avistamiento
+                    </button>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</section>
+
+<!-- Modal (el mismo que ya funciona) -->
+<div class="modal-backdrop" *ngIf="modalVisible" (click)="cerrarModal()">
+    <div class="modal-dialog" (click)="$event.stopPropagation()" *ngIf="personaSeleccionada">
+        
+        <div class="modal-header-new">
+            <h3>{{personaSeleccionada.nombre}}</h3>
+            <button class="btn-close-new" (click)="cerrarModal()">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="modal-body-new">
+            <div class="info-principal">
+                <div class="foto-container">
+                    <img [src]="getImagenModal(personaSeleccionada.foto)" 
+                         [alt]="personaSeleccionada.nombre"
+                         class="foto-persona">
+                    <div class="etiqueta-busqueda">SE BUSCA</div>
+                </div>
+                
+                <div class="datos-basicos">
+                    <div class="dato">
+                        <span class="etiqueta">Edad:</span>
+                        <span class="valor">{{personaSeleccionada.edad}} años</span>
+                    </div>
+                    <div class="dato">
+                        <span class="etiqueta">Desaparecido:</span>
+                        <span class="valor">{{personaSeleccionada.fechaDesaparicion}}</span>
+                    </div>
+                    <div class="dato">
+                        <span class="etiqueta">Lugar:</span>
+                        <span class="valor">{{personaSeleccionada.ultimoLugar}}</span>
+                    </div>
+                    <div class="dato">
+                        <span class="etiqueta">Contacto:</span>
+                        <span class="valor">{{personaSeleccionada.contacto}}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="seccion-descripcion">
+                <h4>Descripción Física</h4>
+                <p>{{personaSeleccionada.descripcion}}</p>
+            </div>
+        </div>
+        
+        <div class="modal-footer-new">
+            <button class="btn-cerrar" (click)="cerrarModal()">Cerrar</button>
+            <button class="btn-compartir" (click)="compartirInfo(personaSeleccionada.id)">Compartir</button>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

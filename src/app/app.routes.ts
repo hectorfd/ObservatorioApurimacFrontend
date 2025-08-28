@@ -137,4 +137,8 @@ export const routes: Routes = [
       path: 'lista-entidad-aliada',
       loadComponent: () => import('./dashboard/lista-entidad-aliada/lista-entidad-aliada.component').then((m) => m.ListaEntidadAliadaComponent),
     },
+    {
+      path: 'personas-desaparecidas',
+      loadComponent: () => import('./view/personas-desaparecidas/personas-desaparecidas.component').then((m) => m.PersonasDesaparecidasComponent)
+    }
 ];

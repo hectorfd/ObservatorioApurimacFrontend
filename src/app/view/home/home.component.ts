@@ -39,6 +39,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   missingPersonsItemsPerView = 1;
   missingPersonsAutoplayInterval: any;
 
+  // Variables para el modal
+  modalVisible = false;
+  personaSeleccionada: any = null;
+
   private isBrowser: boolean;
 
   constructor(
@@ -298,6 +302,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     const maxSlides = Math.max(0, this.infografias.length - this.infografiasItemsPerView);
     return Array(maxSlides + 1).fill(0).map((_, i) => i);
   }
+  
 
   resetInfografiasAutoplay(): void {
     if (this.isBrowser) {
@@ -307,42 +312,72 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.startInfografiasAutoplay();
     }
   }
+  onImageError(event: any) {
+    console.log('Error cargando:', event.target.src);
+    event.target.src = 'assets/img/User.png';
+  }
 
+  getImagenModal(nombreImagen: string): string {
+    return `assets/img/${nombreImagen}`;
+  }
   // Funciones para personas desaparecidas
   cargarPersonasDesaparecidas() {
     // Datos de ejemplo para personas desaparecidas usando iconos genéricos
     this.personasDesaparecidas = [
       {
         id: 1,
-        nombre: 'María Elena Quispe Huamán',
-        edad: 24,
-        fechaDesaparicion: '15 de Enero, 2025',
-        ultimoLugar: 'Mercado Central de Abancay',
-        descripcion: 'Estatura 1.60m, cabello negro largo, vestía polo azul y jean negro. Tiene lunar en la mejilla izquierda.',
-        contacto: 'PNP Abancay: (083) 321094 / Familia: 983 456 789',
-        foto: 'User.png'
+        nombre: 'RODRIGUEZ ARAUCO, CARLOS ALBERTO',
+        edad: 57,
+        fechaDesaparicion: '20 de Agosto, 2025',
+        ultimoLugar: 'Abancay, Apurímac',
+        descripcion: 'Tez mestiza, 1.59m, contextura delgada, ojos negros, cabello negro, cara ovalada.',
+        contacto: 'PNP: 987 822 900 (S1 PNP Altamirano Cárdenas)',
+        foto: 'buscado1.png',
+        // Datos adicionales para el modal
+        datosCompletos: {
+          dependencia: 'REGPOL - APURIMAC - DIVINCRI AREINTRAT ABANCAY',
+          numeroDenuncia: '33160020',
+          fechaDenuncia: '26/08/2025',
+          fechaNacimiento: '05/01/1968',
+          denunciante: 'RODRIGUEZ ARAUCO EDITH INES',
+          caracteristicas: {
+            tez: 'Mestiza',
+            cara: 'Ovalada', 
+            ojos: 'Negro',
+            nariz: 'Cóncavo',
+            boca: 'Mediana',
+            cabellos: 'Negro',
+            estatura: '1.59 metros',
+            contextura: 'Delgada'
+          },
+          circunstancias: 'Se desconoce, pero sucedió cuando se encontraba en la ciudad de Abancay.',
+          instructorPolicial: 'S1 PNP ALTAMIRANO CARDENAS CRISTIAN',
+          telefonoInstructor: '987 822 900'
+        }
       },
-      {
-        id: 2,
-        nombre: 'Carlos Mendoza Vargas',
-        edad: 17,
-        fechaDesaparicion: '8 de Enero, 2025',
-        ultimoLugar: 'I.E. Nuestra Señora del Rosario - Andahuaylas',
-        descripcion: 'Estatura 1.70m, cabello corto negro, tiene cicatriz pequeña en la mano derecha. Usaba uniforme escolar.',
-        contacto: 'PNP Andahuaylas: (083) 321094 / Familia: 975 123 456',
-        foto: 'User.png'
-      },
-      {
-        id: 3,
-        nombre: 'Rosa Mamani Condori',
-        edad: 45,
-        fechaDesaparicion: '3 de Enero, 2025',
-        ultimoLugar: 'Comunidad de Pampachiri - Chincheros',
-        descripcion: 'Estatura 1.55m, cabello canoso recogido en trenza, vestía pollera tradicional color azul y chompa beige.',
-        contacto: 'PNP Chincheros: (083) 321094 / Familia: 967 890 123',
-        foto: 'User.png'
-      }
+      // {
+      //   id: 2,
+      //   nombre: 'Carlos Mendoza Vargas',
+      //   edad: 17,
+      //   fechaDesaparicion: '8 de Enero, 2025',
+      //   ultimoLugar: 'I.E. Nuestra Señora del Rosario - Andahuaylas',
+      //   descripcion: 'Estatura 1.70m, cabello corto negro, tiene cicatriz pequeña en la mano derecha. Usaba uniforme escolar.',
+      //   contacto: 'PNP Andahuaylas: (083) 321094 / Familia: 975 123 456',
+      //   foto: 'User.png'
+      // },
+      // {
+      //   id: 3,
+      //   nombre: 'Rosa Mamani Condori',
+      //   edad: 45,
+      //   fechaDesaparicion: '3 de Enero, 2025',
+      //   ultimoLugar: 'Comunidad de Pampachiri - Chincheros',
+      //   descripcion: 'Estatura 1.55m, cabello canoso recogido en trenza, vestía pollera tradicional color azul y chompa beige.',
+      //   contacto: 'PNP Chincheros: (083) 321094 / Familia: 967 890 123',
+      //   foto: 'User.png'
+      // }
     ];
+    console.log('📋 Personas desaparecidas cargadas:', this.personasDesaparecidas.length);
+    console.log('👤 Datos completos:', this.personasDesaparecidas);
   }
 
   getMissingPersonImageUrl(imageName: string): string {
@@ -371,11 +406,15 @@ export class HomeComponent implements OnInit, OnDestroy {
   moveMissingPersonsCarousel(direction: 'prev' | 'next'): void {
     const maxSlides = Math.max(0, this.personasDesaparecidas.length - this.missingPersonsItemsPerView);
     
+    console.log(`🎠 Antes de mover - Slide actual: ${this.currentMissingPersonsSlide}, MaxSlides: ${maxSlides}, Total personas: ${this.personasDesaparecidas.length}`);
+    
     if (direction === 'next') {
       this.currentMissingPersonsSlide = this.currentMissingPersonsSlide >= maxSlides ? 0 : this.currentMissingPersonsSlide + 1;
     } else {
       this.currentMissingPersonsSlide = this.currentMissingPersonsSlide <= 0 ? maxSlides : this.currentMissingPersonsSlide - 1;
     }
+    
+    console.log(`🎠 Después de mover - Nuevo slide: ${this.currentMissingPersonsSlide}, Dirección: ${direction}`);
     
     this.updateMissingPersonsCarouselPosition();
     this.resetMissingPersonsAutoplay();
@@ -391,9 +430,14 @@ export class HomeComponent implements OnInit, OnDestroy {
     if (!this.isBrowser) return;
     
     const track = document.querySelector('.missing-persons-carousel-track') as HTMLElement;
-    if (track) {
-      const translateX = -(this.currentMissingPersonsSlide * (100 / this.missingPersonsItemsPerView));
-      track.style.transform = `translateX(${translateX}%)`;
+    const wrapper = document.querySelector('.missing-persons-carousel-wrapper') as HTMLElement;
+    
+    if (track && wrapper) {
+      // Usar el ancho real del wrapper para calcular el movimiento
+      const slideWidth = wrapper.offsetWidth;
+      const translateX = -(this.currentMissingPersonsSlide * slideWidth);
+      track.style.transform = `translateX(${translateX}px)`;
+      console.log(`🎯 Wrapper width: ${slideWidth}px, Moving to slide ${this.currentMissingPersonsSlide}, translateX: ${translateX}px`);
     }
   }
 
@@ -454,4 +498,24 @@ export class HomeComponent implements OnInit, OnDestroy {
       }
     }
   }
+
+  // Funciones para el modal
+  verDetalles(persona: any): void {
+    this.personaSeleccionada = persona;
+    this.modalVisible = true;
+    if (this.isBrowser) {
+      document.body.style.overflow = 'hidden'; // Prevenir scroll del body
+    }
+  }
+
+  cerrarModal(event?: Event): void {
+  if (event && event.target !== event.currentTarget) {
+    return; // No cerrar si se hace clic dentro del modal
+  }
+  this.modalVisible = false;
+  this.personaSeleccionada = null;
+  if (this.isBrowser) {
+    document.body.style.overflow = 'auto';
+  }
+}
 }

@@ -1528,11 +1528,11 @@ section {
 }
 
 .prev-btn {
-  left: -15px;
+  left: -60px;
 }
 
 .next-btn {
-  right: -15px;
+  right: -60px;
 }
 
 /* Indicadores */
@@ -1606,76 +1606,106 @@ section {
   width: 100%;
   overflow: visible;
   margin: 0 auto;
-  padding: 0 80px;
+  padding: 0 120px;
+  max-width: 800px;
 }
+
+/* Carousel de una sola card visible */
 
 .missing-persons-carousel-wrapper {
   overflow: hidden;
-  width: 100%;
+  width: 600px;
+  height: 520px;
   border-radius: 15px;
+  margin: 0 auto;
+  position: relative;
 }
 
 .missing-persons-carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  width: 100%;
-  gap: 20px;
+  width: max-content;
+  height: 100%;
 }
 
-/* Card individual de persona desaparecida - Estilo DNI/Carnet */
-.missing-person-card {
-  flex: 0 0 400px;
+/* Cada card ocupa exactamente el ancho del wrapper */
+.missing-persons-carousel-track .missing-person-card {
+  width: 600px;
+  height: 520px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card estilo ID/Licencia americana */
+.id-card-style {
+  width: 580px;
+  height: 500px;
   background: white;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 280px;
-  margin: 0 10px;
   transition: all 0.3s ease;
-  border: 2px solid #ff4444;
+  border: 3px solid #ff4444;
+  position: relative;
 }
 
-.missing-person-card:hover {
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-  transform: translateY(-5px);
+.id-card-style:hover {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
 }
 
-/* Sección superior de la card - Layout DNI */
-.card-top-section {
+/* Sección principal del ID - horizontal */
+.id-card-main {
   display: flex;
   flex: 1;
   padding: 20px;
   gap: 15px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  height: 400px;
 }
 
-/* Información a la izquierda */
-.missing-person-info {
-  flex: 1;
+/* Sección de foto - izquierda */
+.id-photo-section {
+  flex: 0 0 230px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   position: relative;
 }
 
-/* Foto a la derecha */
-.missing-person-photo {
-  flex: 0 0 120px;
-  height: 140px;
-  background: #f8f9fa;
+/* Foto grande y prominente */
+.id-photo {
+  width: 200px;
+  height: 270px;
+  background: #f0f0f0;
+  border: 3px solid #ddd;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  border: 2px solid #ddd;
-  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 8px;
 }
 
-.missing-person-photo img {
+/* Sección de información - derecha */
+.id-info-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 5px 0;
+}
+
+.id-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  border-radius: 5px;
 }
 
 .missing-person-icon {
@@ -1684,30 +1714,27 @@ section {
   justify-content: center;
   width: 100%;
   height: 100%;
-  color: #666;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: #888;
 }
 
 .missing-person-icon i {
-  font-size: 3rem !important;
-  opacity: 0.7;
+  font-size: 4rem !important;
+  opacity: 0.6;
 }
 
 .missing-badge {
-  position: absolute;
-  top: -5px;
-  left: -5px;
   background: #ff4444;
   color: white;
-  padding: 4px 8px;
+  padding: 4px 12px;
   font-weight: bold;
   font-size: 0.7rem;
-  border-radius: 12px;
+  border-radius: 15px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 8px rgba(255, 68, 68, 0.4);
+  letter-spacing: 1px;
+  box-shadow: 0 3px 10px rgba(255, 68, 68, 0.4);
   animation: pulse 2s infinite;
-  z-index: 10;
+  margin-bottom: 8px;
+  text-align: center;
 }
 
 @keyframes pulse {
@@ -1715,40 +1742,52 @@ section {
   50% { opacity: 0.7; }
 }
 
-.missing-person-info h4 {
-  color: #2c3e50;
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin: 0 0 12px 0;
-  border-bottom: 1px solid #ff4444;
-  padding-bottom: 5px;
+/* Nombre estilo ID */
+.id-name {
+  color: #1a1a1a;
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #ff4444;
+  padding-bottom: 8px;
+  font-family: 'Arial Black', Arial, sans-serif;
 }
 
-/* Detalles de la persona */
-.person-details {
+/* Detalles del ID */
+.id-details {
   flex: 1;
 }
 
-.detail-row {
-  margin-bottom: 6px;
+.id-row {
   display: flex;
-  align-items: flex-start;
-  line-height: 1.4;
-  font-size: 0.85rem;
+  margin-bottom: 8px;
+  align-items: center;
+  line-height: 1.3;
 }
 
-.detail-row strong {
-  color: #2c3e50;
-  min-width: 80px;
-  font-weight: 600;
-  margin-right: 6px;
-  flex-shrink: 0;
-  font-size: 0.8rem;
+.id-label {
+  font-weight: 700;
+  color: #333;
+  min-width: 70px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-right: 8px;
+  font-family: Arial, sans-serif;
 }
 
-.detail-row:not(.contact-info) {
-  font-size: 0.85rem;
+.id-value {
   color: #555;
+  font-size: 0.85rem;
+  font-weight: 500;
+  flex: 1;
+}
+
+.description-row .id-value {
+  font-size: 0.8rem;
+  line-height: 1.2;
 }
 
 /* Sección de contacto separada */
@@ -1782,6 +1821,86 @@ section {
 .contact-info-full span {
   font-size: 1.1rem;
   font-weight: 700;
+}
+
+/* Sección de contacto inferior - spanning todo el ancho */
+.id-contact-section {
+  background: linear-gradient(135deg, #ff4444, #ff6666);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  gap: 15px;
+  min-height: 60px;
+  flex-shrink: 0;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: 1;
+}
+
+.contact-info i {
+  font-size: 1.1rem;
+  color: white !important;
+}
+
+.contact-info strong {
+  color: white !important;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-right: 5px;
+}
+
+.contact-info span {
+  color: white !important;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.btn-share {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.btn-share:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  transform: scale(1.05);
+}
+
+.btn-details {
+  background: rgba(0, 123, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(0, 123, 255, 0.3);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  margin-right: 10px;
+}
+
+.btn-details:hover {
+  background: rgba(0, 123, 255, 0.4);
+  border-color: rgba(0, 123, 255, 0.6);
+  color: white;
+  transform: scale(1.05);
 }
 
 .contact-info {
@@ -1832,126 +1951,617 @@ section {
   color: white;
 }
 
-/* Responsive para personas desaparecidas */
+/* Responsive para ID cards */
 @media (max-width: 992px) {
-  .missing-person-card {
-    flex: 0 0 320px;
-    min-height: 480px;
+  .missing-persons-carousel-wrapper {
+    width: 380px;
+    height: 220px;
   }
   
-  .missing-person-photo {
-    flex: 0 0 180px;
+  .missing-persons-carousel-track .missing-person-card {
+    width: 380px;
+    height: 220px;
   }
   
-  .missing-person-info {
-    padding: 18px;
+  .id-card-style {
+    width: 360px;
+    height: 200px;
   }
   
-  .missing-person-info h4 {
-    font-size: 1.3rem;
+  .id-card-main {
+    padding: 12px;
+    gap: 12px;
   }
   
-  .detail-row strong {
-    min-width: 90px;
+  .id-photo-section {
+    flex: 0 0 90px;
+  }
+  
+  .id-photo {
+    width: 80px;
+    height: 100px;
+  }
+  
+  .id-name {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  
+  .id-label {
+    min-width: 50px;
+    font-size: 0.65rem;
+  }
+  
+  .id-value {
+    font-size: 0.75rem;
   }
   
   .missing-persons-carousel-container {
-    padding: 0 40px;
+    padding: 0 70px;
+    max-width: 550px;
   }
 }
 
 @media (max-width: 768px) {
-  .missing-person-card {
-    flex: 0 0 280px;
-    min-height: 450px;
-    margin: 0 5px;
+  .missing-persons-carousel-wrapper {
+    width: 320px;
+    height: 200px;
   }
   
-  .missing-person-photo {
-    flex: 0 0 160px;
+  .missing-persons-carousel-track .missing-person-card {
+    width: 320px;
+    height: 200px;
   }
   
-  .missing-person-info {
-    padding: 15px;
+  .id-card-style {
+    width: 300px;
+    height: 180px;
   }
   
-  .missing-person-info h4 {
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-  }
-  
-  .detail-row {
-    margin-bottom: 6px;
-    font-size: 0.85rem;
-  }
-  
-  .detail-row strong {
-    min-width: 80px;
-    font-size: 0.8rem;
-  }
-  
-  .missing-person-actions {
-    gap: 8px;
-    margin-top: 12px;
-  }
-  
-  .contact-info-full {
+  .id-card-main {
     padding: 12px;
+    gap: 12px;
   }
   
-  .missing-persons-carousel-container {
-    padding: 0 30px;
+  .id-photo-section {
+    flex: 0 0 90px;
   }
   
-  .missing-badge {
-    font-size: 0.8rem;
-    padding: 6px 12px;
-  }
-}
-
-@media (max-width: 576px) {
-  .missing-person-card {
-    flex: 0 0 260px;
-    min-height: 420px;
+  .id-photo {
+    width: 85px;
+    height: 110px;
   }
   
-  .missing-persons-carousel-container {
-    padding: 0 20px;
+  .missing-person-icon i {
+    font-size: 3rem !important;
   }
   
-  .missing-person-photo {
-    flex: 0 0 140px;
-  }
-  
-  .missing-person-info {
-    padding: 12px;
-  }
-  
-  .missing-person-info h4 {
+  .id-name {
     font-size: 1.1rem;
     margin-bottom: 10px;
   }
   
-  .detail-row {
-    font-size: 0.8rem;
-    margin-bottom: 5px;
+  .id-row {
+    margin-bottom: 6px;
   }
   
-  .detail-row strong {
-    min-width: 70px;
+  .id-label {
+    min-width: 55px;
+    font-size: 0.65rem;
+  }
+  
+  .id-value {
     font-size: 0.75rem;
   }
   
-  .contact-info-full {
-    padding: 10px;
+  .id-contact-section {
+    padding: 10px 15px;
   }
   
-  .contact-info-full strong {
+  .contact-info strong {
     font-size: 0.8rem;
   }
   
-  .contact-info-full span {
-    font-size: 1rem;
+  .contact-info span {
+    font-size: 0.9rem;
+  }
+  
+  .btn-share {
+    padding: 5px 12px;
+    font-size: 0.7rem;
+  }
+  
+  .missing-persons-carousel-container {
+    padding: 0 30px;
+    max-width: 450px;
+  }
+  
+  .missing-badge {
+    font-size: 0.6rem;
+    padding: 3px 8px;
   }
 }
 
+@media (max-width: 576px) {
+  .missing-persons-carousel-track .missing-person-card {
+    flex: 0 0 400px;
+  }
+  
+  .id-card-style {
+    flex: 0 0 320px;
+    min-height: 150px;
+  }
+  
+  .missing-persons-carousel-container {
+    padding: 0 20px;
+    max-width: 400px;
+  }
+  
+  .id-card-main {
+    padding: 10px;
+    gap: 10px;
+  }
+  
+  .id-photo-section {
+    flex: 0 0 75px;
+  }
+  
+  .id-photo {
+    width: 70px;
+    height: 90px;
+  }
+  
+  .missing-person-icon i {
+    font-size: 2.5rem !important;
+  }
+  
+  .id-name {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  
+  .id-row {
+    margin-bottom: 4px;
+  }
+  
+  .id-label {
+    min-width: 50px;
+    font-size: 0.6rem;
+  }
+  
+  .id-value {
+    font-size: 0.7rem;
+  }
+  
+  .id-contact-section {
+    padding: 8px 12px;
+  }
+  
+  .contact-info strong {
+    font-size: 0.75rem;
+  }
+  
+  .contact-info span {
+    font-size: 0.85rem;
+  }
+  
+  .btn-share {
+    padding: 4px 10px;
+    font-size: 0.65rem;
+  }
+  
+  .missing-badge {
+    font-size: 0.55rem;
+    padding: 2px 6px;
+  }
+}
+
+/* =========================
+   ESTILOS PARA EL MODAL DE DETALLES
+   ========================= */
+/* MODAL FUNCIONAL */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.contenedor-modal {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    border: 3px solid #1a472a;
+    animation: modalEntrada 0.3s ease;
+}
+
+@keyframes modalEntrada {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Header oficial */
+.header-oficial {
+    background: linear-gradient(135deg, #1a472a, #2d5a3d);
+    color: white;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+.header-oficial::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #d4af37, #ffd700, #d4af37);
+}
+
+.escudo-policia {
+    background: rgba(255, 255, 255, 0.15);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #d4af37;
+}
+
+.titulo-oficial {
+    text-align: center;
+}
+
+.titulo-oficial h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #d4af37;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.titulo-oficial p {
+    margin: 2px 0;
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.95;
+}
+
+.titulo-oficial span {
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+.boton-cerrar {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.boton-cerrar:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: rotate(90deg);
+}
+
+/* Contenido del modal */
+.contenido-modal {
+    padding: 25px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.seccion-principal {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 25px;
+    margin-bottom: 25px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #1a472a;
+}
+
+.contenedor-foto {
+    text-align: center;
+}
+
+.foto-oficial {
+    width: 200px;
+    height: 240px;
+    object-fit: cover;
+    border: 4px solid #1a472a;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.marca-busqueda {
+    background: linear-gradient(45deg, #dc3545, #c82333);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 10px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
+    animation: parpadeo 2s infinite;
+}
+
+@keyframes parpadeo {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.datos-principales h3 {
+    color: #1a472a;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #1a472a;
+    padding-bottom: 8px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.campo {
+    background: white;
+    padding: 12px;
+    border-radius: 6px;
+    border-left: 4px solid #007bff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.campo-completo {
+    grid-column: 1 / -1;
+}
+
+.campo .label {
+    display: block;
+    font-weight: bold;
+    color: #1a472a;
+    font-size: 11px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.campo .value {
+    color: #333;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+/* Sección de características */
+.seccion-caracteristicas {
+    background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #28a745;
+}
+
+.seccion-caracteristicas h4 {
+    color: #1a472a;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #28a745;
+    padding-bottom: 8px;
+}
+
+.tabla-caracteristicas {
+    display: grid;
+    gap: 8px;
+}
+
+.fila-caracteristicas {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+}
+
+.celda {
+    background: white;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 12px;
+    border: 1px solid #28a745;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.celda strong {
+    color: #1a472a;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 10px;
+}
+
+/* Circunstancias */
+.seccion-circunstancias {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ffc107;
+}
+
+.seccion-circunstancias h4 {
+    color: #856404;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.seccion-circunstancias p {
+    color: #856404;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Contacto */
+.seccion-contacto {
+    background: linear-gradient(135d, #cce5ff, #e3f2fd);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #007bff;
+}
+
+.seccion-contacto h4 {
+    color: #0056b3;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.datos-contacto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.info-policial, .info-telefono {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-policial strong, .info-telefono strong {
+    display: block;
+    color: #0056b3;
+    font-size: 11px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.info-policial span, .info-telefono span {
+    color: #333;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+/* Footer del modal */
+.footer-modal {
+    background: #1a472a;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.btn-accion {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-cerrar-modal {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-cerrar-modal:hover {
+    background: #545b62;
+    transform: translateY(-2px);
+}
+
+.btn-compartir-modal {
+    background: #28a745;
+    color: white;
+}
+
+.btn-compartir-modal:hover {
+    background: #1e7e34;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .seccion-principal {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .foto-oficial {
+        width: 180px;
+        height: 220px;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .fila-caracteristicas {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .datos-contacto {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-modal {
+        flex-direction: column;
+    }
+    
+    .contenedor-modal {
+        max-height: 95vh;
+    }
+    
+    .titulo-oficial h2 {
+        font-size: 16px;
+    }
+    
+    .titulo-oficial p {
+        font-size: 12px;
+    }
+}
