@@ -2779,3 +2779,274 @@ section {
         font-size: 12px;
     }
 }
+
+/* === ESTILOS PARA MODAL DE INSTRUMENTOS DE GESTIÓN === */
+
+/* Modal de instrumentos */
+.modal-instrumentos {
+    background: white;
+    border-radius: 15px;
+    max-width: 900px;
+    width: 95%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    margin: 1rem auto;
+}
+
+/* Header del modal de instrumentos */
+.header-modal-instrumentos {
+    background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+.icono-instrumentos {
+    background: rgba(255, 255, 255, 0.2);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+/* Contenido del modal de instrumentos */
+.contenido-modal-instrumentos {
+    padding: 30px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+/* Secciones de instrumentos */
+.seccion-instrumentos {
+    margin-bottom: 40px;
+}
+
+.seccion-instrumentos:last-child {
+    margin-bottom: 0;
+}
+
+.subtitulo-seccion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+/* Grid de cards de instrumentos */
+.cards-instrumentos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+/* Card individual de instrumento */
+.card-instrumento {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #f8f9fa;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-instrumento:hover {
+    background: #e9ecef;
+    border-color: #007bff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-instrumento::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(45deg, #007bff, #0056b3);
+}
+
+.icono-documento {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.info-documento {
+    flex: 1;
+}
+
+.info-documento h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.3;
+}
+
+.info-documento p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.2;
+}
+
+.accion-documento {
+    width: 30px;
+    height: 30px;
+    background: #007bff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.card-instrumento:hover .accion-documento {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+
+/* Footer del modal de instrumentos */
+.footer-modal-instrumentos {
+    padding: 20px 30px;
+    background: #f8f9fa;
+    border-radius: 0 0 15px 15px;
+    text-align: center;
+    border-top: 1px solid #e9ecef;
+}
+
+.btn-cerrar-instrumentos {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.btn-cerrar-instrumentos:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-cerrar-instrumentos i {
+    margin-right: 8px;
+}
+
+/* Scrollbar personalizado para el modal de instrumentos */
+.contenido-modal-instrumentos::-webkit-scrollbar {
+    width: 8px;
+}
+
+.contenido-modal-instrumentos::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.contenido-modal-instrumentos::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+}
+
+.contenido-modal-instrumentos::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Responsive para modal de instrumentos */
+@media (max-width: 768px) {
+    .modal-instrumentos {
+        width: 95%;
+        margin: 0.5rem auto;
+        max-height: 95vh;
+    }
+    
+    .header-modal-instrumentos {
+        padding: 15px;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .titulo-modal h2 {
+        font-size: 18px;
+    }
+    
+    .titulo-modal p {
+        font-size: 14px;
+    }
+    
+    .contenido-modal-instrumentos {
+        padding: 20px;
+        max-height: 65vh;
+    }
+    
+    .subtitulo-seccion {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    
+    .cards-instrumentos {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .card-instrumento {
+        padding: 12px;
+        gap: 12px;
+    }
+    
+    .icono-documento {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .info-documento h4 {
+        font-size: 14px;
+    }
+    
+    .info-documento p {
+        font-size: 12px;
+    }
+    
+    .accion-documento {
+        width: 25px;
+        height: 25px;
+        font-size: 12px;
+    }
+}

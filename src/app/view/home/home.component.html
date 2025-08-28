@@ -450,7 +450,7 @@
                                     </button>
                                 </div>
                                 <div class="mb-3">
-                                    <button class="btn btn-outline-primary btn-lg system-btn" style="width: 300px;">
+                                    <button class="btn btn-outline-primary btn-lg system-btn" style="width: 300px;" (click)="abrirModalInstrumentos()">
                                         <i class="fa fa-cogs mr-2"></i>
                                         Instrumentos de Gestión IRC
                                     </button>
@@ -1444,6 +1444,144 @@
         <!-- Footer con botón -->
         <div class="footer-modal-miembros">
             <button class="btn-cerrar-miembros" (click)="cerrarModalMiembros()">
+                <i class="fa fa-times"></i> CERRAR
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Instrumentos de Gestión IRC -->
+<div class="modal-backdrop" *ngIf="modalInstrumentosVisible" (click)="cerrarModalInstrumentos()">
+    <div class="modal-instrumentos" (click)="$event.stopPropagation()">
+        
+        <!-- Header del modal -->
+        <div class="header-modal-instrumentos">
+            <div class="icono-instrumentos">
+                <i class="fa fa-cogs"></i>
+            </div>
+            <div class="titulo-modal">
+                <h2 class="text-white">INSTRUMENTOS DE GESTIÓN</h2>
+                <p>Instancia Regional de Concertación (IRC)</p>
+                <span>GOBIERNO REGIONAL DE APURÍMAC</span>
+            </div>
+            <button class="boton-cerrar-modal" (click)="cerrarModalInstrumentos()">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="contenido-modal-instrumentos">
+            
+            <!-- Sección Ordenanzas Regionales -->
+            <div class="seccion-instrumentos">
+                <h3 class="subtitulo-seccion">
+                    <i class="fa fa-balance-scale text-primary"></i>
+                    Ordenanza Regional
+                </h3>
+                <div class="cards-instrumentos">
+                    <div class="card-instrumento" (click)="abrirPDF('assets/pdf/pdf-sistema-regional/ORDENANZA-REGIONAL-Nr-031-2016-GR-APURIMAC.CR_.-1.pdf')">
+                        <div class="icono-documento">
+                            <i class="fa fa-file-pdf text-danger"></i>
+                        </div>
+                        <div class="info-documento">
+                            <h4>Ordenanza Regional IRC</h4>
+                            <p>N° 031-2016-GR-APURÍMAC-CR</p>
+                        </div>
+                        <div class="accion-documento">
+                            <i class="fa fa-external-link-alt"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="card-instrumento" (click)="abrirPDF('assets/pdf/pdf-sistema-regional/ORDENANZA REGIONAL N° 005-2021-GR-APURÍMAC-CR.pdf')">
+                        <div class="icono-documento">
+                            <i class="fa fa-file-pdf text-danger"></i>
+                        </div>
+                        <div class="info-documento">
+                            <h4>Ordenanza Regional OR</h4>
+                            <p>Observatorio Regional</p>
+                        </div>
+                        <div class="accion-documento">
+                            <i class="fa fa-external-link-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección Reglamentos Internos -->
+            <div class="seccion-instrumentos">
+                <h3 class="subtitulo-seccion">
+                    <i class="fa fa-book text-success"></i>
+                    Reglamento Interno
+                </h3>
+                <div class="cards-instrumentos">
+                    <div class="card-instrumento" (click)="abrirPDF('assets/pdf/pdf-sistema-regional/DECRETO REGIONAL N 001-2022-GR.APURIMAC-GR.pdf')">
+                        <div class="icono-documento">
+                            <i class="fa fa-file-pdf text-danger"></i>
+                        </div>
+                        <div class="info-documento">
+                            <h4>Reglamento Interno IRC</h4>
+                            <p>Decreto Regional N° 001-2022-GR-APURÍMAC</p>
+                        </div>
+                        <div class="accion-documento">
+                            <i class="fa fa-external-link-alt"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="card-instrumento" (click)="abrirPDF('#')">
+                        <div class="icono-documento">
+                            <i class="fa fa-file-pdf text-danger"></i>
+                        </div>
+                        <div class="info-documento">
+                            <h4>Reglamento Interno OR</h4>
+                            <p>Observatorio Regional</p>
+                        </div>
+                        <div class="accion-documento">
+                            <i class="fa fa-external-link-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección Planes de Trabajo -->
+            <div class="seccion-instrumentos">
+                <h3 class="subtitulo-seccion">
+                    <i class="fa fa-tasks text-warning"></i>
+                    Plan de Trabajo
+                </h3>
+                <div class="cards-instrumentos">
+                    <div class="card-instrumento" (click)="abrirPDF('assets/pdf/pdf-sistema-regional/plan-IRC.pdf')">
+                        <div class="icono-documento">
+                            <i class="fa fa-file-pdf text-danger"></i>
+                        </div>
+                        <div class="info-documento">
+                            <h4>Plan de Trabajo IRC</h4>
+                            <p>Instancia Regional de Concertación</p>
+                        </div>
+                        <div class="accion-documento">
+                            <i class="fa fa-external-link-alt"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="card-instrumento" (click)="abrirPDF('#')">
+                        <div class="icono-documento">
+                            <i class="fa fa-file-pdf text-danger"></i>
+                        </div>
+                        <div class="info-documento">
+                            <h4>Plan de Trabajo OR</h4>
+                            <p>Observatorio Regional</p>
+                        </div>
+                        <div class="accion-documento">
+                            <i class="fa fa-external-link-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Footer con botón -->
+        <div class="footer-modal-instrumentos">
+            <button class="btn-cerrar-instrumentos" (click)="cerrarModalInstrumentos()">
                 <i class="fa fa-times"></i> CERRAR
             </button>
         </div>

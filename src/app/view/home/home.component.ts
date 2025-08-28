@@ -45,6 +45,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   
   // Variables para el modal de miembros
   modalMiembrosVisible = false;
+  
+  // Variables para el modal de instrumentos
+  modalInstrumentosVisible = false;
 
   private isBrowser: boolean;
 
@@ -537,6 +540,37 @@ cerrarModalMiembros(event?: Event): void {
   this.modalMiembrosVisible = false;
   if (this.isBrowser) {
     document.body.style.overflow = 'auto';
+  }
+}
+
+// Funciones para el modal de instrumentos de gestión
+abrirModalInstrumentos(): void {
+  this.modalInstrumentosVisible = true;
+  if (this.isBrowser) {
+    document.body.style.overflow = 'hidden'; // Evitar scroll de fondo
+  }
+}
+
+cerrarModalInstrumentos(event?: Event): void {
+  if (event && event.target !== event.currentTarget) {
+    return; // No cerrar si se hace clic dentro del modal
+  }
+  this.modalInstrumentosVisible = false;
+  if (this.isBrowser) {
+    document.body.style.overflow = 'auto';
+  }
+}
+
+// Función para abrir PDFs en nueva ventana
+abrirPDF(rutaPDF: string): void {
+  if (rutaPDF === '#') {
+    console.log('PDF no disponible aún - enlace temporal');
+    return;
+  }
+  
+  if (this.isBrowser) {
+    // Abrir el PDF en una nueva pestaña
+    window.open(rutaPDF, '_blank');
   }
 }
 }
