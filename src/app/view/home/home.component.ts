@@ -42,6 +42,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   // Variables para el modal
   modalVisible = false;
   personaSeleccionada: any = null;
+  
+  // Variables para el modal de miembros
+  modalMiembrosVisible = false;
 
   private isBrowser: boolean;
 
@@ -514,6 +517,24 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
   this.modalVisible = false;
   this.personaSeleccionada = null;
+  if (this.isBrowser) {
+    document.body.style.overflow = 'auto';
+  }
+}
+
+// Funciones para el modal de miembros
+abrirModalMiembros(): void {
+  this.modalMiembrosVisible = true;
+  if (this.isBrowser) {
+    document.body.style.overflow = 'hidden'; // Evitar scroll de fondo
+  }
+}
+
+cerrarModalMiembros(event?: Event): void {
+  if (event && event.target !== event.currentTarget) {
+    return; // No cerrar si se hace clic dentro del modal
+  }
+  this.modalMiembrosVisible = false;
   if (this.isBrowser) {
     document.body.style.overflow = 'auto';
   }

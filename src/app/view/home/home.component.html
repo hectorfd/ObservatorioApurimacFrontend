@@ -444,7 +444,7 @@
                             <!-- Botones -->
                             <div class="system-buttons text-center">
                                 <div class="mb-3">
-                                    <button class="btn btn-primary btn-lg system-btn" style="width: 300px;">
+                                    <button class="btn btn-primary btn-lg system-btn" style="width: 300px;" (click)="abrirModalMiembros()">
                                         <i class="fa fa-users mr-2"></i>
                                         Miembros de la Instancia
                                     </button>
@@ -1314,6 +1314,137 @@
             </button>
             <button class="btn-accion btn-compartir-modal" (click)="compartirInfo(personaSeleccionada.id)">
                 <i class="fa fa-share"></i> COMPARTIR INFORMACIÓN
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Miembros de la Instancia -->
+<div class="modal-backdrop" *ngIf="modalMiembrosVisible" (click)="cerrarModalMiembros()">
+    <div class="modal-miembros" (click)="$event.stopPropagation()">
+        
+        <!-- Header del modal -->
+        <div class="header-modal-miembros">
+            <div class="icono-institucional">
+                <i class="fa fa-users"></i>
+            </div>
+            <div class="titulo-modal">
+                <h2 class="text-white">MIEMBROS DE LA INSTANCIA</h2>
+
+                <p>Instancia Regional de Concertación (IRC)</p>
+                <span>GOBIERNO REGIONAL DE APURÍMAC</span>
+            </div>
+            <button class="boton-cerrar-modal" (click)="cerrarModalMiembros()">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+        
+        <!-- Contenido principal -->
+        <div class="contenido-modal-miembros">
+            
+            <!-- Lista de miembros -->
+            <div class="lista-miembros">
+                
+                <div class="miembro-item">
+                    <div class="icono-miembro">
+                        <i class="fa fa-building text-primary"></i>
+                    </div>
+                    <div class="info-miembro">
+                        <h4>Gerencia Regional de Desarrollo Social</h4>
+                    </div>
+                </div>
+                
+                <div class="miembro-item">
+                    <div class="icono-miembro">
+                        <i class="fa fa-shield-alt text-success"></i>
+                    </div>
+                    <div class="info-miembro">
+                        <h4>Programa Nacional contra la Violencia Familiar y Sexual</h4>
+                        <p>Ministerio de la Mujer y Poblaciones Vulnerables</p>
+                    </div>
+                </div>
+                
+                <div class="miembro-item">
+                    <div class="icono-miembro">
+                        <i class="fa fa-user-shield text-warning"></i>
+                    </div>
+                    <div class="info-miembro">
+                        <h4>Policía Nacional del Perú</h4>
+                    </div>
+                </div>
+                
+                <div class="miembro-item">
+                    <div class="icono-miembro">
+                        <i class="fa fa-balance-scale text-info"></i>
+                    </div>
+                    <div class="info-miembro">
+                        <h4>Oficina Defensorial – Apurímac</h4>
+                    </div>
+                </div>
+                
+                <div class="miembro-item">
+                    <div class="icono-miembro">
+                        <i class="fa fa-gavel text-secondary"></i>
+                    </div>
+                    <div class="info-miembro">
+                        <h4>Oficina Desconcentrada de Defensa Pública</h4>
+                        <p>Ministerio de Justicia y Derechos Humanos</p>
+                    </div>
+                </div>
+                
+                <div class="miembro-item">
+                    <div class="icono-miembro">
+                        <i class="fa fa-university text-dark"></i>
+                    </div>
+                    <div class="info-miembro">
+                        <h4>Poder Judicial</h4>
+                    </div>
+                </div>
+                
+                <div class="miembro-item">
+                    <div class="icono-miembro">
+                        <i class="fa fa-briefcase text-danger"></i>
+                    </div>
+                    <div class="info-miembro">
+                        <h4>Ministerio Público</h4>
+                    </div>
+                </div>
+                
+                <div class="miembro-item">
+                    <div class="icono-miembro">
+                        <i class="fa fa-chart-bar text-success"></i>
+                    </div>
+                    <div class="info-miembro">
+                        <h4>Instituto Nacional de Estadística e Informática</h4>
+                    </div>
+                </div>
+                
+                <div class="miembro-item">
+                    <div class="icono-miembro">
+                        <i class="fa fa-heartbeat text-danger"></i>
+                    </div>
+                    <div class="info-miembro">
+                        <h4>Dirección Regional de Salud</h4>
+                    </div>
+                </div>
+                
+                <div class="miembro-item">
+                    <div class="icono-miembro">
+                        <i class="fa fa-graduation-cap text-warning"></i>
+                    </div>
+                    <div class="info-miembro">
+                        <h4>Dirección Regional de Educación</h4>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <!-- Footer con botón -->
+        <div class="footer-modal-miembros">
+            <button class="btn-cerrar-miembros" (click)="cerrarModalMiembros()">
+                <i class="fa fa-times"></i> CERRAR
             </button>
         </div>
     </div>
