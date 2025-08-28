@@ -593,6 +593,34 @@ cargarArticulosPrensa() {
   this.articulosPrensa = [
     {
       id: 1,
+      titulo: 'Libertad de prensa: 71 casos contra periodistas en el Perú entre enero y abril de 2025',
+      fecha: '6 de mayo de 2025',
+      resumen: 'El Termómetro de la Libertad de Prensa 2025 reporta que Apurímac continúa siendo escenario de ataques contra periodistas, especialmente en Andahuaylas y Abancay, dos de las provincias más activas en cobertura noticiosa regional.',
+      fuente: 'FIP Latina',
+      imagen: 'assets/img/prensa4.png',
+      contenido: `
+        <p>El <em>Termómetro de la Libertad de Prensa 2025</em>, elaborado por la Oficina de Derechos Humanos del Periodista (OFIP-ANP), documenta 71 ataques contra periodistas en el Perú entre enero y abril de 2025. Los datos muestran que la violencia contra la prensa sigue siendo un problema estructural que limita el ejercicio de la libertad de expresión en todo el país.</p>
+        <h4>Magnitud nacional</h4>
+        <p>Del total de ataques registrados, el 42% provinieron de funcionarios públicos, el 31% de ciudadanos particulares y el 14% de efectivos policiales o militares. Las principales modalidades fueron agresiones físicas (39%), hostigamiento y amenazas (27%), restricciones al trabajo periodístico (18%), además de denuncias judiciales y campañas de difamación en entornos digitales.</p>
+        <p>En cuanto a los medios afectados, la radio concentró el 45% de casos, los portales digitales el 33%, mientras que la televisión y la prensa escrita representaron el 15% y 7% respectivamente.</p>
+
+        <h4>Distribución regional</h4>
+        <p>Las regiones con mayor número de ataques fueron Lima y Cusco, seguidas de otros territorios con alta conflictividad social. En conjunto, los registros confirman que alrededor del 60% de los casos ocurrieron en provincias, lo que evidencia la precariedad y los riesgos adicionales que enfrentan los periodistas fuera de la capital.</p>
+
+        <h4>Situación en Apurímac</h4>
+        <p>En Apurímac se registraron tres ataques durante el primer trimestre de 2025, lo que equivale al 4,2% del total nacional. Estos casos se concentraron en las provincias de Andahuaylas y Abancay, reflejando que incluso en regiones con menor densidad mediática la prensa sigue siendo blanco de presiones, hostigamiento y restricciones a su labor.</p>
+        <p>Los medios más afectados en la región fueron las radios locales y plataformas digitales, y la mayoría de agresores estuvieron vinculados a autoridades o a su entorno cercano. Esta situación se alinea con la tendencia nacional que muestra una fuerte intolerancia frente a la fiscalización periodística a nivel local.</p>
+
+        <h4>Tendencias preocupantes</h4>
+        <p>El informe advierte un incremento de agresiones contra mujeres periodistas, quienes fueron víctimas en casi una cuarta parte de los casos a nivel nacional, una tendencia que también se refleja en Apurímac. Asimismo, el uso de denuncias judiciales y el hostigamiento desde cargos públicos se mantienen como patrones de silenciamiento en la región.</p>
+
+        <h4>Balance general</h4>
+        <p>La violencia contra periodistas en el Perú no es un fenómeno aislado, sino un patrón que debilita el debate democrático y restringe el derecho ciudadano a la información. En Apurímac, pese a que la cifra absoluta es menor en comparación con otras regiones, la recurrencia de casos en ciudades clave como Andahuaylas y Abancay demuestra la necesidad urgente de mecanismos de protección para garantizar el trabajo libre y seguro de la prensa.</p>
+        `,
+      link: 'https://fiplatina.press/pdfs/peru-termometro-de-la-libertad-de-prensa-2025.pdf'
+    },
+    {
+      id: 2,
       titulo: 'Informe Especial Situación de la Libertad de Expresión en Perú. por Pedro Vaca Villarreal',
       fecha: '23 de diciembre del 2023',
       resumen: 'La Comisión Interamericana de Derechos Humanos (CIDH), a través de su Relatoría Especial para la Libertad de Expresión (RELE), publicó en diciembre de 2023 un informe que retrata la situación actual del periodismo y la libertad de expresión en el Perú.',
@@ -608,7 +636,7 @@ cargarArticulosPrensa() {
         <p>El informe denuncia el accionar de colectivos violentos como "La Resistencia", responsables de agresiones, acoso digital y ataques a periodistas y medios como IDL-Reporteros. Estos grupos han hostigado incluso en librerías y espacios culturales, creando un clima de permisividad frente a la violencia. A esto se suman discursos estigmatizantes desde autoridades públicas, que debilitan la confianza ciudadana en la prensa.</p>
         
         <h4>Obstáculos legales y judiciales</h4>
-        <p>Otro de los patrones señalados es el uso de procesos judiciales (por difamación, calumnias o querellas) como mecanismos para intimidar a periodistas que investigan corrupción o temas de interés público. La RELE advierte que este tipo de acciones, sumadas a la falta de protección efectiva, generan un entorno de autocensura.</p>
+        <p>Otro de los patrones señalados es el uso de procesos judiciales (por difamación, calumnias o querellas) como mecanismos para intimidar a periodistas que investigan corrupción o temas de interés público. La RELE advierte que este tipo of acciones, sumadas a la falta de protección efectiva, generan un entorno de autocensura.</p>
         
         <h4>Desafíos en el acceso a la información</h4>
         <p>El informe resalta además las limitaciones para acceder a información pública y fuentes estatales, así como la presión política sobre líneas editoriales en contextos electorales y de crisis institucional. Estos factores, junto con la desinformación digital y la violencia en línea, deterioran la calidad del debate público.</p>
@@ -619,7 +647,7 @@ cargarArticulosPrensa() {
       link: 'https://www.oas.org/es/cidh/expresion/publicaciones/Informe%20Libex%20Peru%20(7).pdf'
     },
     {
-      id: 2,
+      id: 3,
       titulo: 'Culmina ciclo de talleres "Periodistas contra la violencia de género"',
       fecha: '21 de septiembre de 2022',
       resumen: 'La violencia de género sigue siendo una de las problemáticas más graves del país. En 2022, el Programa Nacional Aurora reportó más de 130 mil casos de violencia contra mujeres en sus distintas modalidades.',
@@ -637,7 +665,7 @@ cargarArticulosPrensa() {
       link: 'https://www.observatoriodemedios.pe/buenas-practicas/formacion-de-periodistas/culmina-satisfactoreamente-el-ciclo-de-talleres-macroregionales-periodistas-contra-la-violencia-de-genero/#:~:text=sesi%C3%B3n%20por%20macroregi%C3%B3n%2C%20realiz%C3%A1ndose%20as%C3%AD,a%20periodistas%20a%20nivel%20nacional'
     },
     {
-      id: 3,
+      id: 4,
       titulo: 'Comunicadoras/es de Abancay recibieron capacitación del MIMP en tratamiento de la información sobre violencia contra las mujeres',
       fecha: '4 de diciembre de 2023 - 3:38 p. m.',
       resumen: 'El taller "Comunicación con igualdad que contribuya a la prevención de la violencia contra las mujeres y las niñas" reunió a representantes de medios regionales...',
@@ -660,12 +688,13 @@ startPrensaAutoplay(): void {
 }
 
 movePrensaCarousel(direction: 'prev' | 'next'): void {
-  const maxSlides = Math.ceil(this.articulosPrensa.length / this.prensaItemsPerView);
+  // Calcular slides inteligentemente para evitar espacios vacíos
+  const maxSlides = Math.max(0, this.articulosPrensa.length - this.prensaItemsPerView);
   
   if (direction === 'next') {
-    this.currentPrensaSlide = (this.currentPrensaSlide + 1) % maxSlides;
+    this.currentPrensaSlide = this.currentPrensaSlide >= maxSlides ? 0 : this.currentPrensaSlide + 1;
   } else {
-    this.currentPrensaSlide = this.currentPrensaSlide === 0 ? maxSlides - 1 : this.currentPrensaSlide - 1;
+    this.currentPrensaSlide = this.currentPrensaSlide <= 0 ? maxSlides : this.currentPrensaSlide - 1;
   }
   this.updatePrensaCarouselPosition();
 }
@@ -674,7 +703,8 @@ updatePrensaCarouselPosition(): void {
   if (this.isBrowser) {
     const track = document.querySelector('.prensa-carousel-track') as HTMLElement;
     if (track) {
-      const translateX = -(this.currentPrensaSlide * (100 / this.prensaItemsPerView)) * this.prensaItemsPerView;
+      // Calcular el porcentaje de movimiento basado en el slide actual
+      const translateX = -(this.currentPrensaSlide * (100 / this.prensaItemsPerView));
       track.style.transform = `translateX(${translateX}%)`;
     }
   }
@@ -686,7 +716,12 @@ goToPrensaSlide(index: number): void {
 }
 
 getPrensaCarouselDots(): number[] {
-  const maxSlides = Math.ceil(this.articulosPrensa.length / this.prensaItemsPerView);
+  // Solo mostrar dots si hay más artículos que los que se pueden ver
+  if (this.articulosPrensa.length <= this.prensaItemsPerView) {
+    return []; // No mostrar dots si todos los artículos caben en una vista
+  }
+  
+  const maxSlides = Math.max(0, this.articulosPrensa.length - this.prensaItemsPerView) + 1;
   return Array(maxSlides).fill(0).map((_, i) => i);
 }
 
